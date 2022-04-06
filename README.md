@@ -18,16 +18,16 @@
 |**5**  |**Ja**| |
 |**6**  |**Ja**| |
 |**7**  |**Ja**| |
-|**8**  |**Ja**| |
-|**9**  |**Ja**| |
-|**10**  |**Ja**| |
-|**11**  |**Ja**| |
+|**8**  |**Kanske**| jag har 5 knappar, inte 3?|
+|**9**  |**Typ**| Beskriv klokare |
+|**10**  |**Typ**| Beskriv klokare|
+|**11**  |**Typ**| Mer ska läggas till|
 |**12**  |**Ja**| |
 |**13**  |**Ja**| |
-|**14**  |**Ja**| |
+|**14**  |**Ja**| Jag har 5 vyer??? |
 |**15**  |**Ja**| |
-|**16**  |**Ja**| |
-|**17**  |**Ja**| |
-|**18**  |**Ja**| |
+|**16**  |**NEJ**| Ska göras |
+|**17**  |**NEJ**| Ska göras |
+|**18**  |**NEJ**| Ska göras |
 
 ## Förtydliganden/motivering
