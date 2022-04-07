@@ -11,7 +11,7 @@ export class PageBase {
         
         let contentDiv = document.createElement('div');
         contentDiv.id = 'page-content';
-        contentDiv.innerHTML = this.content;
+        contentDiv.insertAdjacentHTML('beforeend', this.content);
         
         const main = document.querySelector('main');
         while (main.firstChild) {
