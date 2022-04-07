@@ -1,31 +1,20 @@
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* html {
-    margin: 5px 20px;
-    max-width: 1200px;
-    margin:0 auto;
-} */
-
 
 /* -----------HEADER--------- */
 
-/* Head */
 header {
     background-color: #2f3033;
     box-shadow: 0 3px 6px #888888;
 }
 
-
 #header-title {
-    width: 70%;
     font-size: 50px;
     color: #ff9000;
+    margin-right: 30px;
 /*     text-shadow: 0 2px 4px white; */
 }
-/* Head */
-
-/* Navbar */
 
 .nav-button {
     margin: 0px 10px;
@@ -34,35 +23,54 @@ header {
 }
 
 .nav-button:hover {
-    box-shadow: 0 3px 6px #ff9000;
+    box-shadow: 0 3px 6px #888888;
     border-radius: 10px;
     cursor: pointer;
     transform: scale(1.05);
 /*     color: #ff9000 !important; */
 }
+@media screen and (max-width: 991px) {
+    #header-title {
+        margin-right: 0px;
+    }
+}
 
-/* Navbar */
 
 /* -----------HEADER--------- */
 
 /* -----------MAIN--------- */
 
 main {
-    margin: 10px 10px;
+    max-width: 1200px;
+    margin: 10px auto;
+    /* margin: 10px 10px; */
     margin-bottom: 40px;
     padding: 10px;
-    box-shadow: 0 1px 4px #888888;
+    /* box-shadow: 0 1px 4px #888888; */
+    align-content: center;
 }
 
 #page-title {
     text-align: center;
 }
 
+#bp-img {
+    max-height:100%; 
+    max-width:100%;
+}
+
+@media screen and (max-width: 1220px) {
+    main {
+        margin: 10px;
+        margin-bottom: 40px;
+    }
+}
+
 /* -----------MAIN--------- */
 
+/* -----------FOOTER--------- */
 footer {
     background-color: #2f3033;
-    box-shadow: 0 2px 4px #888888;
     text-align: center;
     padding: 2px;
     position: fixed;
@@ -71,3 +79,4 @@ footer {
     width: 100%;
     color: white;
 }
+/* -----------FOOTER--------- */
