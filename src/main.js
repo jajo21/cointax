@@ -2,7 +2,7 @@ import { Home } from "./pages/home.js";
 import { BusinessPlan } from "./pages/business-plan.js";
 import { ProjectIdea } from "./pages/project-idea.js";
 import { Contact } from "./pages/contact.js";
-import { pageData } from "./page-data.js";
+import { pageData } from "./pages/data/page-data.js";
 
 class Main {
     constructor() {
