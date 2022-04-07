@@ -3,10 +3,12 @@ export let pageData = [
         page: 'home',
         title: 'Välkommen!',
         content: 'Mitt namn är Johannes Jakobsson och jag studerar till Webbutvecklare inom .NET på Campus Värnamo.<br><br>' +
-        'Vill du veta mer om mig? Klicka på menyvalet kontakt för mer information om mig, min idé och hur du kan komma i kontakt med mig.<br><br>' +
-        'De andra menyvalen visar mitt arbete tidigare i kursen Affärsmannaskap för IT där vi skulle komma på en affärsidé med en tillhörande ' + 
+        'Vill du veta mer om mig? Klicka på menyvalet kontakt för mer information om mig och hur du kan komma i kontakt med mig.<br><br>' +
+        'De andra menyvalen visar mitt tidigare arbete i kursen Affärsmannaskap för IT där vi skulle komma på en affärsidé med tillhörande ' + 
         'affärsplan. I nuvarande kurs Moderna Webbapplikationer ska vi bygga en prototyp av idén och öva på genomförandet från produktidé till ' +
-        'prototyp och utföra en presentation av idén i ett kommande draknäste.'
+        'prototyp och utföra en presentation av idén i ett kommande draknäste. <br><br>' +
+        'Det sista menyvalet "App" är inte färdigutvecklat, det kommer endast hänvisa dig till en tom sida just nu. Men i framtiden kommer ' +
+        'innehållet i det menyvalet att vara den färdigutvecklade applikationen.'
     },
     {
         page: 'business-plan',
@@ -85,7 +87,10 @@ export let pageData = [
         page: 'contact',
         title: 'Kontakt',
         content: {
-            title: 'Intresserad av att veta mer?',
+            title:'Intresserad av att veta mer? Då har du hamnat rätt!',
+            contactContent: 'Här presenterar jag ett antal länkar, en mail där du kan ställa vilka frågor du vill om projektet, det finns inga dumma frågor! Två mer ' +
+            'yrkesrelaterade länkar tillsammans med två lite mer privata. Klicka gärna runt och se om du hittar något intressant och hör av dig till mig. LinkedIn ' +
+            'kontot är inte fulländat ännu men det kommer inom en snar framtid. Klicka på respektive bild för att komma vidare:',
             email: 'jajo21pg@student.ju.se',
             github: 'https://github.com/jajo21',
             linkedin: 'https://se.linkedin.com/',
