@@ -11,7 +11,7 @@ export class Contact extends PageBase {
         getContentString() {
             return `
             <div class="contact-div">
-                <h2 style="text-align: center;">${pageData[3].content.title}</h2>
+                <h2>${pageData[3].content.title}</h2>
                 <p>${pageData[3].content.contactContent}</p>
             </div>
             <div class="contact-icons"> 
