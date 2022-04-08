@@ -55,13 +55,8 @@ export let pageData = [
             'är enbart från en handelsplats.<br><br>' +
             
             'Vi anser att ett av de stora problemen till att folk avstår deklarationen är att gemene man tycker det är krångligt. Därför finns det ett stort behov av en tjänst ' +
-            'som förenklar denna process markant. Där kommer vår lösning att vara till stor hjälp, framförallt den automatiserade lösningen med API-nyckel!<br><br>' +
-            
-            'Lösningen går ut på att en användare behöver ha ett eget konto kopplat till vår tjänst, ett konto skapas via vår hemsida eller mobilapplikation. På detta ' +
-            'konto kan användaren välja att spara nödvändig information om varje transaktion manuellt inför kommande deklaration. Användaren har även möjlighet att ' +
-            'koppla sin privata API-nyckel från valfri krypto-börs för att automatisera inhämtningen av transaktionshistorik. När det sedan är dags för deklaration så ' +
-            'får användaren helt enkelt välja om de vill betala för vår tjänst och få en automatiskt ifylld k4-blankett beroende på sin transaktionshistorik. Beroende ' +
-            'på antalet transaktioner stiger priset på vår tjänst. Användaren ansvarar sedan för att K4-blanketten skickas till Skatteverket. ',
+            'som förenklar denna process markant. Där kommer vår lösning att vara till stor hjälp, framförallt den automatiserade lösningen med API-nyckel! ' +
+            'Mer om lösningen får du under fliken Projektidé.',
         }
     },
     {
@@ -73,11 +68,11 @@ export let pageData = [
         'Om vi ska utveckla det här ytterligare så ska vi jobbiga specifikt mot användarvänlighet och skapa en sida som utstrålar trygghet till användaren. Vi ska ' +
         'använda enkla ord som användarna verkligen förstår och ta oss ifrån begrepp som exempelvis florerar på Skatteverkets hemsida som bidrar till att den röda ' +
         'tråden inte riktigt hittar ända fram. Det ska vara så enkelt att deklarera så att ett barn förstår vad som ska göras. Vi ska specifikt fokusera på Sverige i ' +
-        'första hand och skapa en applikation som svenska kryptovalutainvesterare inte kan leva utan. <br><br>' +
+        'första hand och skapa en applikation som svenska kryptoinvesterare inte kan leva utan. <br><br>' +
         
         'Mer om Webbapplikationen; en användare behöver ha ett eget konto kopplat till vår tjänst, ett konto kan skapas via vår kommande hemsida eller mobilapplikation. ' +
         'På det här kontot kan användaren välja att spara nödvändig information om varje transaktion manuellt inför kommande deklaration. Användaren har även möjlighet ' +
-        'att koppla sin privata API-nyckel från valfri krypto-börs för att våran applikation ska inhämta transaktionshistorik automatiskt. <br><br>' +
+        'att koppla sin privata API-nyckel från valfri krypto-börs för att våran applikation ska inhämta transaktionshistorik automatiskt från kryptobörsens API. <br><br>' +
         
         'När det senare är dags för deklaration så får användaren helt enkelt välja om de vill betala för vår tjänst och få en färdigt ifylld k4-blankett beroende på ' +
         'sin transaktionshistorik. Beroende på antalet transaktioner så stiger kostnaden för användaren. I slutändan när k4-an har producerats ansvarar användaren själv ' + 
