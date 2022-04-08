@@ -2,7 +2,7 @@ export let pageData = [
     {
         page: 'home',
         title: 'Välkommen!',
-        content: 'Mitt namn är Johannes Jakobsson och jag studerar till Webbutvecklare inom .NET på Campus Värnamo.<br><br>' +
+        content: 'Mitt namn är Johannes Jakobsson och jag studerar Webbutvecklare .NET på Campus Värnamo.<br><br>' +
         'Vill du veta mer om mig? Klicka på menyvalet kontakt för mer information om mig och hur du kan komma i kontakt med mig.<br><br>' +
         'De andra menyvalen visar mitt tidigare arbete i kursen Affärsmannaskap för IT där vi skulle komma på en affärsidé med tillhörande ' + 
         'affärsplan. I nuvarande kurs Moderna Webbapplikationer ska vi bygga en prototyp av idén och öva på genomförandet från produktidé till ' +

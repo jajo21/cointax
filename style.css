@@ -14,6 +14,9 @@ header {
     color: #ff9000;
     margin-right: 30px;
 }
+.my-navbar{
+    margin-left: 50px;
+}
 
 .nav-button {
     margin: 0px 10px;
@@ -33,6 +36,11 @@ header {
         margin-right: 0px;
     }
 }
+@media screen and (max-width: 1399px) {
+    .my-navbar{
+        margin-left: 0px;
+    }
+}
 
 /* -----------END HEADER--------- */
 
@@ -40,8 +48,7 @@ header {
 
 main {
     max-width: 1200px;
-    margin: 10px auto;
-    /* margin: 10px 10px; */
+    margin: 15px auto;
     margin-bottom: 40px;
     padding: 10px 10px 30px 10px;
     box-shadow: 0 1px 4px #888888;
@@ -89,7 +96,7 @@ main {
 
 @media screen and (max-width: 1220px) {
     main {
-        margin: 10px;
+        margin: 15px 10px;
         margin-bottom: 40px;
     }
 }
