@@ -1,0 +1,26 @@
+{
+  "name": "cointax",
+  "version": "1.0.0",
+  "description": "*Vad behöver göras för att ditt program ska starta och gå och använda?*",
+  "scripts": {
+    "start": "parcel *.html --port 3333"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jajo21/cointax.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jajo21/cointax/issues"
+  },
+  "homepage": "https://github.com/jajo21/cointax#readme",
+  "devDependencies": {
+    "parcel": "^2.4.1"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}

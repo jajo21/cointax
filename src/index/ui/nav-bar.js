@@ -23,7 +23,7 @@ export class NavBar {
                             <li><div class="nav-link px-2 text-white nav-button" id="business-plan">${pageData[1].title}</div></li>
                             <li><div class="nav-link px-2 text-white nav-button" id="project-idea">${pageData[2].title}</div></li>
                             <li><div class="nav-link px-2 text-white nav-button" id="contact">${pageData[3].title}</div></li>
-                            <li><a href="app.html" target="_blank" class="nav-link px-2 text-white nav-button" id="app">App</a></li>
+                            <li><a href="./app.html" target="_blank" class="nav-link px-2 text-white nav-button" id="app">App</a></li>
                         </ul>
                     </div>
                 </div>
