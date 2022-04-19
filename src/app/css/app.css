@@ -1,0 +1,15 @@
+#navbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer {
+    background-color: #2f3033;
+    text-align: center;
+    padding: 2px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+}
