@@ -2,8 +2,10 @@
   "name": "cointax",
   "version": "1.0.0",
   "description": "*Vad behöver göras för att ditt program ska starta och gå och använda?*",
+  "source": "./*.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel *.html --port 3333"
+    "start": "parcel --port 3333"
   },
   "repository": {
     "type": "git",

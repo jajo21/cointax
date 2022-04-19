@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client.js';
 
+import Footer from './components/Footer.jsx';
+import Header from './components/Header.jsx';
+import Content from './components/Content.jsx';
+
 class Main extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Hello World!</h1>
-            </div>
+            <>
+                <Header/>
+                <Content />
+                <Footer />
+            </>
         )
     }
 }
