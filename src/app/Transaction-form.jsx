@@ -1,15 +1,16 @@
 import React from 'react';
 
+import TransactionServices from './services/transaction-services.js';
+
 class TransactionForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
           date: '',
-          cBought: '',
+          cNameBought: '',
           sumBought: '',
-          cSold: '',
+          cNameSold: '',
           sumSold: '',
-          transactions: [],
         };
   
       this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,14 +28,26 @@ class TransactionForm extends React.Component {
       }
   
     handleSubmit(event) {
-        alert(
-            'date: ' + this.state.date +
-            ' cBought: ' + this.state.cBought +
-            ' sumBought: ' + this.state.sumBought +
-            ' cSold: ' + this.state.cSold +
-            ' sumSold: ' + this.state.sumSold
-        );
         event.preventDefault();
+
+        let tS = new TransactionServices();
+        let currentTransactions = tS.checkLocalStorage();
+        if(currentTransactions === null) {
+            currentTransactions = [];
+        }
+
+        currentTransactions.push({
+            'date': this.state.date,
+            'cNameBought': this.state.cNameBought, 
+            'sumBought':  this.state.sumBought, 
+            'cNameSold': this.state.cNameSold,
+            'sumSold': this.state.sumSold
+        })
+
+        tS.saveTransaction(currentTransactions);
+
+        console.log('localstorage', tS.checkLocalStorage());
+
     }
   
     render() {
@@ -46,14 +59,14 @@ class TransactionForm extends React.Component {
                     name="date" 
                     type="datetime-local"
                     value={this.state.date}
-                    onChange={this.handleInputChange} />
+                    onChange={this.handleInputChange}/>
             </label>
             <label>
                 Valuta köpt:
                 <input 
-                    name="cBought" 
+                    name="cNameBought" 
                     type="text"
-                    value={this.state.cBought}
+                    value={this.state.cNameBought}
                     onChange={this.handleInputChange}/>
             </label>
             <label>
@@ -62,14 +75,14 @@ class TransactionForm extends React.Component {
                     name="sumBought" 
                     type="text"
                     value={this.state.sumBought}
-                    onChange={this.handleInputChange} />
+                    onChange={this.handleInputChange}/>
             </label>
             <label>
                 Valuta såld:
                 <input 
-                    name="cSold" 
+                    name="cNameSold" 
                     type="text"
-                    value={this.state.cSold}
+                    value={this.state.cNameSold}
                     onChange={this.handleInputChange}/>
             </label>
             <label>
@@ -78,10 +91,10 @@ class TransactionForm extends React.Component {
                     name="sumSold" 
                     type="text"
                     value={this.state.sumSold}
-                    onChange={this.handleInputChange} />
+                    onChange={this.handleInputChange}/>
             </label>
 
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Spara"/>
         </form>
       );
     }
