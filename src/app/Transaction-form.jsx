@@ -1,6 +1,7 @@
 import React from 'react';
 
-import TransactionServices from './services/transaction-services.js';
+/* import TransactionServices from './services/transaction-services.js'; */
+import TransactionHistory from './Transaction-history.jsx';
 
 class TransactionForm extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class TransactionForm extends React.Component {
           sumBought: '',
           cNameSold: '',
           sumSold: '',
+          transactions: [],
         };
   
       this.handleInputChange = this.handleInputChange.bind(this);
@@ -23,20 +25,19 @@ class TransactionForm extends React.Component {
         const name = target.name;
     
         this.setState({
-          [name]: value
+            [name]: value
         });
       }
   
     handleSubmit(event) {
         event.preventDefault();
 
-        let tS = new TransactionServices();
-        let currentTransactions = tS.checkLocalStorage();
-        if(currentTransactions === null) {
-            currentTransactions = [];
-        }
+/*         let tS = new TransactionServices();
+        let currentTransactions = tS.checkLocalStorage(); */
 
+        let currentTransactions = this.state.transactions;
         currentTransactions.push({
+            'id': currentTransactions.length+1,
             'date': this.state.date,
             'cNameBought': this.state.cNameBought, 
             'sumBought':  this.state.sumBought, 
@@ -44,58 +45,62 @@ class TransactionForm extends React.Component {
             'sumSold': this.state.sumSold
         })
 
-        tS.saveTransaction(currentTransactions);
+        this.setState({
+            transactions: currentTransactions,
+        })
 
-        console.log('localstorage', tS.checkLocalStorage());
-
+        console.log(this.state.transactions);
     }
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
-            <label>
-                Var god välj datum på transaktionen:
-                <input 
-                    name="date" 
-                    type="datetime-local"
-                    value={this.state.date}
-                    onChange={this.handleInputChange}/>
-            </label>
-            <label>
-                Valuta köpt:
-                <input 
-                    name="cNameBought" 
-                    type="text"
-                    value={this.state.cNameBought}
-                    onChange={this.handleInputChange}/>
-            </label>
-            <label>
-                Summa:
-                <input 
-                    name="sumBought" 
-                    type="text"
-                    value={this.state.sumBought}
-                    onChange={this.handleInputChange}/>
-            </label>
-            <label>
-                Valuta såld:
-                <input 
-                    name="cNameSold" 
-                    type="text"
-                    value={this.state.cNameSold}
-                    onChange={this.handleInputChange}/>
-            </label>
-            <label>
-                Summa:
-                <input 
-                    name="sumSold" 
-                    type="text"
-                    value={this.state.sumSold}
-                    onChange={this.handleInputChange}/>
-            </label>
+          <>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Var god välj datum på transaktionen:
+                    <input 
+                        name="date" 
+                        type="datetime-local"
+                        value={this.state.date}
+                        onChange={this.handleInputChange}/>
+                </label>
+                <label>
+                    Valuta köpt:
+                    <input 
+                        name="cNameBought" 
+                        type="text"
+                        value={this.state.cNameBought}
+                        onChange={this.handleInputChange}/>
+                </label>
+                <label>
+                    Summa:
+                    <input 
+                        name="sumBought" 
+                        type="text"
+                        value={this.state.sumBought}
+                        onChange={this.handleInputChange}/>
+                </label>
+                <label>
+                    Valuta såld:
+                    <input 
+                        name="cNameSold" 
+                        type="text"
+                        value={this.state.cNameSold}
+                        onChange={this.handleInputChange}/>
+                </label>
+                <label>
+                    Summa:
+                    <input 
+                        name="sumSold" 
+                        type="text"
+                        value={this.state.sumSold}
+                        onChange={this.handleInputChange}/>
+                </label>
 
-            <input type="submit" value="Spara"/>
-        </form>
+                <input type="submit" value="Spara"/>
+            </form>
+            <TransactionHistory transactions={this.state.transactions}/>
+        </>
       );
     }
   }
