@@ -13,3 +13,7 @@ footer {
     width: 100%;
     color: white;
 }
+
+form > label {
+    display: block;
+  }
