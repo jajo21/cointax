@@ -2,6 +2,7 @@ import React from 'react';
 
 import { MenuItems } from './MenuItems.js';
 import { Button } from '../Button.jsx';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 class Navbar extends React.Component {
@@ -18,6 +19,9 @@ class Navbar extends React.Component {
 
     handleLinkClick = (title) => {
         console.log(title);
+
+
+        /* onClick={() => this.handleLinkClick(item.title) i LINK */
     }
 
     render() {
@@ -31,9 +35,9 @@ class Navbar extends React.Component {
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <a className={item.cName} href={item.url} onClick={() => this.handleLinkClick(item.title)}>
+                                <Link to={item.url} className={item.cName} onClick={() => this.handleLinkClick(item.title)}>
                                     {item.title}
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}
