@@ -16,11 +16,20 @@ const app = ReactDOM.createRoot(document.getElementById('root'));
 app.render(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="home" element={<Home />} />
-        <Route path="wallet" element={<Wallet />} />
-        <Route path="transactions" element={<Transactions />} />
-        <Route path="tax" element={<Tax />} />
+        <Route path="/" element={<App />}>
+          <Route path="home" element={<Home />} />
+          <Route path="wallet" element={<Wallet />} />
+          <Route path="transactions" element={<Transactions />} />
+          <Route path="tax" element={<Tax />} />
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
 );

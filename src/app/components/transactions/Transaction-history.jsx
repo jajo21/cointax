@@ -4,13 +4,11 @@ import TransactionCard from './Transaction-card.jsx';
 
 class TransactionHistory extends React.Component {
     render() {
-
         const transactions = this.props.transactions;
-        
         return (
             <>
-                <h1>Transaction History</h1>
-                {(transactions !== null)
+                <h1>Transaktionshistorik</h1>
+                {(transactions.length !== 0)
                     ? (
                         <div className='transaction-container'>
                             {transactions.map((transaction) => (

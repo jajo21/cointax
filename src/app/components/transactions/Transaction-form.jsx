@@ -1,11 +1,11 @@
 import React from 'react';
 
-/* import TransactionServices from './services/transaction-services.js'; */
+/* import TransactionServices from '../../services/transaction-services.js'; */
 import TransactionHistory from './Transaction-history.jsx';
 
 class TransactionForm extends React.Component {
-    constructor(props) {
-      super(props);
+    constructor() {
+      super();
       this.state = {
           date: '',
           cNameBought: '',
@@ -23,10 +23,6 @@ class TransactionForm extends React.Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-
-/*         if(documents.forms['transaction-form'][[name]].value == '') {
-            alert([name] + ' must be filled out');  
-        } */
     
         this.setState({
             [name]: value
@@ -35,9 +31,6 @@ class TransactionForm extends React.Component {
   
     handleSubmit(event) {
         event.preventDefault();
-
-/*         let tS = new TransactionServices();
-        let currentTransactions = tS.checkLocalStorage(); */
 
         let currentTransactions = this.state.transactions;
         currentTransactions.push({
@@ -48,6 +41,9 @@ class TransactionForm extends React.Component {
             'cNameSold': this.state.cNameSold,
             'sumSold': this.state.sumSold
         })
+
+/*         let tS = new TransactionServices();
+        tS.saveTransaction(currentTransactions); */
 
         this.setState({
             transactions: currentTransactions,
