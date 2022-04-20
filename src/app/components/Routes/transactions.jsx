@@ -1,5 +1,13 @@
-export default function Transactions() {
-    return (
-        <h2>transactions</h2>
-    );
-  }
+import React from 'react';
+
+import TransactionForm from '../Transactions/Transaction-form.jsx';
+
+export default class Transactions extends React.Component {
+    render() {
+        return (
+            <main>
+                <TransactionForm />
+            </main>
+        )
+    }
+}
