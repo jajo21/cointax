@@ -23,6 +23,10 @@ class TransactionForm extends React.Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
+
+/*         if(documents.forms['transaction-form'][[name]].value == '') {
+            alert([name] + ' must be filled out');  
+        } */
     
         this.setState({
             [name]: value
@@ -55,14 +59,15 @@ class TransactionForm extends React.Component {
     render() {
       return (
           <>
-            <form onSubmit={this.handleSubmit}>
+            <form name="transaction-form" onSubmit={this.handleSubmit}>
                 <label>
                     Var god välj datum på transaktionen:
                     <input 
                         name="date" 
                         type="datetime-local"
                         value={this.state.date}
-                        onChange={this.handleInputChange}/>
+                        onChange={this.handleInputChange}
+                        required/>
                 </label>
                 <label>
                     Valuta köpt:
@@ -70,7 +75,8 @@ class TransactionForm extends React.Component {
                         name="cNameBought" 
                         type="text"
                         value={this.state.cNameBought}
-                        onChange={this.handleInputChange}/>
+                        onChange={this.handleInputChange}
+                        required/>
                 </label>
                 <label>
                     Summa:
@@ -78,7 +84,8 @@ class TransactionForm extends React.Component {
                         name="sumBought" 
                         type="text"
                         value={this.state.sumBought}
-                        onChange={this.handleInputChange}/>
+                        onChange={this.handleInputChange}
+                        required/>
                 </label>
                 <label>
                     Valuta såld:
@@ -86,7 +93,8 @@ class TransactionForm extends React.Component {
                         name="cNameSold" 
                         type="text"
                         value={this.state.cNameSold}
-                        onChange={this.handleInputChange}/>
+                        onChange={this.handleInputChange}
+                        required/>
                 </label>
                 <label>
                     Summa:
@@ -94,7 +102,8 @@ class TransactionForm extends React.Component {
                         name="sumSold" 
                         type="text"
                         value={this.state.sumSold}
-                        onChange={this.handleInputChange}/>
+                        onChange={this.handleInputChange}
+                        required/>
                 </label>
 
                 <input type="submit" value="Spara"/>
