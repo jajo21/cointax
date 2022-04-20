@@ -5,10 +5,19 @@ import { Button } from '../Button.jsx';
 import './Navbar.css';
 
 class Navbar extends React.Component {
-    state = {clicked: false}
+    constructor() {
+        super();
+        this.state = {
+            clicked: false,
+        }
+    }
 
     handleClick = () => {
         this.setState({clicked: !this.state.clicked})
+    }
+
+    handleLinkClick = (title) => {
+        console.log(title);
     }
 
     render() {
@@ -22,7 +31,7 @@ class Navbar extends React.Component {
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <a className={item.cName} href={item.url}>
+                                <a className={item.cName} href={item.url} onClick={() => this.handleLinkClick(item.title)}>
                                     {item.title}
                                 </a>
                             </li>
