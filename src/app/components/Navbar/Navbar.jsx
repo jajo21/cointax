@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { MenuItems } from './MenuItems.js';
-import { Button } from '../Button.js';
+import { Button } from '../Button.jsx';
 import './Navbar.css';
 
 class Navbar extends React.Component {
