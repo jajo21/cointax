@@ -10,7 +10,6 @@ class TransactionServices {
 
     saveTransaction(transaction) {
         localStorage.setItem('transactions', JSON.stringify(transaction));
-        console.log('localStorage', localStorage);
     }
 }
 

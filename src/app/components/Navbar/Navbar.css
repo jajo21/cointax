@@ -75,6 +75,20 @@
     border-radius: 4px;
 }
 
+/* Spiral logo */
+
+.spiral {
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    animation: spin 6s linear 0s infinite reverse;
+}
+
+@keyframes spin {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
 @media screen and (max-width: 960px) {
     .NavbarItems {
         position: relative;
