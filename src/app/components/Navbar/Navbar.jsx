@@ -35,7 +35,7 @@ class Navbar extends React.Component {
                         )
                     })}
                 </ul>
-                <Button>{MenuItems[4].title}</Button>
+{/*                 <Button>{MenuItems[4].title}</Button> */}
             </nav>
         ) 
     }

@@ -1,9 +1,9 @@
-.transaction-form {
+/* .transaction-form {
     margin: auto;
     width: 90%;
     padding: 10px;
 }
-
+ */
 .transaction-form > label > input {
     padding: 10px;
     box-shadow: 0 0 2px 1px;
