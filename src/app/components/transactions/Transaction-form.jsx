@@ -20,11 +20,11 @@ class TransactionForm extends React.Component {
           transactions: currentTransactions
         };
   
-      this.handleInputChange = this.handleInputChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+/*       this.handleInputChange = this.handleInputChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this); */
     }
   
-    handleInputChange(event) {
+    handleInputChange = (event) => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -34,7 +34,7 @@ class TransactionForm extends React.Component {
         });
       }
   
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
 
         let currentTransactions = this.state.transactions;

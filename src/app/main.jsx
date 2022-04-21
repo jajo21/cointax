@@ -17,6 +17,7 @@ app.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="app.html" element={<Home />} /> {/* Snabbt enkelt sätt att fixa så app.html blir likadan som Home */}
           <Route path="home" element={<Home />} />
           <Route path="wallet" element={<Wallet />} />
           <Route path="transactions" element={<Transactions />} />
