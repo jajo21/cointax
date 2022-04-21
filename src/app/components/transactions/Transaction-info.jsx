@@ -2,26 +2,23 @@ import React from 'react';
 
 import TransactionServices from '../../services/transaction-services.js';
 import TransactionHistory from './Transaction-history.jsx';
-import './Transaction-form.css';
+import './Transaction-info.css';
 
-class TransactionForm extends React.Component {
+class TransactionInfo extends React.Component {
     constructor(props) {
-      super(props);
+        super(props);
 
-      let tS = new TransactionServices();
-      let currentTransactions = tS.checkLocalStorage();
-      if(currentTransactions === null) currentTransactions = [];
-      this.state = {
-          date: '',
-          cNameBought: '',
-          sumBought: '',
-          cNameSold: '',
-          sumSold: '',
-          transactions: currentTransactions
+        let tS = new TransactionServices();
+        let currentTransactions = tS.checkLocalStorage();
+        if(currentTransactions === null) currentTransactions = [];
+        this.state = {
+            date: '',
+            cNameBought: '',
+            sumBought: '',
+            cNameSold: '',
+            sumSold: '',
+            transactions: currentTransactions
         };
-  
-/*       this.handleInputChange = this.handleInputChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this); */
     }
   
     handleInputChange = (event) => {
@@ -60,6 +57,7 @@ class TransactionForm extends React.Component {
           <>
             <TransactionHistory transactions={this.state.transactions}/>
             <form className='transaction-form' name="transaction-form" onSubmit={this.handleSubmit}>
+                <h2>Lägg till transaktion</h2>
                 <label>
                     Datum på transaktionen:<br/>
                     <input 
@@ -79,7 +77,7 @@ class TransactionForm extends React.Component {
                         required/>
                 </label>
                 <label>
-                    Summa:<br/>
+                    Antal:<br/>
                     <input 
                         name="sumBought" 
                         type="text"
@@ -113,4 +111,4 @@ class TransactionForm extends React.Component {
     }
   }
 
-export default TransactionForm;
+export default TransactionInfo;

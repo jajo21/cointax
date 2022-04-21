@@ -1,13 +1,14 @@
 import React from 'react';
 
 import TransactionCard from './Transaction-card.jsx';
+import './Transaction-history.css';
 
 class TransactionHistory extends React.Component {
     render() {
         const transactions = this.props.transactions;
         console.log(transactions);
         return (
-            <>
+            <div className='transaction-history'>
                 <h1>Transaktionshistorik</h1>
                 {(transactions.length !== 0)
                     ? (
@@ -22,7 +23,7 @@ class TransactionHistory extends React.Component {
                         </div>
                     )
                 }
-            </>
+            </div>
         )
     }
 }

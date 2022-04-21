@@ -1,12 +1,12 @@
 import React from 'react';
 
-import TransactionForm from '../Transactions/Transaction-form.jsx';
+import TransactionInfo from '../Transactions/Transaction-info.jsx';
 
 export default class Transactions extends React.Component {
     render() {
         return (
             <main>
-                <TransactionForm/>
+                <TransactionInfo/>
             </main>
         )
     }

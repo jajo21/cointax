@@ -1,9 +1,12 @@
-/* .transaction-form {
-    margin: auto;
-    width: 90%;
-    padding: 10px;
+.transaction-form {
+    margin-bottom: 10px;
+    padding-left: 5px;
 }
- */
+
+.transaction-form > h2 {
+    margin-bottom: 10px;
+}
+
 .transaction-form > label > input {
     padding: 10px;
     box-shadow: 0 0 2px 1px;
