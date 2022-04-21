@@ -1,3 +1,13 @@
+
+/* 
+---------------------------------------------------
+
+
+DEN HÄR KLASSEN ÄR INTE FÄRDIG, DEN JOBBAS ÄNNU PÅ
+
+
+---------------------------------------------------
+ */
 class CostAmount {
 
     countAmountOfCoins(transactions){

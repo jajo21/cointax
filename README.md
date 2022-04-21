@@ -1,39 +1,37 @@
 # Cointax
-# Inlämning 2: The proof of concept
 
 ## Instruktioner
 
 *Vad behöver göras för att ditt program ska starta och gå och använda?*
 
-**HÄR SKA DET FYLLAS PÅ MED INFORMATION**
+**1. Ladda ner repot från https://github.com/jajo21/cointax**
+**2. Leta upp valfri terminal och ta dig in i cointax mappen**
+**3. I termnialen skriver du sedan: ```npm ci ```, nu laddas alla nödvändiga paket ner**
+**4. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här gör att parcel transpilerar källkoden**
+**5. Nu ska applikationen ha startat på http://localhost:3333**
+**6. Leta upp valfri webbläsare och gå in på http://localhost:3333**
+**7. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen**
 
-## TODO - Kvar att göra
 
-*Vad har du inte hunnit med i denna uppgift?*
+## Inlämning 2: The proof of concept
+## Kravlista
 
  |Krav|Uppfyllt|Egna Kommentarer|
  |---|---|---|
 |**1**  |**Ja**| |
-|**2**  |**Nej**| Behöver fyllas i närmare|
+|**2**  |**Ja**| Men dubbelkolla|
 |**3**  |**Ja**| |
-|**4**  |**Nej**| Ska beskrivas ytterligare bara |
+|**4**  |**Ja**| |
 |**5**  |**Ja**| |
-|**6**  || |
-|**7**  || |
-|**8**  || |
-|**9**  || |
-|**10**  || |
-|**11**  || |
-|**12**  || |
-|**13**  || |
-|**14**  || |
-|**15**  || |
+|**6**  |**Ja**| |
+|**7**  |**Ja**| |
+|**8**  |**Ja**| |
+|**9**  |**Ja**| |
+|**10**  |**Ja**| Jag tror det?|
+|**11**  |**Tveksam**| |
+|**12**  |**Ja**| |
+|**13**  |**Ja**| |
+|**14**  |**Ja**| |
+|**15**  |**Ja**| Spara knappen blir större = rörelse?|
 
 ## Förtydliganden/motivering
-
-
-
-Från första inlämningen, ska fixas vid tid över;
-Har inget att skylla på egentligen mer än att jag kom på det sent. Men kanske pysslar med det i helgen; Ordna så att menyn/navbar hänger kvar om man skrollar neråt, precis som footern hänger med hela tiden när man scrollar.
-
-Kan också göra så att navbaren blir mindre vid mobilläge, exempelvis hamburgarmeny eller mindre loggor av något slag så att allt syns tydligt och inte tar upp så stor plats.

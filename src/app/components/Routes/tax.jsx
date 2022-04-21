@@ -3,6 +3,15 @@ import React from 'react';
 import CostAmount from "../../services/cost-amount.js";
 import TransactionServices from "../../services/transaction-services.js";
 
+/* 
+---------------------------------------------------
+
+
+DEN HÄR KLASSEN ÄR INTE FÄRDIG, DEN JOBBAS ÄNNU PÅ
+
+
+---------------------------------------------------
+ */
 export default class Tax extends React.Component {
     constructor() {
         super();
@@ -22,7 +31,7 @@ export default class Tax extends React.Component {
     render() {
         return (
             <main>
-                <h2>tax</h2>
+                <h2>Skatterapport</h2>
             </main>
         )
     }
