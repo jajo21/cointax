@@ -5,6 +5,7 @@ import TransactionCard from './Transaction-card.jsx';
 class TransactionHistory extends React.Component {
     render() {
         const transactions = this.props.transactions;
+        console.log(transactions);
         return (
             <>
                 <h1>Transaktionshistorik</h1>

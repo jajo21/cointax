@@ -1,19 +1,23 @@
 import React from 'react';
 
-/* import TransactionServices from '../../services/transaction-services.js'; */
+import TransactionServices from '../../services/transaction-services.js';
 import TransactionHistory from './Transaction-history.jsx';
 import './Transaction-form.css';
 
 class TransactionForm extends React.Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
+
+      let tS = new TransactionServices();
+      let currentTransactions = tS.checkLocalStorage();
+      if(currentTransactions === null) currentTransactions = [];
       this.state = {
           date: '',
           cNameBought: '',
           sumBought: '',
           cNameSold: '',
           sumSold: '',
-          transactions: [],
+          transactions: currentTransactions
         };
   
       this.handleInputChange = this.handleInputChange.bind(this);
@@ -43,19 +47,18 @@ class TransactionForm extends React.Component {
             'sumSold': this.state.sumSold
         })
 
-/*         let tS = new TransactionServices();
-        tS.saveTransaction(currentTransactions); */
+        let tS = new TransactionServices();
+        tS.saveTransaction(currentTransactions);
 
         this.setState({
-            transactions: currentTransactions,
+            transactions: currentTransactions
         })
-
-        console.log(this.state.transactions);
     }
-  
+
     render() {
       return (
           <>
+            <TransactionHistory transactions={this.state.transactions}/>
             <form className='transaction-form' name="transaction-form" onSubmit={this.handleSubmit}>
                 <label>
                     Datum på transaktionen:<br/>
@@ -105,7 +108,6 @@ class TransactionForm extends React.Component {
 
                 <input type="submit" value="Spara"/>
             </form>
-            <TransactionHistory transactions={this.state.transactions}/>
         </>
       );
     }

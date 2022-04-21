@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MenuItems } from './MenuItems.js';
+import { MenuItems } from './menu-items.js';
 import { Button } from '../Button.jsx';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
