@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { MenuItems } from './menu-items.js';
-import { Button } from '../Button.jsx';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
@@ -35,7 +34,6 @@ class Navbar extends React.Component {
                         )
                     })}
                 </ul>
-{/*                 <Button>{MenuItems[4].title}</Button> */}
             </nav>
         ) 
     }

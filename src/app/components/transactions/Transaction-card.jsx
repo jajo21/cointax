@@ -5,8 +5,9 @@ class TransactionCard extends React.Component {
         return(
             <div className='transaction'>
                 <p>{this.props.transaction.date}</p>
-                <p>{`${this.props.transaction.cNameBought}: ${this.props.transaction.sumBought}`}</p>
-                <p>{`${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
+                <p>{`Transaktion: ${this.props.transaction.id}`}</p>
+                <p>{`Köpt ${this.props.transaction.cNameBought}: ${this.props.transaction.sumBought}`}</p>
+                <p>{`Sålt ${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
             </div>
         )
     }
