@@ -5,7 +5,7 @@
 *Vad behöver göras för att ditt program ska starta och gå och använda?*
 
 **1. Ladda ner repot från https://github.com/jajo21/cointax**  
-**2. Leta upp valfri terminal och ta dig in i cointax mappen**  
+**2. Leta upp valfri terminal och utgå från nerladdad cointax mapp**  
 **3. I termnialen skriver du sedan: ```npm ci ```, nu laddas alla nödvändiga paket ner**  
 **4. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här gör att parcel transpilerar källkoden**  
 **5. Nu ska applikationen ha startat på http://localhost:3333**  
