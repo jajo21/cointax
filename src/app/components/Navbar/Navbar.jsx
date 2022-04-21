@@ -19,7 +19,12 @@ class Navbar extends React.Component {
     render() {
         return(
             <nav className='NavbarItems'>
-                <h1 className='navbar-logo'>Cointax<i className="fa fa-solid fa-coins"></i></h1>
+                <h1 
+                    className={this.state.clicked ? 'navbar-logo spiral' : 'navbar-logo'} 
+                    onClick={this.handleClick}>
+                        Cointax
+                    <i className="fa fa-solid fa-coins"></i>
+                </h1>
                 <div className='menu-icon' onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fa fa-bars'}></i>
                 </div>

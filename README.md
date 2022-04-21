@@ -32,6 +32,6 @@
 |**12**  |**Ja**| |
 |**13**  |**Ja**| |
 |**14**  |**Ja**| |
-|**15**  |**Ja**| Spara knappen blir större = rörelse?|
+|**15**  |**Ja**| Spara knappen blir större = rörelse? Plus att Loggan Cointax snurrar när man klickar på den :)|
 
 ## Förtydliganden/motivering
