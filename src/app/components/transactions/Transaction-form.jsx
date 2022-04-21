@@ -2,6 +2,7 @@ import React from 'react';
 
 /* import TransactionServices from '../../services/transaction-services.js'; */
 import TransactionHistory from './Transaction-history.jsx';
+import './Transaction-form.css';
 
 class TransactionForm extends React.Component {
     constructor() {
@@ -55,9 +56,9 @@ class TransactionForm extends React.Component {
     render() {
       return (
           <>
-            <form name="transaction-form" onSubmit={this.handleSubmit}>
+            <form className='transaction-form' name="transaction-form" onSubmit={this.handleSubmit}>
                 <label>
-                    Var god välj datum på transaktionen:
+                    Datum på transaktionen:<br/>
                     <input 
                         name="date" 
                         type="datetime-local"
@@ -66,7 +67,7 @@ class TransactionForm extends React.Component {
                         required/>
                 </label>
                 <label>
-                    Valuta köpt:
+                    Valuta köpt:<br/>
                     <input 
                         name="cNameBought" 
                         type="text"
@@ -75,7 +76,7 @@ class TransactionForm extends React.Component {
                         required/>
                 </label>
                 <label>
-                    Summa:
+                    Summa:<br/>
                     <input 
                         name="sumBought" 
                         type="text"
@@ -84,7 +85,7 @@ class TransactionForm extends React.Component {
                         required/>
                 </label>
                 <label>
-                    Valuta såld:
+                    Valuta såld:<br/>
                     <input 
                         name="cNameSold" 
                         type="text"
@@ -93,7 +94,7 @@ class TransactionForm extends React.Component {
                         required/>
                 </label>
                 <label>
-                    Summa:
+                    Summa:<br/>
                     <input 
                         name="sumSold" 
                         type="text"

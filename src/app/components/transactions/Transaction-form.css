@@ -1,0 +1,42 @@
+.transaction-form {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.transaction-form > label > input {
+    padding: 10px;
+    box-shadow: 0 0 2px 1px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    border: 2px solid #ff9000;
+    width: 100%;
+}
+
+.transaction-form > label {
+    font-size: 20px;
+}
+
+.transaction-form > input[type=submit] {
+    margin: 10px 10px 10px 0;
+    font-size: 20px;
+    background-color: rgb(47, 48, 51, 1);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px;
+    border: none;
+}
+
+.transaction-form > input[type=submit]:hover {
+    background-color: #ff9000;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    box-shadow: 0 3px 6px #888888;
+    transform: scale(1.1);
+}
+
+@media screen and (min-width: 960px) {
+    .transaction-form > label > input {
+        width: 50%;
+    }
+}
