@@ -17,6 +17,10 @@
     width: 15%;
 }
 
+.empty > p {
+    padding: 5px;
+}
+
 @media screen and (max-width: 1330px) {
     .transaction {
         width: 30%;

@@ -8,27 +8,32 @@ class Navbar extends React.Component {
     constructor() {
         super();
         this.state = {
-            clicked: false,
+            menuClicked: false,
+            cointaxClicked: false
         }
     }
 
-    handleClick = () => {
-        this.setState({clicked: !this.state.clicked})
+    handleMenuClick = () => {
+        this.setState({menuClicked: !this.state.menuClicked})
+    }
+
+    handleCointaxClick = () => {
+        this.setState({cointaxClicked: !this.state.cointaxClicked});
     }
 
     render() {
         return(
             <nav className='NavbarItems'>
                 <h1 
-                    className={this.state.clicked ? 'navbar-logo spiral' : 'navbar-logo'} 
-                    onClick={this.handleClick}>
+                    className={this.state.cointaxClicked ? 'navbar-logo spiral' : 'navbar-logo'} 
+                    onClick={this.handleCointaxClick}>
                         Cointax
                     <i className="fa fa-solid fa-coins"></i>
                 </h1>
-                <div className='menu-icon' onClick={this.handleClick}>
-                    <i className={this.state.clicked ? 'fas fa-times' : 'fa fa-bars'}></i>
+                <div className='menu-icon' onClick={this.handleMenuClick}>
+                    <i className={this.state.menuClicked ? 'fas fa-times' : 'fa fa-bars'}></i>
                 </div>
-                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+                <ul className={this.state.menuClicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>

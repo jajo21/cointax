@@ -18,7 +18,7 @@ class TransactionHistory extends React.Component {
                         </div>
                     ) : (
                         <div className='empty'>
-                            <h2>Inga transaktioner hittade</h2>
+                            <p>Inga transaktioner hittade</p>
                         </div>
                     )
                 }
