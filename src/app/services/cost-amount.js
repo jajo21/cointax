@@ -1,4 +1,18 @@
 class CostAmount {
+
+    countAmountOfCoins(transactions){
+        let sum = 0;
+        transactions.forEach(transaction => {
+            if(transaction.cNameBought === 'BTC') {
+                sum = sum + parseInt(transaction.sumBought);
+            }
+            if(transaction.cNameSold === 'BTC') {
+                sum = sum - parseInt(transaction.sumSold);
+            }
+        });
+        return sum;
+    }
+
     countTransactions(transactions){
         console.log(transactions);
 
@@ -17,7 +31,6 @@ class CostAmount {
 
         console.log(costAmount);
     }
-
 }
 
 export default CostAmount;
