@@ -21,7 +21,7 @@ export default class Tax extends React.Component {
 
     countTransactions() {
         const transactionService = new TransactionServices();
-        let transactions = transactionService.checkLocalStorage();
+        let transactions = transactionService.getTransactions();
         if (transactions == null) transactions = [];
         const costAmount= new CostAmount;
         const countedTransactions = costAmount.countTransactions(transactions);

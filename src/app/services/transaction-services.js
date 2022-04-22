@@ -1,5 +1,5 @@
 class TransactionServices {
-    checkLocalStorage() {
+    getTransactions() {
         if (localStorage.getItem('transactions') !== null || undefined) {
             let transactions = JSON.parse(localStorage.getItem('transactions'));
             return transactions;

@@ -10,7 +10,7 @@ class TransactionInfo extends React.Component {
         super(props);
 
         let tS = new TransactionServices();
-        let currentTransactions = tS.checkLocalStorage();
+        let currentTransactions = tS.getTransactions();
         if(currentTransactions === null) currentTransactions = [];
         this.state = {
             date: '',
