@@ -13,8 +13,8 @@ DEN HÄR KLASSEN ÄR INTE FÄRDIG, DEN JOBBAS ÄNNU PÅ
 ---------------------------------------------------
  */
 export default class Tax extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.countTransactions()
     }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { MenuItems } from './menu-items.js';
+import { menuItems } from './menu-items.js';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import './navbar.css';
 
 class Navbar extends React.Component {
     constructor() {
@@ -14,7 +14,7 @@ class Navbar extends React.Component {
     }
 
     handleMenuClick = () => {
-        this.setState({menuClicked: !this.state.menuClicked})
+        this.setState({menuClicked: !this.state.menuClicked});
     }
 
     handleCointaxClick = () => {
@@ -34,10 +34,10 @@ class Navbar extends React.Component {
                     <i className={this.state.menuClicked ? 'fas fa-times' : 'fa fa-bars'}></i>
                 </div>
                 <ul className={this.state.menuClicked ? 'nav-menu active' : 'nav-menu'}>
-                    {MenuItems.map((item, index) => {
+                    {menuItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <Link to={item.url} className={item.cName}>
+                                <Link to={item.url} className={item.cName} /* onClick={(window.innerWidth < 960) ? this.handleMenuClick : null} */ >
                                     {item.title}
                                 </Link>
                             </li>
