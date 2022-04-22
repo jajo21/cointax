@@ -30,10 +30,19 @@
     .transaction {
         width: 45%;
     }
+    .transaction-history > h1 {
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 560px) {
     .transaction {
-        width: 90%;
+        width: 100%;
+    }
+    .transaction-history > h1 {
+        text-align: center;
+    }
+    .transaction {
+        align-content: center;
     }
 }

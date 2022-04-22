@@ -4,7 +4,7 @@
   "description": "*Vad behöver göras för att ditt program ska starta och gå och använda?*",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel ./*.html --port 3333"
+    "start": "parcel ./*.html --port 3333 --open"
   },
   "repository": {
     "type": "git",

@@ -11,6 +11,7 @@ import Home from './components/Routes/home.jsx';
 import Transactions from './components/Routes/transactions.jsx';
 import Wallet from './components/Routes/wallet.jsx';
 import Tax from './components/Routes/tax.jsx';
+import Register from './components/Routes/Register.jsx';
 
 const app = ReactDOM.createRoot(document.getElementById('root'));
 app.render(
@@ -22,10 +23,11 @@ app.render(
           <Route path="wallet" element={<Wallet />} />
           <Route path="transactions" element={<Transactions />} />
           <Route path="tax" element={<Tax />} />
+          <Route path="register" element={<Register />} />
           <Route
             path="*"
             element={
-              <main style={{ padding: "1rem" }}>
+              <main>
                 <p>There's nothing here!</p>
               </main>
             }

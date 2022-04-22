@@ -2,7 +2,8 @@ import React from 'react';
 
 import TransactionServices from '../../services/transaction-services.js';
 import TransactionHistory from './Transaction-history.jsx';
-import './Transaction-info.css';
+import TransactionLabel from './Transaction-label.jsx';
+import './transaction-info.css';
 
 class TransactionInfo extends React.Component {
     constructor(props) {
@@ -34,7 +35,7 @@ class TransactionInfo extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        let currentTransactions = this.state.transactions;
+        let currentTransactions = this.state.transactions.slice();
         currentTransactions.push({
             'id': currentTransactions.length+1,
             'date': this.state.date,
@@ -58,53 +59,42 @@ class TransactionInfo extends React.Component {
             <TransactionHistory transactions={this.state.transactions}/>
             <form className='transaction-form' name="transaction-form" onSubmit={this.handleSubmit}>
                 <h2>Lägg till transaktion</h2>
-                <label>
-                    Datum på transaktionen:<br/>
-                    <input 
+                    <TransactionLabel
+                        title="Datum på transaktionen:"
                         name="date" 
                         type="datetime-local"
                         value={this.state.date}
                         onChange={this.handleInputChange}
-                        required/>
-                </label>
-                <label>
-                    Valuta köpt:<br/>
-                    <input 
+                    />
+                    <TransactionLabel
+                        title="Valuta köpt:"
                         name="cNameBought" 
                         type="text"
                         value={this.state.cNameBought}
                         onChange={this.handleInputChange}
-                        required/>
-                </label>
-                <label>
-                    Antal:<br/>
-                    <input 
+                    />
+                    <TransactionLabel
+                        title="Antal:"
                         name="sumBought" 
                         type="text"
                         value={this.state.sumBought}
                         onChange={this.handleInputChange}
-                        required/>
-                </label>
-                <label>
-                    Valuta såld:<br/>
-                    <input 
+                    />
+                    <TransactionLabel
+                        title="Valuta såld:"
                         name="cNameSold" 
                         type="text"
                         value={this.state.cNameSold}
                         onChange={this.handleInputChange}
-                        required/>
-                </label>
-                <label>
-                    Summa:<br/>
-                    <input 
+                    />
+                    <TransactionLabel
+                        title="Summa:"
                         name="sumSold" 
                         type="text"
                         value={this.state.sumSold}
                         onChange={this.handleInputChange}
-                        required/>
-                </label>
-
-                <input type="submit" value="Spara"/>
+                    />
+                    <input type="submit" value="Spara"/>
             </form>
         </>
       );
