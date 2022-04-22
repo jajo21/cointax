@@ -17,6 +17,12 @@ class Navbar extends React.Component {
         this.setState({menuClicked: !this.state.menuClicked});
     }
 
+    handleMobileMenuClick = () => {
+        if(window.innerWidth < 960) {
+            this.setState({menuClicked: !this.state.menuClicked});
+        } 
+    }
+
     handleCointaxClick = () => {
         this.setState({cointaxClicked: !this.state.cointaxClicked});
     }
@@ -37,7 +43,7 @@ class Navbar extends React.Component {
                     {menuItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <Link to={item.url} className={item.cName} /* onClick={(window.innerWidth < 960) ? this.handleMenuClick : null} */ >
+                                <Link to={item.url} className={item.cName}  onClick={this.handleMobileMenuClick}>
                                     {item.title}
                                 </Link>
                             </li>

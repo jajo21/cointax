@@ -7,11 +7,11 @@ import {
   } from "react-router-dom";
 
 import App from './App.jsx';
-import Home from './components/Routes/home.jsx';
-import Transactions from './components/Routes/transactions.jsx';
-import Wallet from './components/Routes/wallet.jsx';
-import Tax from './components/Routes/tax.jsx';
-import Register from './components/Routes/Register.jsx';
+import Home from './components/routes/home.jsx';
+import Transactions from './components/routes/transactions.jsx';
+import Wallet from './components/routes/wallet.jsx';
+import Tax from './components/routes/tax.jsx';
+import Register from './components/routes/Register.jsx';
 
 const app = ReactDOM.createRoot(document.getElementById('root'));
 app.render(

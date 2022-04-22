@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Outlet } from 'react-router-dom';
 
-import Footer from './components/Footer/Footer.jsx';
-import Navbar from './components/Navbar/Navbar.jsx';
+import Footer from './components/footer/Footer.jsx';
+import Navbar from './components/navbar/Navbar.jsx';
 
 
 class App extends React.Component {
