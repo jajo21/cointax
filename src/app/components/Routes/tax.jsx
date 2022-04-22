@@ -36,4 +36,4 @@ export default class Tax extends React.Component {
             </main>
         )
     }
-}
+} 

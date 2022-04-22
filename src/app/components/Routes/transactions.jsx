@@ -10,4 +10,4 @@ export default class Transactions extends React.Component {
             </main>
         )
     }
-}
+} 
