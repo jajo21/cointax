@@ -1,7 +1,6 @@
 {
   "name": "cointax",
-  "version": "1.0.0",
-  "description": "*Vad behöver göras för att ditt program ska starta och gå och använda?*",
+  "version": "2.0.0",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel ./*.html --port 3333 --open"
@@ -11,7 +10,7 @@
     "url": "git+https://github.com/jajo21/cointax.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cointax by Johannes Jakobsson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jajo21/cointax/issues"
