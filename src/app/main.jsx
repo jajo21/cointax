@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client.js';
 import {
-    BrowserRouter,
+    HashRouter,
     Routes,
     Route,
   } from "react-router-dom";
@@ -15,10 +15,10 @@ import Register from './components/routes/Register.jsx';
 
 const app = ReactDOM.createRoot(document.getElementById('root'));
 app.render(
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="app.html" element={<Home />} /> {/* Snabbt enkelt sätt att fixa så app.html blir likadan som Home */}
+        <Route path="/" element={<App /> }>
+          <Route index element={<Home />} /> 
           <Route path="home" element={<Home />} />
           <Route path="wallet" element={<Wallet />} />
           <Route path="transactions" element={<Transactions />} />
@@ -34,5 +34,5 @@ app.render(
           />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
 );
