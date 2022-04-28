@@ -7,25 +7,26 @@ import TransactionHistory from '../transactions/Transaction-history.jsx';
 export default class Transactions extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             transactions: []
         }
+
+        this.transactionServices = new TransactionServices();
     }
 
     componentDidMount = () => {
-        let tS = new TransactionServices();
         this.setState({
-            transactions: tS.getTransactions()
+            transactions: this.transactionServices.getTransactions()
         })
         console.log('Component did mount');
     }
 
     handleUpdate = (transaction) => {
-        let tS = new TransactionServices();
-        tS.saveTransaction(transaction);
+        this.transactionServices.saveTransaction(transaction);
 
         this.setState({
-            transactions: tS.getTransactions()
+            transactions: this.transactionServices.getTransactions()
         })
         console.log('Transaktioner har uppdaterats i localstorage och på skärmen');
     }
