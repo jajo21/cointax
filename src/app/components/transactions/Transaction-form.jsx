@@ -31,7 +31,9 @@ function TransactionForm(props) {
 
                 <label>Datum på transaktionen <br/>
                     <input  
-                        {...register("date", {required: "This is required"})} 
+                        {...register("date", {
+                            required: "Fältet är obligatoriskt"
+                        })} 
                         type="date"
                     />
                 </label>
@@ -39,10 +41,10 @@ function TransactionForm(props) {
 
                 <label>Valuta köpt<br/>
                     <input 
-                        {...register("cNameBought", {required: "This is required", minLength: {
-                            value: 1,
-                            message: "Min length is 1"
-                        }})} 
+                        {...register("cNameBought", {
+                            required: "Fältet är obligatoriskt"
+                            }
+                        )} 
                         placeholder="Ex: BTC"
                     />
                 </label>
@@ -51,14 +53,10 @@ function TransactionForm(props) {
                 <label>Antal<br/>
                     <input 
                         {...register("sumBought", {
-                            required: "This is required", 
+                            required: "Fältet är obligatoriskt", 
                             pattern: {
                                 value: /^(0|[1-9][0-9]*)$/,
                                 message: 'You can only insert numbers without zero in beginning'
-                            },
-                            minLength: {
-                                value: 1,
-                                message: "Min length is 1"
                             }
                         })} 
                         placeholder="Ex: 1"
@@ -68,23 +66,26 @@ function TransactionForm(props) {
 
                 <label>Valuta såld<br/>
                     <input 
-                        {...register("cNameSold", {required: "This is required", minLength: {
-                            value: 1,
-                            message: "Min length is 1"
-                        }})} 
+                        {...register("cNameSold", {
+                            required: "Fältet är obligatoriskt"
+                            }
+                        )} 
                         placeholder="Ex: SEK"
                     />
                 </label>
                 <p>{errors.cNameSold?.message}</p>
 
                 <label>Summa<br/>
-                <input 
-                    {...register("sumSold", {required: "This is required", minLength: {
-                        value: 1,
-                        message: "Min length is 1"
-                    }})} 
-                    placeholder="Ex: 30000"
-                />
+                    <input 
+                        {...register("sumSold", {
+                            required: "Fältet är obligatoriskt", 
+                            pattern: {
+                                value: /^(0|[1-9][0-9]*)$/,
+                                message: 'You can only insert numbers without zero in beginning'
+                            }
+                        })} 
+                        placeholder="Ex: 40000"
+                    />
                 </label>
                 <p>{errors.sumSold?.message}</p>
 
