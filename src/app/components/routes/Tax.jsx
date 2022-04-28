@@ -31,9 +31,9 @@ export default class Tax extends React.Component {
 
     render() {
         return (
-            <main>
+            <>
                 <h2>Skatterapport</h2>
-            </main>
+            </>
         )
     }
 } 

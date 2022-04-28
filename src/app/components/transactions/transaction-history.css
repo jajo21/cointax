@@ -8,6 +8,8 @@
 .transaction-container {
     display: flex;
     flex-wrap: wrap;
+    text-decoration: none;
+    color: black;
 }
 
 .transaction {
@@ -15,6 +17,12 @@
     padding: 5px;
     box-shadow: 0 2px 4px #888888;
     width: 15%;
+    text-decoration: none;
+    color: black;
+    transition: transform 0.1s ease;
+}
+.transaction:hover {
+    transform: scale(104%);
 }
 
 .empty > p {

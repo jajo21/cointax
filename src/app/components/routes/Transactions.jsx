@@ -33,10 +33,10 @@ export default class Transactions extends React.Component {
 
     render() {
         return (
-            <main>
+            <>
                 <TransactionHistory transactions={this.state.transactions}/>
                 <TransactionForm handleUpdate={this.handleUpdate}/>
-            </main>
+            </>
         )
     }
 } 

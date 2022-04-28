@@ -1,9 +1,11 @@
 import React from 'react';
 
 import TransactionCard from './Transaction-card.jsx';
+import { Link } from 'react-router-dom';
 import './transaction-history.css';
 
 class TransactionHistory extends React.Component {
+
     render() {
         const transactions = this.props.transactions;
         return (
@@ -13,7 +15,13 @@ class TransactionHistory extends React.Component {
                     ? (
                         <div className='transaction-container'>
                             {transactions.map((transaction) => (
-                                <TransactionCard key={transaction.id} transaction={transaction} />
+                                <Link
+                                    className='transaction'
+                                    to={`/transactions/${transaction.id}`}
+                                    key={transaction.id}
+                                >
+                                    <TransactionCard key={transaction.id} transaction={transaction} />
+                                </Link>
                             ))}
                         </div>
                     ) : (

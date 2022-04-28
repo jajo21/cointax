@@ -27,9 +27,7 @@ app.render(
           <Route
             path="*"
             element={
-              <main>
                 <p>There's nothing here!</p>
-              </main>
             }
           />
         </Route>
