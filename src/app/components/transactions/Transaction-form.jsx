@@ -47,15 +47,6 @@ function TransactionForm(props) {
                     show="BTC"
                 />
 
-{/*                 <label>Valuta köpt<br/>
-                    <select {...register("cNameBought")}>
-                        <option value="BTC">BTC</option>
-                        <option value="BNB">BNB</option>
-                        <option value="USDT">USDT</option>
-                    </select>
-                </label>
-                <p>{errors.cNameBought?.message}</p> */}
-
                 <label>Antal<br/>
                     <input 
                         {...register("sumBought", {
@@ -70,16 +61,6 @@ function TransactionForm(props) {
                 </label>
                 <p>{errors.sumBought?.message}</p>
 
-{/*                 <label>Valuta såld<br/>
-                    <input 
-                        {...register("cNameSold", {
-                            required: "Fältet är obligatoriskt"
-                            }
-                        )} 
-                        placeholder="Ex: SEK"
-                    />
-                </label>
-                <p>{errors.cNameSold?.message}</p> */}
                 <TransactionSelect 
                     register={register("cNameSold")}
                     title="Valuta såld"
