@@ -23,6 +23,7 @@
 }
 .transaction:hover {
     transform: scale(104%);
+    cursor: pointer;
 }
 
 .empty > p {

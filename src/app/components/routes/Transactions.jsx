@@ -12,7 +12,8 @@ export default class Transactions extends React.Component {
 
         this.state = {
             transactions: [],
-            addTransactionOnClick: false
+            addTransactionOnClick: false,
+            deleteTransactionOnClick: false
         }
 
         this.transactionServices = new TransactionServices();
@@ -40,10 +41,19 @@ export default class Transactions extends React.Component {
         })
     }
 
+    handleDeleteTransactionOnClick(id) {
+        this.transactionServices.deleteTransaction(id);
+        this.setState({
+            deleteTransactionOnClick: !this.state.deleteTransactionOnClick,
+            transactions: this.transactionServices.getTransactions()
+        })
+        console.log('Transaktion borttagen i local och uppdaterats på skärm');
+    }
+
     render() {
         return (
             <>
-                <TransactionHistory transactions={this.state.transactions}/>
+                <TransactionHistory onDelete={(id) => this.handleDeleteTransactionOnClick(id)} transactions={this.state.transactions}/>
                 <button
                     className='add-transaction-button'
                     onClick={this.handleAddTransactionOnClick}
