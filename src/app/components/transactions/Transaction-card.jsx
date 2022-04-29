@@ -19,7 +19,6 @@ class TransactionCard extends React.Component {
             <>
                 <div className="transaction" onClick={this.onClick}>
                     <p>{this.props.transaction.date}</p>
-                    <p>{`Transaktion: ${this.props.transaction.id}`}</p>
                     <p>{`Köpt ${this.props.transaction.cNameBought}: ${this.props.transaction.sumBought}`}</p>
                     <p>{`Sålt ${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
                     <p>klicka på rutan för att se mer</p>

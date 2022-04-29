@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid";
+
 class TransactionServices {
     getTransactions() {
         if (localStorage.getItem('transactions') !== null || undefined) {
@@ -17,7 +19,7 @@ class TransactionServices {
 
     saveTransaction(transaction) {
         let allTransactions = this.getTransactions();
-        transaction.id = allTransactions.length+1;
+        transaction.id = nanoid();
         allTransactions.push(transaction);
         localStorage.setItem('transactions', JSON.stringify(allTransactions));
         console.log(allTransactions);
