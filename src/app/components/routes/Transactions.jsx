@@ -23,16 +23,14 @@ export default class Transactions extends React.Component {
         this.setState({
             transactions: this.transactionServices.getTransactions()
         })
-        console.log('Component did mount');
     }
 
-    handleUpdate = (transaction) => {
+    handleSubmitTransaction = (transaction) => {
         this.transactionServices.saveTransaction(transaction);
 
         this.setState({
             transactions: this.transactionServices.getTransactions()
         })
-        console.log('Transaktioner har uppdaterats i localstorage och på skärmen');
     }
 
     handleAddTransactionOnClick = () => {
@@ -47,19 +45,29 @@ export default class Transactions extends React.Component {
             deleteTransactionOnClick: !this.state.deleteTransactionOnClick,
             transactions: this.transactionServices.getTransactions()
         })
-        console.log('Transaktion borttagen i local och uppdaterats på skärm');
     }
 
     render() {
         return (
             <>
-                <TransactionHistory onDelete={(id) => this.handleDeleteTransactionOnClick(id)} transactions={this.state.transactions}/>
-                <button
-                    className='add-transaction-button'
-                    onClick={this.handleAddTransactionOnClick}
-                    >Lägg till transaktion
-                </button>
-                {this.state.addTransactionOnClick && <TransactionForm closeModal={this.handleAddTransactionOnClick} handleUpdate={this.handleUpdate}/>}
+                <TransactionHistory 
+                    onDelete={(id) => this.handleDeleteTransactionOnClick(id)} 
+                    transactions={this.state.transactions}
+                />
+                <div className='add-transaction-button-div'>
+                    <button
+                        className='add-transaction-button'
+                        onClick={this.handleAddTransactionOnClick}
+                        >Lägg till transaktion
+                    </button>
+                </div>
+
+                {this.state.addTransactionOnClick && 
+                    <TransactionForm 
+                        closeModal={this.handleAddTransactionOnClick} 
+                        handleSubmit={this.handleSubmitTransaction}
+                    />
+                }
             </>
         )
     }

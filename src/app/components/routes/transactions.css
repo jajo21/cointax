@@ -1,5 +1,5 @@
 .add-transaction-button {
-    margin: 10px 10px 10px 0;
+    margin: 10px 10px 10px 10px;
     font-size: 20px;
     background-color: rgb(47, 48, 51, 1);
     color: #fff;
@@ -15,3 +15,12 @@
     box-shadow: 0 3px 6px #888888;
     transform: scale(1.1);
 }
+
+@media screen and (max-width: 560px) {
+    .add-transaction-button-div{
+        text-align: center
+    }
+    .add-transaction-button-div{
+        text-align: center
+    }
+} 

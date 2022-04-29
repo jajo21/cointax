@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TransactionCard from './Transaction-card.jsx';
-import './transaction-history.css';
+import './transactions-css/transaction-history.css';
 
 class TransactionHistory extends React.Component {
 

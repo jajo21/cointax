@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './transaction-card-more.css';
+import './transactions-css/transaction-card-more.css';
 
 class TransactionCardMore extends React.Component {
 

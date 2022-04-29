@@ -3,15 +3,15 @@
     padding-left: 5px;
 }
 
-.transaction-form > h2 {
-    margin-bottom: 10px;
+.transaction-form-title > h2 {
+    margin-bottom: 20px;
 }
 
-.transaction-form > label > input {
+.transaction-form > label > input, .transaction-form > label > select {
     padding: 10px;
     box-shadow: 0 0 2px 1px;
     border-radius: 6px;
-    margin-bottom: 5px;
+    margin: 5px 0px 10px 0px;
     border: 2px solid #ff9000;
     width: 100%;
 }
@@ -39,7 +39,7 @@
 }
 
 @media screen and (min-width: 960px) {
-    .transaction-form > label > input {
+    .transaction-form > label > input, .transaction-form > label > select {
         width: 50%;
     }
 } 
@@ -48,7 +48,7 @@
 
 /*----- ADD TRANSACTION MODAL -----*/
 
-.modal-background {
+.transaction-form-background {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -62,7 +62,7 @@
     background-color: rgba(0,0,0,0.4);
 
 }
-.modal-container {
+.transaction-form-container {
     justify-content: center;
     width: 80%;
     border-radius: 12px;
@@ -73,18 +73,18 @@
     padding: 25px;
 }
 
-.modal-container .title {
+.transaction-form-container .transaction-form-title {
     display: inline-block;
     text-align: center;
     margin-top: 10px;
 }
 
-.modal-close-div {
+.transaction-form-close-div {
     display: flex;
     justify-content: flex-end;
 }
 
-.modal-close-div button {
+.transaction-form-close-div button {
     background-color: transparent;
     border: none;
     font-size: 25px;
