@@ -20,71 +20,78 @@ function TransactionForm(props) {
     });
 
     return (
-        <>
-            <form 
-                className='transaction-form'
-                name='transaction-form'
-                onSubmit={handleSubmit((data) => {
-                    props.handleUpdate(data)
-                })}
-            >
-                <h2>Lägg till transaktion</h2>
+        <div className='modal-background'>
+            <div className='modal-container'>
+                <div className='modal-close-div'>
+                    <button onClick={() => props.closeModal(false)}> X </button>
+                </div>
 
-                <label>Datum på transaktionen <br/>
-                    <input  
-                        {...register("date", {
-                            required: "Fältet är obligatoriskt"
-                        })} 
-                        type="date"
+                <div className='title'>
+                    <h2>Lägg till transaktion</h2>
+                </div>
+                <form 
+                    className='transaction-form'
+                    name='transaction-form'
+                    onSubmit={handleSubmit((data) => {
+                        props.handleUpdate(data)
+                    })}
+                >
+                    <label>Datum<br/>
+                        <input  
+                            {...register("date", {
+                                required: "Fältet är obligatoriskt"
+                            })} 
+                            type="date"
+                        />
+                    </label>
+                    <p>{errors.date?.message}</p>
+
+                    <TransactionSelect 
+                        register={register("cNameBought")}
+                        title="Valuta köpt"
+                        errors={errors.cNameBought?.message}
+                        show="BTC"
                     />
-                </label>
-                <p>{errors.date?.message}</p>
 
-                <TransactionSelect 
-                    register={register("cNameBought")}
-                    title="Valuta köpt"
-                    errors={errors.cNameBought?.message}
-                    show="BTC"
-                />
+                    <label>Antal<br/>
+                        <input 
+                            {...register("sumBought", {
+                                required: "Fältet är obligatoriskt", 
+                                pattern: {
+                                    value: /^(0|[1-9][0-9]*)$/,
+                                    message: 'You can only insert numbers without zero in beginning'
+                                }
+                            })} 
+                            placeholder="Ex: 1"
+                        />
+                    </label>
+                    <p>{errors.sumBought?.message}</p>
 
-                <label>Antal<br/>
-                    <input 
-                        {...register("sumBought", {
-                            required: "Fältet är obligatoriskt", 
-                            pattern: {
-                                value: /^(0|[1-9][0-9]*)$/,
-                                message: 'You can only insert numbers without zero in beginning'
-                            }
-                        })} 
-                        placeholder="Ex: 1"
+                    <TransactionSelect 
+                        register={register("cNameSold")}
+                        title="Valuta såld"
+                        errors={errors.cNameSold?.message}
+                        show="SEK"
                     />
-                </label>
-                <p>{errors.sumBought?.message}</p>
 
-                <TransactionSelect 
-                    register={register("cNameSold")}
-                    title="Valuta såld"
-                    errors={errors.cNameSold?.message}
-                    show="SEK"
-                />
+                    <label>Summa<br/>
+                        <input 
+                            {...register("sumSold", {
+                                required: "Fältet är obligatoriskt", 
+                                pattern: {
+                                    value: /^(0|[1-9][0-9]*)$/,
+                                    message: 'You can only insert numbers without zero in beginning'
+                                }
+                            })} 
+                            placeholder="Ex: 40000"
+                        />
+                    </label>
+                    <p>{errors.sumSold?.message}</p>
 
-                <label>Summa<br/>
-                    <input 
-                        {...register("sumSold", {
-                            required: "Fältet är obligatoriskt", 
-                            pattern: {
-                                value: /^(0|[1-9][0-9]*)$/,
-                                message: 'You can only insert numbers without zero in beginning'
-                            }
-                        })} 
-                        placeholder="Ex: 40000"
-                    />
-                </label>
-                <p>{errors.sumSold?.message}</p>
-
-                <input type="submit" value={'Spara'}/>
-            </form>
-        </>
+                    <button type='submit'>Spara</button>
+                </form>
+            </div>
+        </div>
     )
 }
 

@@ -1,0 +1,17 @@
+.add-transaction-button {
+    margin: 10px 10px 10px 0;
+    font-size: 20px;
+    background-color: rgb(47, 48, 51, 1);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px;
+    border: none;
+}
+
+.add-transaction-button:hover {
+    background-color: #ff9000;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    box-shadow: 0 3px 6px #888888;
+    transform: scale(1.1);
+}
