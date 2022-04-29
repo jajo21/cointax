@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './transaction-form.css';
+import './transactions-css/transaction-form.css';
 import {useForm} from 'react-hook-form';
 import TransactionSelect from './Transaction-select';
 
@@ -20,20 +20,20 @@ function TransactionForm(props) {
     });
 
     return (
-        <div className='modal-background'>
-            <div className='modal-container'>
-                <div className='modal-close-div'>
-                    <button onClick={() => props.closeModal(false)}> X </button>
+        <div className='transaction-form-background'>
+            <div className='transaction-form-container'>
+                <div className='transaction-form-close-div'>
+                    <button onClick={() => props.closeModal()}> X </button>
                 </div>
 
-                <div className='title'>
+                <div className='transaction-form-title'>
                     <h2>Lägg till transaktion</h2>
                 </div>
                 <form 
                     className='transaction-form'
                     name='transaction-form'
                     onSubmit={handleSubmit((data) => {
-                        props.handleUpdate(data)
+                        props.handleSubmit(data);
                     })}
                 >
                     <label>Datum<br/>
