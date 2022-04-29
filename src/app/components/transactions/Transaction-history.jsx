@@ -14,7 +14,10 @@ class TransactionHistory extends React.Component {
                     ? (
                         <div className='transaction-container'>
                             {transactions.map((transaction) => (
-                                <TransactionCard key={transaction.id} transaction={transaction} />
+                                <TransactionCard 
+                                    key={transaction.id} 
+                                    transaction={transaction}
+                                    onDelete={(id) => this.props.onDelete(id)} />
                             ))}
                         </div>
                     ) : (
