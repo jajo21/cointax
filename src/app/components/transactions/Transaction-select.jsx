@@ -10,7 +10,7 @@ class TransactionSelect extends React.Component {
                         <option value="SEK">SEK</option>
                     </select>
                 </label>
-                <p>{this.props.errors}</p>
+                <p className='error'>{this.props.errors}</p>
             </>
         )
     }
