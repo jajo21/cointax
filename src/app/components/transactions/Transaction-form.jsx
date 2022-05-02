@@ -8,6 +8,7 @@ function TransactionForm(props) {
     const {
         register,
         handleSubmit,
+        getValues,
         formState: {errors }
     } = useForm({
         defaultValues: {
@@ -44,11 +45,12 @@ function TransactionForm(props) {
                             type="date"
                         />
                     </label>
-                    <p>{errors.date?.message}</p>
+                    <p className='error'>{errors.date?.message}</p>
 
                     <TransactionSelect 
                         register={register("cNameBought", {
-                            required: "Fältet är obligatoriskt"
+                            required: "Fältet är obligatoriskt",
+                            validate: value => value !== getValues('cNameSold') || 'Du måste ha sålt och köpt olika valutor!'
                         })}
                         title="Valuta köpt"
                         errors={errors.cNameBought?.message}
@@ -61,17 +63,18 @@ function TransactionForm(props) {
                                 required: "Fältet är obligatoriskt", 
                                 pattern: {
                                     value: /^(0|[1-9][0-9]*)$/,
-                                    message: 'You can only insert numbers without zero in beginning'
+                                    message: 'Du kan bara skriva in nummer utan siffran 0 i början'
                                 }
                             })} 
                             placeholder="Ex: 1"
                         />
                     </label>
-                    <p>{errors.sumBought?.message}</p>
+                    <p className='error'>{errors.sumBought?.message}</p>
 
                     <TransactionSelect 
                         register={register("cNameSold", {
-                            required: "Fältet är obligatoriskt"
+                            required: "Fältet är obligatoriskt",
+                            validate: value => value !== getValues('cNameBought') || 'Du måste ha sålt och köpt olika valutor!'
                         })}
                         title="Valuta såld"
                         errors={errors.cNameSold?.message}
@@ -84,13 +87,13 @@ function TransactionForm(props) {
                                 required: "Fältet är obligatoriskt", 
                                 pattern: {
                                     value: /^(0|[1-9][0-9]*)$/,
-                                    message: 'You can only insert numbers without zero in beginning'
+                                    message: 'Du kan bara skriva in nummer utan siffran 0 i början'
                                 }
                             })} 
                             placeholder="Ex: 40000"
                         />
                     </label>
-                    <p>{errors.sumSold?.message}</p>
+                    <p className='error'>{errors.sumSold?.message}</p>
 
                     <button type='submit'>Spara</button>
                 </form>
