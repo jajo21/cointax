@@ -35,6 +35,7 @@ function TransactionForm(props) {
                     name='transaction-form'
                     onSubmit={handleSubmit((data) => {
                         props.handleSubmit(data);
+                        props.closeModal();
                     })}
                 >
                     <label>Datum<br/>
