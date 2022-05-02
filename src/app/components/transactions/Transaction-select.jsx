@@ -7,10 +7,7 @@ class TransactionSelect extends React.Component {
                 <label>{this.props.title}<br/>
                     <select {...this.props.register} >
                         <option value="BTC">BTC</option>
-                        <option value="BNB">BNB</option>
-                        <option value="USDT">USDT</option>
                         <option value="SEK">SEK</option>
-                        <option value="USD">USD</option>
                     </select>
                 </label>
                 <p>{this.props.errors}</p>

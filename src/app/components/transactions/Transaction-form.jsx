@@ -47,7 +47,9 @@ function TransactionForm(props) {
                     <p>{errors.date?.message}</p>
 
                     <TransactionSelect 
-                        register={register("cNameBought")}
+                        register={register("cNameBought", {
+                            required: "Fältet är obligatoriskt"
+                        })}
                         title="Valuta köpt"
                         errors={errors.cNameBought?.message}
                         show="BTC"
@@ -68,7 +70,9 @@ function TransactionForm(props) {
                     <p>{errors.sumBought?.message}</p>
 
                     <TransactionSelect 
-                        register={register("cNameSold")}
+                        register={register("cNameSold", {
+                            required: "Fältet är obligatoriskt"
+                        })}
                         title="Valuta såld"
                         errors={errors.cNameSold?.message}
                         show="SEK"
