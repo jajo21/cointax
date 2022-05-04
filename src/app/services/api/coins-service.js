@@ -26,6 +26,15 @@ class CoinsService {
         const data = await response.json();
         return data;
     }
+
+    deleteCurrency = async (id) => {
+        const URL = this.baseURL + 'cointaxcoins/' + id;
+        const response = await fetch(URL, {
+            method: 'DELETE'
+        });
+        const data = await response.json();
+        console.log('asd', data);
+    }
 }
 
 export default CoinsService;

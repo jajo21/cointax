@@ -28,9 +28,16 @@ export default class Admin extends React.Component {
         });
     }
 
+    handleOnClickDeleteCurr = async(id) => {
+        await this.coinsService.deleteCurrency(id);
+        this.setState({
+            currencies: await this.coinsService.getCurrencies(),
+        });
+    }
+
     render() {
         const currencies = this.state.currencies || [];
-        console.log(currencies);
+        console.log('hej',currencies);
         return (
             <>
                 <h2>Admin</h2>
@@ -47,7 +54,8 @@ export default class Admin extends React.Component {
                                 <h4>Namn: {currency.name}</h4>
                                 <p>Symbol: {currency.symbol}</p>
                                 <p>Valuta-typ: {currency.currencyType}</p>
-                                <br />
+                                <button onClick={() => this.handleOnClickDeleteCurr(currency.id)}>Ta bort valuta</button>
+                                <br /> <br />
                             </div>
                         )
                     })}
