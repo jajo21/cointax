@@ -29,7 +29,16 @@ class WalletsService {
         console.log(allWallets);
     }
 
-    getWalletTransactions(URL) {
+    deleteWallet(id) {
+        let wallets = this.getWallets();
+        wallets = wallets.filter(
+            wallet => wallet.id !== id
+        );
+        localStorage.setItem('wallets', JSON.stringify(wallets));
+        console.log(wallets);
+    }
+
+    getWalletTransactions = async(URL) => {
         let WTS = new WalletTransactionService();
         return WTS.getTransactions(URL);
     }
