@@ -1,6 +1,9 @@
 import React from 'react';
 import WalletsService from '../../services/wallets-service';
 import TransactionCard from '../transactions/Transaction-card';
+import { Link } from 'react-router-dom';
+
+import './wallet-transactions.css';
 
 class WalletTransactions extends React.Component {
     constructor(props) {
@@ -31,20 +34,31 @@ class WalletTransactions extends React.Component {
     render() {
         const transactions = this.filterTransactions(this.state.transactions || []);
         return (
-            <div>
-                <h1>Transaktioner för {this.props.walletSite}</h1>
-                <label htmlFor="search-bar">Sök efter köpta valutor</label>
-                <input name="search-bar" placeholder='EX: BTC' type="text" onChange={(e) => this.setState({transactionInput: e.target.value})}/>
-                {transactions?.map((transaction) => {
-                    return (
-                        <TransactionCard 
-                        key={transaction.id} 
-                        transaction={transaction}
-                        onDelete={() => {}} />
-                    )
-                })
+            <div className='wallet-transactions-content'>
+                <h2>Transaktionshistorik från {this.props.walletSite}</h2>
 
-                }
+                <div className='wallet-transaction-buttons'>
+                    <button className='connect-button'>Koppla ihop hämtade transaktioner med manuella</button>
+                    <Link to="/wallet"><button className='go-back-button'>Gå tillbaka till Plånbok</button></Link>
+                </div>
+
+                <div className='search-bar'>
+                    <label htmlFor="search-bar">Sök efter köpta valutor <br />
+                        <input name="search-bar" placeholder='EX: BTC' type="text" onChange={(e) => this.setState({transactionInput: e.target.value})}/>
+                    </label>
+                </div>
+
+                <div className='wallet-transactions'>
+                    {transactions?.map((transaction) => {
+                        return (                       
+                            <div className='wallet-transaction'>
+                                <p>{transaction.date}</p>
+                                <p>{`Köpt ${transaction.cNameBought}: ${transaction.sumBought}`}</p>
+                                <p>{`Sålt ${transaction.cNameSold}: ${transaction.sumSold}`}</p>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         );
 

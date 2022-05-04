@@ -1,4 +1,4 @@
-.transaction-card-more-background {
+.wallet-add-form-background {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -12,8 +12,9 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-.transaction-card-more-container {
+.wallet-add-form-container {
     justify-content: center;
+    width: 50%;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -22,34 +23,34 @@
     padding: 25px;
 }
 
-.transaction-card-more-container > button {
-    margin: 10px 10px 0 0;
-    font-size: 20px;
-    background-color: rgb(47, 48, 51, 1);
-    color: #fff;
-    border-radius: 6px;
-    padding: 8px;
-    border: none;
-    width: 50%;
-}
-
-.transaction-card-more-container > button:hover {
-    background-color: #ff9000;
-    transition: all 0.2s ease-out;
-    cursor: pointer;
-    box-shadow: 0 3px 6px #888888;
-    transform: scale(105%);
-}
-
-.transaction-card-more-close {
+.wallet-add-form-close {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
 }
 
-.transaction-card-more-close button {
+.wallet-add-form-close button {
     background-color: transparent;
     border: none;
     font-size: 25px;
     cursor: pointer;
 }
+
+.wallet-add-form-container > h1 {
+    margin-bottom: 10px;
+}
+.wallet-add-form-container > select, .wallet-add-form-container > input {
+    padding: 10px;
+    box-shadow: 0 0 2px 1px;
+    border-radius: 6px;
+    margin: 5px 0px 10px 0px;
+    border: 2px solid #ff9000;
+    width: 100%;
+}
+
+.wallet-add-form-container > p {
+    margin: 20px 0;
+}
+
+
+

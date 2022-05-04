@@ -1,0 +1,32 @@
+.add-wallet-div {
+    margin-top: 10px;
+}
+
+.wallets-div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.wallets-div > h2 {
+    margin-right: 20px;
+}
+
+.wallets-connected > h2 {
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width: 760px) {
+    .wallets-div {
+        display: initial;
+    }
+    .wallets-div > button, .wallets-div > a > button {
+        margin: 10px 10px 0 0;
+    }
+
+    .wallets-div > h2 {
+        margin-top: 20px;
+    }
+} 

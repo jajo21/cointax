@@ -7,10 +7,6 @@ export function WalletTransactionsRoute() {
 	return (
 		<>
             <WalletTransactions walletSite={params.walletSite} />
-                <Link to="/wallet">
-					<button>Gå tillbaka till wallet</button>
-				</Link>
-                <br /><br />
 		</>
 	);
 }

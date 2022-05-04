@@ -13,4 +13,62 @@ main {
 
 form > label {
     display: block;
-  }
+}
+
+
+
+/* BUTTONS */
+
+.save-button {
+    margin: 10px 10px 0 0;
+    font-size: 20px;
+    background-color: rgb(47, 48, 51, 1);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px;
+    border: none;
+    width: 50%;
+}
+
+.save-button:hover, 
+    .read-more-button:hover, 
+        .open-button:hover,
+            .go-back-button:hover,
+                .connect-button:hover {
+    background-color: #ff9000;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+    box-shadow: 0 3px 6px #888888;
+    transform: scale(105%);
+}
+
+.read-more-button {
+    margin: 2px 10px;
+    font-size: 15px;
+    background-color: rgb(47, 48, 51, 1);
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px;
+    border: none;
+}
+
+.open-button, 
+    .delete-button, 
+        .go-back-button, 
+            .connect-button {
+    margin: 0px 10px 0 0;
+    font-size: 16px;
+    background-color: rgb(47, 48, 51, 1);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px;
+    border: none;
+}
+
+.delete-button:hover {
+    background-color: #ff2f2f;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+    box-shadow: 0 3px 6px #888888;
+    transform: scale(105%);
+}
