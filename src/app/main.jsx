@@ -12,6 +12,8 @@ import Transactions from './components/routes/Transactions.jsx';
 import Wallet from './components/routes/Wallet.jsx';
 import Tax from './components/routes/Tax.jsx';
 import Register from './components/routes/Register.jsx';
+import WalletTransactions from './components/routes/Wallet-transactions.jsx';
+import { WalletTransactionsRoute } from './components/routes/Wallet-transactions-route.jsx';
 
 const app = ReactDOM.createRoot(document.getElementById('root'));
 app.render(
@@ -24,6 +26,7 @@ app.render(
           <Route path="transactions" element={<Transactions />} />
           <Route path="tax" element={<Tax />} />
           <Route path="register" element={<Register />} />
+          <Route path="wallet/transactions/:walletSite" element={<WalletTransactionsRoute/>} />
           <Route
             path="*"
             element={
