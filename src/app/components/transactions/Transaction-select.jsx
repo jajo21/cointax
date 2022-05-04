@@ -14,7 +14,7 @@ class TransactionSelect extends React.Component {
 
     componentDidMount = async() => {
         this.setState({
-            coins: await this.coinsService.getData(),
+            coins: await this.coinsService.getCurrencies(),
         })
     }
 
