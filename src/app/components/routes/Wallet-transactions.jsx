@@ -7,7 +7,8 @@ class WalletTransactions extends React.Component {
         super(props);
 
         this.state = {
-            transactions: null
+            transactions: null,
+            transactionInput: '',
         }
 
         this.walletsService = new WalletsService();
@@ -21,11 +22,20 @@ class WalletTransactions extends React.Component {
         });
     }
 
+    filterTransactions = (allTransactions) => {
+        return allTransactions.filter((transaction) => {
+            return transaction.cNameBought.toLowerCase().indexOf(this.state.transactionInput.toLowerCase()) >= 0;
+        });
+    }
+
     render() {
+        const transactions = this.filterTransactions(this.state.transactions || []);
         return (
             <div>
                 <h1>Transaktioner för {this.props.walletSite}</h1>
-                {this.state.transactions?.map((transaction) => {
+                <label htmlFor="search-bar">Sök efter köpta valutor</label>
+                <input name="search-bar" placeholder='EX: BTC' type="text" onChange={(e) => this.setState({transactionInput: e.target.value})}/>
+                {transactions?.map((transaction) => {
                     return (
                         <TransactionCard 
                         key={transaction.id} 
