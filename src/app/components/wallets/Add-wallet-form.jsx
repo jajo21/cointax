@@ -43,8 +43,8 @@ class AddWalletForm extends React.Component {
                 <input name='apiKey' type="text" value={this.state.apiKey} onChange={(e) => this.setState({apiKey: e.target.value})} />
                 <br />
 
-                <p>Inputfälten är bara fiktiva just nu, inget kommer att registreras. 
-                    Men klicka på knappen för att hämta hem historik från ett mockat api</p>
+                <p>Inputfälten är bara fiktiva just nu, inget kommer att användas på "riktigt". 
+                    Men välj Mock-Kryptobörs och klicka på knappen "Lägg till plånbok" för att hämta hem transaktionshistorik från ett mockat api</p>
 
                 <button onClick={this.handleClick}>Lägg till plånbok</button>
             </div>
