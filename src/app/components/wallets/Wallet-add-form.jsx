@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Wallet-add-form.css';
+
 class WalletAddForm extends React.Component {
     constructor(props) {
         super(props);
@@ -22,31 +24,32 @@ class WalletAddForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Lägg till plånbok</h1>
+            <div className='wallet-add-form-background'>
+                <div className='wallet-add-form-container'>
+                    <div className='wallet-add-form-close'>
+                        <button onClick={() => this.props.closeAddWallet()}> X </button>
+                    </div>
 
-                <label htmlFor="walletSite">Välj vilken kryptobörs du vill hämta din historik ifrån<button>Läs mer</button>
-                </label> 
-                <br />
+                    <h1>Lägg till plånbok</h1>
 
-                <select value={this.state.walletSite} onChange={(e) => this.setState({walletSite: e.target.value})}>
-                    <option value="MockKryptobörs">MockKryptobörs</option>
-                    <option value="Binance">Binance</option>
-                    <option value="Coinbase">Coinbase</option>
-                    <option value="Kraken">Kraken</option>
-                </select>
-                <br />
+                    <label >Välj vilken kryptobörs du vill hämta din historik ifrån<button className='read-more-button'>Läs mer</button></label> 
+                    <select value={this.state.walletSite} onChange={(e) => this.setState({walletSite: e.target.value})}>
+                        <option value="MockKryptobörs">MockKryptobörs</option>
+                        <option value="Binance">Binance</option>
+                        <option value="Coinbase">Coinbase</option>
+                        <option value="Kraken">Kraken</option>
+                    </select>
+                    <br />
 
-                <label htmlFor="apiKey">Här ska din api-nyckel registreras<button>Läs mer</button>
-                </label> 
-                <br />
-                <input name='apiKey' type="text" value={this.state.apiKey} onChange={(e) => this.setState({apiKey: e.target.value})} />
-                <br />
+                    <label htmlFor="apiKey">Här ska din api-nyckel registreras<button className='read-more-button'>Läs mer</button>
+                    </label> 
+                    <input name='apiKey' type="text" value={this.state.apiKey} onChange={(e) => this.setState({apiKey: e.target.value})} />
 
-                <p>Inputfältet för API-nyckeln kommer inte används på "riktigt" i den här prototypen, datan kommer bara att sparas lokalt. 
-                    Välj Mock-Kryptobörs och klicka på knappen "Lägg till plånbok" för att hämta hem transaktionshistorik från ett mockat api</p>
+                    <p>Inputfältet för API-nyckeln kommer inte används på "riktigt" i den här prototypen, datan kommer bara att sparas lokalt. 
+                        Välj Mock-Kryptobörs och klicka på knappen "Lägg till plånbok" för att hämta hem transaktionshistorik från ett mockat api</p>
 
-                <button onClick={this.handleClick}>Lägg till plånbok</button>
+                    <button className='save-button' onClick={this.handleClick}>Lägg till plånbok</button>
+                </div>
             </div>
         );
 
