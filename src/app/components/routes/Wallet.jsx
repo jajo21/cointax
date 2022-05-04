@@ -2,6 +2,7 @@ import React from 'react';
 import WalletsService from '../../services/wallets-service';
 import AddWalletForm from '../wallets/Add-wallet-form';
 import WalletTransactions from './Wallet-transactions';
+import { Link } from 'react-router-dom';
 
 export default class Wallet extends React.Component {
     constructor(props) {
@@ -11,7 +12,6 @@ export default class Wallet extends React.Component {
             onClickAddWallet: false,
             onClickCheckTransactions: false,
             wallets: [],
-            wallet: {}
         }
 
         this.walletsService = new WalletsService();
@@ -37,13 +37,6 @@ export default class Wallet extends React.Component {
         })
     }
 
-    handleOnClickTransactions = (id) => {
-        this.setState({
-            onClickCheckTransactions: !this.state.onClickCheckTransactions,
-            wallet: this.walletsService.getWallet(id),
-        });
-    }
-
 
     render() {
         const wallets = this.state.wallets;
@@ -60,14 +53,12 @@ export default class Wallet extends React.Component {
                     return(
                         <div key={wallet.id}>
                             <h2>{wallet.walletSite}</h2>
-                            <button onClick={() => this.handleOnClickTransactions(wallet.id)}>Kolla hämtade transaktioner</button>
+                            <Link to={'transactions/' + wallet.walletSite}>
+                                <button>Kolla hämtade transaktioner</button>
+                            </Link>
                         </div>
                     )
                 })}
-
-                {this.state.onClickCheckTransactions &&
-                    <WalletTransactions wallet={this.state.wallet}/>
-                }
 
             </>
         )

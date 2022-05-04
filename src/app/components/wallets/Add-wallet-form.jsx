@@ -6,7 +6,7 @@ class AddWalletForm extends React.Component {
 
         this.state = {
             apiKey: 'ABCD-EFGH-IJKL-MNOP',
-            walletSite: 'Mock-Kryptobörs',
+            walletSite: 'MockKryptobörs',
         }
     }
     
@@ -30,7 +30,7 @@ class AddWalletForm extends React.Component {
                 <br />
 
                 <select value={this.state.walletSite} onChange={(e) => this.setState({walletSite: e.target.value})}>
-                    <option value="Mock-Kryptobörs">Mock-Kryptobörs</option>
+                    <option value="MockKryptobörs">MockKryptobörs</option>
                     <option value="Binance">Binance</option>
                     <option value="Coinbase">Coinbase</option>
                     <option value="Kraken">Kraken</option>
@@ -43,8 +43,8 @@ class AddWalletForm extends React.Component {
                 <input name='apiKey' type="text" value={this.state.apiKey} onChange={(e) => this.setState({apiKey: e.target.value})} />
                 <br />
 
-                <p>Inputfälten är bara fiktiva just nu, inget kommer att användas på "riktigt". 
-                    Men välj Mock-Kryptobörs och klicka på knappen "Lägg till plånbok" för att hämta hem transaktionshistorik från ett mockat api</p>
+                <p>Inputfältet för API-nyckeln kommer inte används på "riktigt" i den här prototypen, datan kommer bara att sparas lokalt. 
+                    Välj Mock-Kryptobörs och klicka på knappen "Lägg till plånbok" för att hämta hem transaktionshistorik från ett mockat api</p>
 
                 <button onClick={this.handleClick}>Lägg till plånbok</button>
             </div>
