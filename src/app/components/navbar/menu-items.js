@@ -20,6 +20,11 @@ export const menuItems = [
         cName: 'nav-links'
     },
     {
+        title: 'Admin',
+        url: '/admin',
+        cName: 'nav-links'
+    },
+    {
         title: 'Registrera',
         url: '/register',
         cName: 'register-link'
