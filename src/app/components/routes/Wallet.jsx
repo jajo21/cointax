@@ -1,7 +1,6 @@
 import React from 'react';
 import WalletsService from '../../services/wallets-service';
-import AddWalletForm from '../wallets/Add-wallet-form';
-import WalletTransactions from './Wallet-transactions';
+import WalletAddForm from '../wallets/Wallet-add-form';
 import { Link } from 'react-router-dom';
 
 export default class Wallet extends React.Component {
@@ -37,6 +36,14 @@ export default class Wallet extends React.Component {
         })
     }
 
+    handleDeleteWallet = (id) => {
+        this.walletsService.deleteWallet(id);
+
+        this.setState({
+            wallets: this.walletsService.getWallets()
+        })
+    }
+
 
     render() {
         const wallets = this.state.wallets;
@@ -45,7 +52,7 @@ export default class Wallet extends React.Component {
                 <h2>Plånbok</h2>
                 <button onClick={this.handleOnClickAddWallet}>Lägg till plånbok</button>
                 {this.state.onClickAddWallet &&
-                    <AddWalletForm saveWallet={this.handleSaveWallet}/>
+                    <WalletAddForm saveWallet={this.handleSaveWallet}/>
                 }
 
                 {wallets?.map(wallet => {
@@ -56,6 +63,7 @@ export default class Wallet extends React.Component {
                             <Link to={'transactions/' + wallet.walletSite}>
                                 <button>Kolla hämtade transaktioner</button>
                             </Link>
+                                <button onClick={() => this.handleDeleteWallet(wallet.id)}>Ta bort plånbok</button>
                         </div>
                     )
                 })}

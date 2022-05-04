@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AddWalletForm extends React.Component {
+class WalletAddForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -53,4 +53,4 @@ class AddWalletForm extends React.Component {
     }
 }
 
-export default AddWalletForm;
+export default WalletAddForm;
