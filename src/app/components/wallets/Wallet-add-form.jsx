@@ -13,13 +13,12 @@ class WalletAddForm extends React.Component {
     }
     
     handleClick = () => {
-
         let newWallet = {
             walletSite: this.state.walletSite,
             apiKey: this.state.apiKey
         }
-
         this.props.saveWallet(newWallet);
+        this.props.closeAddWallet()
     }
 
     render() {
