@@ -27,7 +27,7 @@ app.render(
           <Route path="tax" element={<Tax />} />
           <Route path="admin" element={<Admin />} />
           <Route path="register" element={<Register />} />
-          <Route path="wallet/transactions/:walletSite" element={<WalletTransactionsRoute/>} />
+          <Route path="wallet/:walletSite" element={<WalletTransactionsRoute/>} />
           <Route
             path="*"
             element={
