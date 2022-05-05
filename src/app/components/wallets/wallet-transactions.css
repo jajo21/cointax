@@ -1,19 +1,15 @@
-.wallet-transactions-content {
-    width: 75%;
-    margin: auto auto 50px auto;
-}
-
-.wallet-transactions-content > h2{
+.wallet-transactions-content > h2 {
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.wallet-transaction-buttons {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0 auto;
+.wallet-transactions-buttons {
+    text-align: center;
+    margin: 10px 0;
 }
 
+.wallet-transactions-buttons > * {
+    margin: 5px 0;
+}
 
 .search-bar {
     text-align: center;
@@ -30,13 +26,43 @@
     width: 250px;
 }
 
+.wallet-transactions {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
 .wallet-transaction {
-    display: flex;
-    justify-content: space-around;
-    width: 75%;
-    align-content: center;
-    margin: 10px auto;
-    font-size: 20px;
-    padding: 20px;
+    margin: 10px 0;
     box-shadow: 0 2px 4px #888888;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 748px) {
+    .wallet-transactions-content {
+        margin: auto auto 50px auto;
+    }
+
+    .wallet-transactions-buttons > * {
+        margin: 5px 5px;
+    }
+
+    .wallet-transaction {
+        display: flex;
+        justify-content: left;
+        align-items: baseline;
+    }
+
+    .wallet-transaction > * {
+        width: 33%;
+        text-align: left;
+    }
+} 
+
+@media screen and (min-width: 1100px) {
+    .wallet-transactions-content {
+        max-width: 75%;
+    }
 }

@@ -36,7 +36,7 @@ class WalletTransactions extends React.Component {
             <div className='wallet-transactions-content'>
                 <h2>Transaktionshistorik från {this.props.walletSite}</h2>
 
-                <div className='wallet-transaction-buttons'>
+                <div className='wallet-transactions-buttons'>
                     <button className='connect-button'>Koppla ihop hämtade transaktioner med manuella</button>
                     <Link to="/wallet"><button className='go-back-button'>Gå tillbaka till Plånbok</button></Link>
                 </div>

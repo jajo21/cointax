@@ -52,8 +52,15 @@
     margin: 5px 0px 10px 0px;
     border: 2px solid #ff9000;
     width: 100%;
+    font-size: 16px;
 }
 
 .currency-add-form > label {
     font-size: 20px;
+}
+
+@media screen and (min-width: 630px) {
+    .currency-add-form-container {
+        width: 504px;
+    }
 }
