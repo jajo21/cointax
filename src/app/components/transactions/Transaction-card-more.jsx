@@ -16,7 +16,9 @@ class TransactionCardMore extends React.Component {
                     <p>{`Transaktion: ${this.props.transaction.id}`}</p>
                     <p>{`Köpt ${this.props.transaction.cNameBought}: ${this.props.transaction.sumBought}`}</p>
                     <p>{`Sålt ${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
-                    <button onClick={() => this.props.onDelete(this.props.transaction.id)}>Ta Bort</button>
+                    <div>
+                        <button className='delete-button' onClick={() => this.props.onDelete(this.props.transaction.id)}>Ta Bort</button>
+                    </div>
                 </div>
             </div>
         )

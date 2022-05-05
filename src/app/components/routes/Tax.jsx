@@ -33,6 +33,7 @@ export default class Tax extends React.Component {
         return (
             <>
                 <h2>Skatterapport</h2>
+                <p>Sidan är under konstruktion</p>
             </>
         )
     }

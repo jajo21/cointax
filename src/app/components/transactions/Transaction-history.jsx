@@ -9,7 +9,7 @@ class TransactionHistory extends React.Component {
         const transactions = this.props.transactions;
         return (
             <div className='transaction-history'>
-                <h1>Transaktionshistorik</h1>
+                <h2>Transaktionshistorik</h2>
                 {(transactions.length !== 0)
                     ? (
                         <div className='transaction-container'>

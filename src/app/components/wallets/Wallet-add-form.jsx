@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Wallet-add-form.css';
+import './wallet-add-form.css';
 
 class WalletAddForm extends React.Component {
     constructor(props) {
@@ -44,10 +44,11 @@ class WalletAddForm extends React.Component {
                     </label> 
                     <input name='apiKey' type="text" value={this.state.apiKey} onChange={(e) => this.setState({apiKey: e.target.value})} />
 
-                    <p>Inputfältet för API-nyckeln kommer inte används på "riktigt" i den här prototypen, datan kommer bara att sparas lokalt. 
+                    <p>Inputfältet för API-nyckeln kommer inte användas på "riktigt" i den här prototypen, datan kommer bara att sparas lokalt. 
                         Välj Mock-Kryptobörs och klicka på knappen "Lägg till plånbok" för att hämta hem transaktionshistorik från ett mockat api</p>
-
-                    <button className='save-button' onClick={this.handleClick}>Lägg till plånbok</button>
+                    <div>
+                        <button className='save-button' onClick={this.handleClick}>Lägg till plånbok</button>
+                    </div>
                 </div>
             </div>
         );

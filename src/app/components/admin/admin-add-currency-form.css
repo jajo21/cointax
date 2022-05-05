@@ -1,4 +1,4 @@
-.wallet-add-form-background {
+.currency-add-form-background {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-.wallet-add-form-container {
+.currency-add-form-container {
     justify-content: center;
     width: 80%;
     border-radius: 12px;
@@ -23,38 +23,44 @@
     padding: 25px;
 }
 
-.wallet-add-form-close {
+.currency-add-form-close-div {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 10px;
 }
 
-.wallet-add-form-close button {
+.currency-add-form-close-div button {
     background-color: transparent;
     border: none;
     font-size: 25px;
     cursor: pointer;
 }
 
-.wallet-add-form-container > h1 {
-    margin-bottom: 10px;
+.currency-add-form-container .currency-add-form-title{
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
 }
-.wallet-add-form-container > select, .wallet-add-form-container > input {
+
+.currency-add-form-title > h2 {
+    margin-bottom: 20px;
+}
+
+.currency-add-form > label > input, .currency-add-form > label > select {
     padding: 10px;
     box-shadow: 0 0 2px 1px;
     border-radius: 6px;
     margin: 5px 0px 10px 0px;
     border: 2px solid #ff9000;
     width: 100%;
+    font-size: 16px;
 }
 
-.wallet-add-form-container > p {
-    margin: 20px 0;
+.currency-add-form > label {
+    font-size: 20px;
 }
 
-
-@media screen and (min-width: 700px) {
-    .wallet-add-form-container {
-        width: 560;
+@media screen and (min-width: 630px) {
+    .currency-add-form-container {
+        width: 504px;
     }
-} 
+}

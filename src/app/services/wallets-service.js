@@ -6,7 +6,7 @@ class WalletsService {
     constructor() {
         this.transactionsCaller = new WalletTransactionsApiCaller();
         this.db = new Localbase('CointaxDB');
-        db.config.debug = false;
+        this.db.config.debug = false;
     }
 
     getWallets = async () => {

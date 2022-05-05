@@ -22,25 +22,6 @@
     padding: 25px;
 }
 
-.transaction-card-more-container > button {
-    margin: 10px 10px 0 0;
-    font-size: 20px;
-    background-color: rgb(47, 48, 51, 1);
-    color: #fff;
-    border-radius: 6px;
-    padding: 8px;
-    border: none;
-    width: 50%;
-}
-
-.transaction-card-more-container > button:hover {
-    background-color: #ff9000;
-    transition: all 0.2s ease-out;
-    cursor: pointer;
-    box-shadow: 0 3px 6px #888888;
-    transform: scale(105%);
-}
-
 .transaction-card-more-close {
     display: flex;
     justify-content: flex-end;

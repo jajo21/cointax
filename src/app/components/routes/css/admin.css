@@ -1,0 +1,59 @@
+.admin-route > h2 {
+    text-align: center;
+}
+
+.admin-info {
+    text-align: center;
+}
+.add-currency-div {
+    text-align: center;
+}
+
+.currencies {
+    margin: 20px 0;
+}
+
+.admin-route > h3 {
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+.currency {
+    margin: 10px 0;
+    box-shadow: 0 2px 4px #888888;
+    padding: 10px;
+    text-align: center;
+}
+
+.currency > p {
+    margin: 4px 0;
+}
+
+@media screen and (min-width: 800px) {
+    .admin-route {
+        margin: auto;
+    }
+    .currencies {
+        margin-bottom: 40px;
+    }
+
+    .currency {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        vertical-align: top;
+    }
+
+    .currency > *:not(:last-child) {
+        width: 25%;
+        text-align: left;
+    }
+} 
+
+@media screen and (min-width: 1100px) {
+    .admin-route {
+        max-width: 1100;
+    }
+
+}
