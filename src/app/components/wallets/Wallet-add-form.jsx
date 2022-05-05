@@ -46,8 +46,9 @@ class WalletAddForm extends React.Component {
 
                     <p>Inputfältet för API-nyckeln kommer inte används på "riktigt" i den här prototypen, datan kommer bara att sparas lokalt. 
                         Välj Mock-Kryptobörs och klicka på knappen "Lägg till plånbok" för att hämta hem transaktionshistorik från ett mockat api</p>
-
-                    <button className='save-button' onClick={this.handleClick}>Lägg till plånbok</button>
+                    <div>
+                        <button className='save-button' onClick={this.handleClick}>Lägg till plånbok</button>
+                    </div>
                 </div>
             </div>
         );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './transactions.css';
+import './css/transactions.css';
 
 import TransactionServices from '../../services/transaction-services.js';
 import TransactionForm from '../transactions/Transaction-form.jsx';

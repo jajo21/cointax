@@ -27,7 +27,6 @@ form > label {
     border-radius: 6px;
     padding: 8px;
     border: none;
-    width: 50%;
 }
 
 .save-button:hover, 

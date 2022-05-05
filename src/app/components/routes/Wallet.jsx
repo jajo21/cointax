@@ -3,7 +3,7 @@ import WalletsService from '../../services/wallets-service';
 import WalletAddForm from '../wallets/Wallet-add-form';
 import { Link } from 'react-router-dom';
 
-import './wallet.css'
+import './css/wallet.css'
 
 export default class Wallet extends React.Component {
     constructor(props) {
@@ -46,7 +46,6 @@ export default class Wallet extends React.Component {
 
     render() {
         const wallets = this.state.wallets;
-        console.log('render', wallets);
         return (
             <>
                 <h2>Plånbok</h2>
@@ -60,7 +59,6 @@ export default class Wallet extends React.Component {
                 <div className='wallets-connected'>
                     <h2>Kopplade kryptobörser</h2>
                     {wallets?.map(wallet => {
-                        console.log(wallet);
                         return(
                             <div className='wallets-div' key={wallet.id}>
                                 <h2>{wallet.walletSite}</h2>
