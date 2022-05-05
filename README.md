@@ -42,7 +42,11 @@
 ## Externa bibliotek
 Du kan tydligt se vilka externa bibliotek som är installerade i package.json. Men här kommer en mindre övergripande förklaring.
 
+Buffer version 6.0.3: Installerades i slutet när jag installerade localbase och startade applikationen första gången. Parcel verkar behöva det paketet för att köras tillsammans med localbase och indexedDB API på något sett, det här meddelandet kom upp i terminalen: @parcel/resolver-default: "Auto installing polyfill for Node builtin module "buffer"..." mer information om buffer finns här: https://www.npmjs.com/package/buffer, är inte riktigt på det klara vad buffer egentligen gör.
+
 Parcel version 2.4.1: Används för att sätta upp en utvecklingsmiljö med transpilering och bundling.
+
+Localbase: Används för att skapa lokal lagring liknande localStorage fast med hjälp av indexedDB.
 
 NanoID version 3.3.3: Används för att enkelt generera unika ID:n. Används mycket till keys i mitt projekt men även för att få just ett unikt ID på varje objekt i en array.
 
