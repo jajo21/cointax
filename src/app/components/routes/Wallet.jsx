@@ -60,7 +60,7 @@ export default class Wallet extends React.Component {
                 </div>
                 
                 <div className='wallets-connected'>
-                    <h2>Kopplade hemsidor</h2>
+                    <h2>Kopplade kryptobörser</h2>
                     {wallets?.map(wallet => {
                         console.log(wallet);
                         return(

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CoinsService from '../../services/api/coins-service';
+import CoinsApiCaller from '../../services/api/coins-api-caller';
 
 class TransactionSelect extends React.Component {
     constructor(props) {
@@ -9,12 +9,12 @@ class TransactionSelect extends React.Component {
             coins: []
         }
 
-        this.coinsService = new CoinsService();
+        this.coinsCaller = new CoinsApiCaller();
     }
 
     componentDidMount = async() => {
         this.setState({
-            coins: await this.coinsService.getCurrencies(),
+            coins: await this.coinsCaller.getCurrencies(),
         })
     }
 
