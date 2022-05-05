@@ -1,6 +1,5 @@
 import React from 'react';
 import WalletsService from '../../services/wallets-service';
-import TransactionCard from '../transactions/Transaction-card';
 import { Link } from 'react-router-dom';
 
 import './wallet-transactions.css';
@@ -51,7 +50,7 @@ class WalletTransactions extends React.Component {
                 <div className='wallet-transactions'>
                     {transactions?.map((transaction) => {
                         return (                       
-                            <div className='wallet-transaction'>
+                            <div key={transaction.id} className='wallet-transaction'>
                                 <p>{transaction.date}</p>
                                 <p>{`Köpt ${transaction.cNameBought}: ${transaction.sumBought}`}</p>
                                 <p>{`Sålt ${transaction.cNameSold}: ${transaction.sumSold}`}</p>

@@ -1,7 +1,11 @@
 import { nanoid } from "nanoid";
-import WalletTransactionService from "./api/wallet-transactions-service";
+import WalletTransactionsApiCaller from "./api/wallet-transactions-api-caller";
 
 class WalletsService {
+    constructor() {
+        this.transactionsCaller = new WalletTransactionsApiCaller();
+    }
+
     getWallets() {
         if (localStorage.getItem('wallets') !== null || undefined) {
             let wallets = JSON.parse(localStorage.getItem('wallets'));
@@ -22,7 +26,7 @@ class WalletsService {
         let allWallets = this.getWallets();
         wallet.id = nanoid();
         if(wallet.walletSite === 'MockKryptobörs') {
-            wallet.apiURL = 'https://retoolapi.dev/Dr8AOw/';
+            wallet.apiURL = this.transactionsCaller.getMockCryptoBrokerURL();
         }
         allWallets.push(wallet);
         localStorage.setItem('wallets', JSON.stringify(allWallets));
@@ -39,8 +43,7 @@ class WalletsService {
     }
 
     getWalletTransactions = async(URL) => {
-        let WTS = new WalletTransactionService();
-        return WTS.getTransactions(URL);
+        return this.transactionsCaller.getTransactions(URL);
     }
 }
 

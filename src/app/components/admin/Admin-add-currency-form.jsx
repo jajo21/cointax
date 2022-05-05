@@ -1,5 +1,5 @@
 import React from 'react';
-import CoinsService from '../../services/api/coins-service';
+import CoinsApiCaller from '../../services/api/coins-api-caller';
 
 class AdminAddCurrencyForm extends React.Component {
 
@@ -12,7 +12,7 @@ class AdminAddCurrencyForm extends React.Component {
             currencyType: 'crypto',
         }
 
-        this.coinsService = new CoinsService();
+        this.coinsCaller = new CoinsApiCaller();
     }
 
     handleChange = (event) => {
@@ -23,7 +23,7 @@ class AdminAddCurrencyForm extends React.Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        await this.coinsService.postCurrency(this.state.currencyName, this.state.currencySymbol, this.state.currencyType);
+        await this.coinsCaller.postCurrency(this.state.currencyName, this.state.currencySymbol, this.state.currencyType);
         this.props.closeForm();
     }
 

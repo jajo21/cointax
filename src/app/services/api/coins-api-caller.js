@@ -1,4 +1,4 @@
-class CoinsService {
+class CoinsApiCaller {
     constructor() {
         this.baseURL = 'https://retoolapi.dev/Z04hfX/';
     }
@@ -21,7 +21,6 @@ class CoinsService {
                 "symbol": currencySymbol,
                 "currencyType": currencyType
             })
-
         });
         const data = await response.json();
         return data;
@@ -37,4 +36,4 @@ class CoinsService {
     }
 }
 
-export default CoinsService;
+export default CoinsApiCaller;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CoinsService from '../../services/api/coins-service';
+import CoinsApiCaller from '../../services/api/coins-api-caller';
 import AdminAddCurrencyForm from '../admin/Admin-add-currency-form';
 
 export default class Admin extends React.Component {
@@ -12,26 +12,26 @@ export default class Admin extends React.Component {
             onClickAdd: false,
         }
 
-        this.coinsService = new CoinsService();
+        this.coinsCaller = new CoinsApiCaller();
     }
 
     componentDidMount = async() => {
         this.setState({
-            currencies: await this.coinsService.getCurrencies(),
+            currencies: await this.coinsCaller.getCurrencies(),
         })
     }
 
     handleOnClickAddCurr = async() => {
         this.setState({
             onClickAdd: !this.state.onClickAdd,
-            currencies: await this.coinsService.getCurrencies(),
+            currencies: await this.coinsCaller.getCurrencies(),
         });
     }
 
     handleOnClickDeleteCurr = async(id) => {
-        await this.coinsService.deleteCurrency(id);
+        await this.coinsCaller.deleteCurrency(id);
         this.setState({
-            currencies: await this.coinsService.getCurrencies(),
+            currencies: await this.coinsCaller.getCurrencies(),
         });
     }
 
