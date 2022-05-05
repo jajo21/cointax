@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/jajo21/cointax#readme",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.4.1"
   },
   "dependencies": {
+    "localbase": "^0.7.5",
     "nanoid": "^3.3.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

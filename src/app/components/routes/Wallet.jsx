@@ -12,15 +12,15 @@ export default class Wallet extends React.Component {
         this.state = {
             onClickAddWallet: false,
             onClickCheckTransactions: false,
-            wallets: [],
+            wallets: null,
         }
 
         this.walletsService = new WalletsService();
     }
 
-    componentDidMount = () => {
+    componentDidMount = async () => {
         this.setState({
-            wallets: this.walletsService.getWallets()
+            wallets: await this.walletsService.getWallets()
         })
     }
 
@@ -30,25 +30,23 @@ export default class Wallet extends React.Component {
         });
     }
 
-    handleSaveWallet = (wallet) => {
-        this.walletsService.saveWallet(wallet);
-
+    handleSaveWallet = async (wallet) => {
         this.setState({
-            wallets: this.walletsService.getWallets()
+            wallets: await this.walletsService.saveWallet(wallet)
         })
     }
 
-    handleDeleteWallet = (id) => {
-        this.walletsService.deleteWallet(id);
+    handleDeleteWallet = async(id) => {
 
         this.setState({
-            wallets: this.walletsService.getWallets()
+            wallets: await this.walletsService.deleteWallet(id)
         })
     }
 
 
     render() {
         const wallets = this.state.wallets;
+        console.log('render', wallets);
         return (
             <>
                 <h2>Plånbok</h2>
