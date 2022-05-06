@@ -1,6 +1,6 @@
 import React from 'react';
 import WalletsService from '../../services/wallets-service';
-import WalletAddForm from '../wallets/Wallet-add-form';
+import WalletAddForm from '../wallet/Wallet-add-form';
 import { Link } from 'react-router-dom';
 
 import './css/wallet.css'
