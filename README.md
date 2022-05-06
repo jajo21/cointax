@@ -62,9 +62,9 @@ Förklara de Webb-API:er som anropas i min prototyp.
 Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via retoolapi som lagrar 10 valutor som testaren av prototypen kan använda. 
 
 Åtkomstpunkter som används i min applikation:
-GET - https://retoolapi.dev/sX9GgF/cointaxcoins - Hämtar alla valutor som ska matas in i applikationen
-POST - https://retoolapi.dev/sX9GgF/cointaxcoins - Lägger till ny valuta
-DELETE - https://retoolapi.dev/sX9GgF/cointaxcoins/{id} - Tar bort vald valuta
+GET - https://retoolapi.dev/sX9GgF/cointaxcoins - Hämtar alla valutor som ska matas in i applikationen  
+POST - https://retoolapi.dev/sX9GgF/cointaxcoins - Lägger till ny valuta  
+DELETE - https://retoolapi.dev/sX9GgF/cointaxcoins/{id} - Tar bort vald valuta  
 
 Om vi utgår från mappen ./src/app/components/routes så används detta API i komponenten Transactions.jsx för att få ner alla tillgängliga valutor till komponenten transactions-select.jsx där användaren väljer i en select vilken valuta som har använts. Alla API-åtkomstpunkter används även i (den ännu öppna för alla) Admin.jsx routen för att en admin ska kunna hämta, lägga till och ta bort i API:t enkelt. Väljer man att testa funktionaliteten på "Admin-sidan" så får man gärna ta bort de valutorna man skapar och om man tar bort några av "grund" valutorna får man gärna lägga till dessa igen.
 
@@ -74,11 +74,11 @@ Det andra API:et jag ville implementera är ett api som hämtar alla privata tra
 
 Åtkomstpunkter som används i min applikation:
 
-GET - https://retoolapi.dev/Dr8AOw/transactions - Hämtar alla transaktioner som ska användas i applikationen.
+GET - https://retoolapi.dev/Dr8AOw/transactions - Hämtar alla transaktioner som ska användas i applikationen.  
 
 Om vi utgår från mappen ./src/app/components/routes igen så används detta api i komponenten Wallet.jsx och vidare till Wallet-transactions.jsx där alla transaktioner matas ut på en sida för att användaren ska se dessa visuellt. I framtiden ska dessa transaktioner matas ihop med alla övriga transaktioner som har hämtats för att i slutändan skapa allt som behövs inför deklarationen.
 
-Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/wallet-transactions-api-caller.js
+Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/wallet-transactions-api-caller.js  
 
 ## Förtydliganden/motivering till kodgranskare
 Jag ber i förväg om ursäkt för om ni upplever att det är lite rörigt när man använder termer från kryptovärlden som exempelvis plånbok(wallet). Det här är termer som jag har tänkt att det ska finnas en tydlig knapp för där man får en förklaring vad som menas med olika termer och vad man ska göra, alternativt ändra till mer förklarande ord. Klicka runt på sidan så kommer ni kodgranskare säkert förstå vad som ska göras vid varje val.
