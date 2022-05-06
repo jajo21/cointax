@@ -61,7 +61,8 @@ Förklara de Webb-API:er som anropas i min prototyp.
 
 Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via retoolapi som lagrar 10 valutor som testaren av prototypen kan använda. 
 
-Åtkomstpunkter som används i min applikation:
+Åtkomstpunkter som används i min applikation:  
+
 GET - https://retoolapi.dev/sX9GgF/cointaxcoins - Hämtar alla valutor som ska matas in i applikationen  
 POST - https://retoolapi.dev/sX9GgF/cointaxcoins - Lägger till ny valuta  
 DELETE - https://retoolapi.dev/sX9GgF/cointaxcoins/{id} - Tar bort vald valuta  
@@ -93,5 +94,6 @@ Delar jag har noterat själv som issues som jag inte har hunnit med:
 - Ändra stylingen på den manuella transaktionshistoriken(under fliken transaktioner) så att den blir mer som övriga sidor.
 - Skriva ut antal hämtade transaktioner i Wallet.jsx.
 - Skapa funktionaliteten för att räkna ut omkostnadsbelopp för varje valuta.  
+
 Det här är kommande issues som ska lösas, plus mycket mycket mer såklart :D
 Trevlig kodgranskning.
