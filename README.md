@@ -42,11 +42,11 @@
 ## Externa bibliotek
 Du kan tydligt se vilka externa bibliotek som är installerade i package.json. Men här kommer en mindre övergripande förklaring.
 
-Buffer version 6.0.3: Installerades i slutet när jag installerade localbase och startade applikationen första gången. Parcel verkar behöva det paketet för att köras tillsammans med localbase och indexedDB API:et på något sett, det här meddelandet kom upp i terminalen: @parcel/resolver-default: "Auto installing polyfill for Node builtin module "buffer"..." mer information om buffer finns här: https://www.npmjs.com/package/buffer, är inte riktigt på det klara vad buffer egentligen gör.
+Buffer version 6.0.3: Installerades i slutet när jag installerade localbase och startade applikationen första gången med localbase. Parcel verkar behöva det paketet för att köras tillsammans med localbase och indexedDB API:et på något sätt, det här meddelandet kom upp i terminalen: @parcel/resolver-default: "Auto installing polyfill for Node builtin module "buffer"..." mer information om buffer finns här: https://www.npmjs.com/package/buffer, är inte riktigt på det klara vad buffer egentligen gör.
 
 Parcel version 2.4.1: Används för att sätta upp en utvecklingsmiljö med transpilering och bundling.
 
-Localbase: Används för att skapa lokal lagring liknande localStorage fast med hjälp av indexedDB.
+Localbase version 0.7.5: Används för att skapa lokal lagring liknande localStorage fast med hjälp av indexedDB.
 
 NanoID version 3.3.3: Används för att enkelt generera unika ID:n. Används mycket till keys i mitt projekt men även för att få just ett unikt ID på varje objekt i en array.
 
@@ -54,23 +54,23 @@ React och React-Dom: version 18.0.0: React är ett kodbibliotek som enkelt hjäl
 
 React-Hook-Form version 7.30.0: Används för att enkelt sätta ihop forms med validering och annan funktionalitet.
 
-React-Router-Dom: Är ett externt bibliotek som gör det möjligt för react-projekt att via komponenter deklarera olika delar av komponentträdet som olika webbresurser/sidor i webbläsarens historik.
+React-Router-Dom version 6.3.0: Är ett externt bibliotek som gör det möjligt för react-projekt att via komponenter deklarera olika delar av komponentträdet som olika webbresurser/sidor i webbläsarens historik.
 
 ## Tjänster  
 Förklara de Webb-API:er som anropas i min prototyp.
 
-Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via retoolapi som lagrar 10 valutor som testaren av prototypen kan använda. Väljer man att testa den här funktionaliteten så får man gärna ta bort de valutorna man skapar och om man tar bort några av "grund" valutorna får man gärna lägga till dessa igen.
+Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via retoolapi som lagrar 10 valutor som testaren av prototypen kan använda. 
 
 Åtkomstpunkter som används i min applikation:
 GET - https://retoolapi.dev/sX9GgF/cointaxcoins - Hämtar alla valutor som ska matas in i applikationen
 POST - https://retoolapi.dev/sX9GgF/cointaxcoins - Lägger till ny valuta
 DELETE - https://retoolapi.dev/sX9GgF/cointaxcoins/{id} - Tar bort vald valuta
 
-Om vi utgår från mappen ./src/app/components/routes så används detta API i komponenten Transactions.jsx för att få ner alla tillgängliga valutor till komponenten transactions-select.jsx där användaren väljer i en select vilken valuta som har använts. Alla API-åtkomstpunkter används även i (den ännu öppna för alla) Admin.jsx routen för att en admin ska kunna hämta, lägga till och ta bort i API:t enkelt.
+Om vi utgår från mappen ./src/app/components/routes så används detta API i komponenten Transactions.jsx för att få ner alla tillgängliga valutor till komponenten transactions-select.jsx där användaren väljer i en select vilken valuta som har använts. Alla API-åtkomstpunkter används även i (den ännu öppna för alla) Admin.jsx routen för att en admin ska kunna hämta, lägga till och ta bort i API:t enkelt. Väljer man att testa funktionaliteten på "Admin-sidan" så får man gärna ta bort de valutorna man skapar och om man tar bort några av "grund" valutorna får man gärna lägga till dessa igen.
 
-Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/coins-service.js
+Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/coins-api-caller.js
 
-Det andra API:et jag ville implementera är ett api som hämtar alla privata transaktioner från en specifik användares kryptobörs, därav behöver man bygga en koppling mellan så många kryptobörsers API:er som möjligt för att alla användare ska få möjlighet att välja sin kryptobörs och alternativt välja fler. Då det är stor chans att en användare köper och säljer från olika kryptobörser. Den här delen i projektet är väldigt stort och komplext, därav väljer jag även här att göra ett eget mockat api med hjälp av retoolapi som är fyllt med historik från 10 transaktioner. Det här ska efterlikna en väldigt enkel variant av transaktionshistorik från en privat persons kryptobörs.
+Det andra API:et jag ville implementera är ett api som hämtar alla privata transaktioner från en specifik användares kryptobörs-plånbok, därav behöver man bygga en koppling mellan så många kryptobörsers API:er som möjligt för att alla användare ska få möjlighet att välja sin kryptobörs och alternativt välja fler. Då det är stor chans att en användare köper och säljer från olika kryptobörser. Den här delen i projektet är väldigt stor och komplex, därav väljer jag även här att göra ett eget mockat api med hjälp av retoolapi som är fyllt med historik från 10 transaktioner. Det här ska efterlikna en väldigt enkel variant av transaktionshistorik från en privat plånbok på en kryptobörs.
 
 Åtkomstpunkter som används i min applikation:
 
@@ -78,7 +78,7 @@ GET - https://retoolapi.dev/Dr8AOw/transactions - Hämtar alla transaktioner som
 
 Om vi utgår från mappen ./src/app/components/routes igen så används detta api i komponenten Wallet.jsx och vidare till Wallet-transactions.jsx där alla transaktioner matas ut på en sida för att användaren ska se dessa visuellt. I framtiden ska dessa transaktioner matas ihop med alla övriga transaktioner som har hämtats för att i slutändan skapa allt som behövs inför deklarationen.
 
-Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/wallet-transactions-service.js
+Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/wallet-transactions-api-caller.js
 
 ## Förtydliganden/motivering till kodgranskare
 Jag ber i förväg om ursäkt för om ni upplever att det är lite rörigt när man använder termer från kryptovärlden som exempelvis plånbok(wallet). Det här är termer som jag har tänkt att det ska finnas en tydlig knapp för där man får en förklaring vad som menas med olika termer och vad man ska göra, alternativt ändra till mer förklarande ord. Klicka runt på sidan så kommer ni kodgranskare säkert förstå vad som ska göras vid varje val.
