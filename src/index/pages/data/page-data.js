@@ -1,3 +1,5 @@
+import {url} from '../../images/images.js';
+
 export let pageData = [
     {
         page: 'home',
@@ -33,7 +35,7 @@ export let pageData = [
             backgroundTitle: 'Bakgrund',
             backgroundContent1: 'Jag har investerat i kryptovalutor sedan i mitten av år 2017. Varje år har jag deklarerat manuellt och dokumenterat allt möjligt i ett ' +
             'Excel dokument. Varje år har jag även gnällt och tragglat mig igenom deklarationen för att det är så extremt osmidigt. <br><br>',
-            backgroundImage: './images/deklaration.png',
+            backgroundImage: url.deklaration,
             backgroundContent2: 'Såhär kan en liten del i mitt privata Excel-dokument se ut och det här är enbart åtta affärer under en och samma dag. Det här är bara ' +
             'mitt personliga sparande av transaktioner och har egentligen inte med deklarationsprocessen att göra. Men många delar i dokumentet behövs för att fullfölja ' +
             'deklarationen.<br><br>' +
