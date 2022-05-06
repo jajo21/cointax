@@ -2,7 +2,7 @@ import React from 'react';
 
 import './css/transactions.css';
 
-import TransactionServices from '../../services/transaction-services.js';
+import TransactionsService from '../../services/transactions-service.js';
 import TransactionForm from '../transactions/Transaction-form.jsx';
 import TransactionHistory from '../transactions/Transaction-history.jsx';
 
@@ -16,20 +16,20 @@ export default class Transactions extends React.Component {
             deleteTransactionOnClick: false
         }
 
-        this.transactionServices = new TransactionServices();
+        this.transactionsService = new TransactionsService();
     }
 
     componentDidMount = () => {
         this.setState({
-            transactions: this.transactionServices.getTransactions()
+            transactions: this.transactionsService.getTransactions()
         })
     }
 
     handleSubmitTransaction = (transaction) => {
-        this.transactionServices.saveTransaction(transaction);
+        this.transactionsService.saveTransaction(transaction);
 
         this.setState({
-            transactions: this.transactionServices.getTransactions()
+            transactions: this.transactionsService.getTransactions()
         })
     }
 
@@ -40,10 +40,10 @@ export default class Transactions extends React.Component {
     }
 
     handleDeleteTransactionOnClick(id) {
-        this.transactionServices.deleteTransaction(id);
+        this.transactionsService.deleteTransaction(id);
         this.setState({
             deleteTransactionOnClick: !this.state.deleteTransactionOnClick,
-            transactions: this.transactionServices.getTransactions()
+            transactions: this.transactionsService.getTransactions()
         })
     }
 

@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 
-class TransactionServices {
+class TransactionsService {
     getTransactions() {
         if (localStorage.getItem('transactions') !== null || undefined) {
             let transactions = JSON.parse(localStorage.getItem('transactions'));
@@ -35,4 +35,4 @@ class TransactionServices {
     }
 }
 
-export default TransactionServices;
+export default TransactionsService;

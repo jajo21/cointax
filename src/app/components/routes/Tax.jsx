@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CostAmount from "../../services/cost-amount.js";
-import TransactionServices from "../../services/transaction-services.js";
+import TransactionsService from "../../services/transactions-service.js";
 
 /* 
 ---------------------------------------------------
@@ -20,8 +20,8 @@ export default class Tax extends React.Component {
 
 
     countTransactions() {
-        const transactionService = new TransactionServices();
-        let transactions = transactionService.getTransactions();
+        const transactionsService = new TransactionsService();
+        let transactions = transactionsService.getTransactions();
         if (transactions == null) transactions = [];
         const costAmount= new CostAmount;
         const countedTransactions = costAmount.countTransactions(transactions);

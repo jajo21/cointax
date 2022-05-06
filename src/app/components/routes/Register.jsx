@@ -14,6 +14,7 @@ export default class Register extends React.Component {
         return (
             <>
                 <h2>Registrera</h2>
+                <p>Sidan är under konstruktion</p>
             </>
         )
     }
