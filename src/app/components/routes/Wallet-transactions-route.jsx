@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import WalletTransactions from "../wallets/Wallet-transactions";
+import WalletTransactions from "../wallet/Wallet-transactions";
 
 export function WalletTransactionsRoute() {
 	const params = useParams();

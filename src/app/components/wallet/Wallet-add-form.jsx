@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './wallet-add-form.css';
+import './css/wallet-add-form.css';
 
 class WalletAddForm extends React.Component {
     constructor(props) {

@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel ./*.html --port 3333 --open"
+    "start": "parcel ./*.html --port 3334 --open"
   },
   "repository": {
     "type": "git",

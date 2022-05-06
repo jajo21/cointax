@@ -15,7 +15,7 @@
 ## Inlämning 3: Från koncept till prototyp
 ## Kravlista
 
- |Krav|Uppfyllt|Egna Kommentarer och vart kravet kan testas|
+ |Krav|Uppfyllt|Egna Kommentarer|
  |---|---|---|
 |**1**  |**Ja**| |
 |**2**  |**Ja**| |
@@ -31,12 +31,12 @@
 |**12**  |**Ja**| |
 |**13**  |**Ja**| |
 |**14**  |**Ja**| |
-|**15**  || |
-|**16**  || |
-|**17**  || |
-|**18**  || |
-|**19**  || |
-|**20**  || |
+|**15**  |**Ja**| |
+|**16**  |**Ja**| |
+|**17**  |**Ja**| |
+|**18**  |**Ja**| |
+|**19**  |**Ja**| |
+|**20**  |**Ja**| |
 
 
 ## Externa bibliotek
@@ -59,7 +59,7 @@ React-Router-Dom: Är ett externt bibliotek som gör det möjligt för react-pro
 ## Tjänster  
 Förklara de Webb-API:er som anropas i min prototyp.
 
-Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via retoolapi som lagrar 10 valutor som testaren av prototypen kan använda.
+Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via retoolapi som lagrar 10 valutor som testaren av prototypen kan använda. Väljer man att testa den här funktionaliteten så får man gärna ta bort de valutorna man skapar och om man tar bort några av "grund" valutorna får man gärna lägga till dessa igen.
 
 Åtkomstpunkter som används i min applikation:
 GET - https://retoolapi.dev/Z04hfX/cointaxcoins - Hämtar alla valutor som ska matas in i applikationen

@@ -2,7 +2,7 @@ import React from 'react';
 import WalletsService from '../../services/wallets-service';
 import { Link } from 'react-router-dom';
 
-import './wallet-transactions.css';
+import './css/wallet-transactions.css';
 
 class WalletTransactions extends React.Component {
     constructor(props) {
