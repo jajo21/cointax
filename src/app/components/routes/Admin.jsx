@@ -43,7 +43,7 @@ export default class Admin extends React.Component {
                 <h2>Admin</h2>
                 <div className='admin-info'>
                     <p>Det här är en tillfällig adminsida som alla har tillgång till!</p>
-                    <p>Den är skapad enbart för krav 10; att skicka information till ett api</p>
+                    <p>Lägg till och ta bort tillgängliga valutor som används vid manuell inmatning av transaktioner.</p>
                 </div>
                 <div className='add-currency-div'>
                     <button className='save-button' onClick={this.handleOnClickAddCurr}>Lägg till valuta</button>
