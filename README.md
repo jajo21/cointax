@@ -62,9 +62,9 @@ Förklara de Webb-API:er som anropas i min prototyp.
 Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via retoolapi som lagrar 10 valutor som testaren av prototypen kan använda. Väljer man att testa den här funktionaliteten så får man gärna ta bort de valutorna man skapar och om man tar bort några av "grund" valutorna får man gärna lägga till dessa igen.
 
 Åtkomstpunkter som används i min applikation:
-GET - https://retoolapi.dev/Z04hfX/cointaxcoins - Hämtar alla valutor som ska matas in i applikationen
-POST - https://retoolapi.dev/Z04hfX/cointaxcoins - Lägger till ny valuta
-DELETE - https://retoolapi.dev/Z04hfX/cointaxcoins/{id} - Tar bort vald valuta
+GET - https://retoolapi.dev/sX9GgF/cointaxcoins - Hämtar alla valutor som ska matas in i applikationen
+POST - https://retoolapi.dev/sX9GgF/cointaxcoins - Lägger till ny valuta
+DELETE - https://retoolapi.dev/sX9GgF/cointaxcoins/{id} - Tar bort vald valuta
 
 Om vi utgår från mappen ./src/app/components/routes så används detta API i komponenten Transactions.jsx för att få ner alla tillgängliga valutor till komponenten transactions-select.jsx där användaren väljer i en select vilken valuta som har använts. Alla API-åtkomstpunkter används även i (den ännu öppna för alla) Admin.jsx routen för att en admin ska kunna hämta, lägga till och ta bort i API:t enkelt.
 
@@ -80,4 +80,18 @@ Om vi utgår från mappen ./src/app/components/routes igen så används detta ap
 
 Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/wallet-transactions-service.js
 
-## Förtydliganden/motivering
+## Förtydliganden/motivering till kodgranskare
+Jag ber i förväg om ursäkt för om ni upplever att det är lite rörigt när man använder termer från kryptovärlden som exempelvis plånbok(wallet). Det här är termer som jag har tänkt att det ska finnas en tydlig knapp för där man får en förklaring vad som menas med olika termer och vad man ska göra, alternativt ändra till mer förklarande ord. Klicka runt på sidan så kommer ni kodgranskare säkert förstå vad som ska göras vid varje val.
+
+Tiden räckte inte till för att styla allt enhetligt så det kan också göra det lite rörigt men annars är jag nöjd hittills.. Däremot är det väldigt mycket kvar för att få en tydlig bild över applikationen och en klar bild över vad en användare behöver göra. Själva uträkningen för att få ut dokumentet till skatteverket är inte påbörjad. Utan bara grunden för att lägga till sina transaktioner, antingen manuellt eller via API.
+
+Delar jag har noterat själv som issues som jag inte har hunnit med: 
+- Banta ner css och få css-delen mer dry då mycket är dubbletter i de olika filerna.
+- Gör klart felhanteringen i funktionerna för alla API anrop så att de inte bara loggas i consolen.
+- Koppla ihop hämtade transaktioner från API:t med manuella transaktioner.
+- Fixa wallet-sidan så man ser plånböckerna från respektive kryptobörs mer avgränsat.
+- Ändra stylingen på den manuella transaktionshistoriken(under fliken transaktioner) så att den blir mer som övriga sidor.
+- Skriva ut antal hämtade transaktioner i Wallet.jsx.
+- Skapa funktionaliteten för att räkna ut omkostnadsbelopp för varje valuta.
+Det här är kommande issues som ska lösas, plus mycket mycket mer såklart :D
+Trevlig kodgranskning.

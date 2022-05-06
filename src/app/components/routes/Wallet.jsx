@@ -57,7 +57,7 @@ export default class Wallet extends React.Component {
                 </div>
                 
                 <div className='wallets-connected'>
-                    <h2>Kopplade kryptobörser</h2>
+                    <h2>Kopplade plånböcker från kryptobörser</h2>
                     {wallets?.map(wallet => {
                         return(
                             <div className='wallets-div' key={wallet.id}>
