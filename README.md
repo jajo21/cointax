@@ -92,6 +92,6 @@ Delar jag har noterat själv som issues som jag inte har hunnit med:
 - Fixa wallet-sidan så man ser plånböckerna från respektive kryptobörs mer avgränsat.
 - Ändra stylingen på den manuella transaktionshistoriken(under fliken transaktioner) så att den blir mer som övriga sidor.
 - Skriva ut antal hämtade transaktioner i Wallet.jsx.
-- Skapa funktionaliteten för att räkna ut omkostnadsbelopp för varje valuta.
+- Skapa funktionaliteten för att räkna ut omkostnadsbelopp för varje valuta.  
 Det här är kommande issues som ska lösas, plus mycket mycket mer såklart :D
 Trevlig kodgranskning.
