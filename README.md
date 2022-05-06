@@ -72,7 +72,7 @@ Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/coins-api-
 
 Det andra API:et jag ville implementera är ett api som hämtar alla privata transaktioner från en specifik användares kryptobörs-plånbok, därav behöver man bygga en koppling mellan så många kryptobörsers API:er som möjligt för att alla användare ska få möjlighet att välja sin kryptobörs och alternativt välja fler. Då det är stor chans att en användare köper och säljer från olika kryptobörser. Den här delen i projektet är väldigt stor och komplex, därav väljer jag även här att göra ett eget mockat api med hjälp av retoolapi som är fyllt med historik från 10 transaktioner. Det här ska efterlikna en väldigt enkel variant av transaktionshistorik från en privat plånbok på en kryptobörs.
 
-Åtkomstpunkter som används i min applikation:
+Åtkomstpunkter som används i min applikation:  
 
 GET - https://retoolapi.dev/Dr8AOw/transactions - Hämtar alla transaktioner som ska användas i applikationen.
 
@@ -92,6 +92,7 @@ Delar jag har noterat själv som issues som jag inte har hunnit med:
 - Fixa wallet-sidan så man ser plånböckerna från respektive kryptobörs mer avgränsat.
 - Ändra stylingen på den manuella transaktionshistoriken(under fliken transaktioner) så att den blir mer som övriga sidor.
 - Skriva ut antal hämtade transaktioner i Wallet.jsx.
-- Skapa funktionaliteten för att räkna ut omkostnadsbelopp för varje valuta.
+- Skapa funktionaliteten för att räkna ut omkostnadsbelopp för varje valuta.  
+
 Det här är kommande issues som ska lösas, plus mycket mycket mer såklart :D
 Trevlig kodgranskning.
