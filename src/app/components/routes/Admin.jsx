@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CoinsApiCaller from '../../services/api/coins-api-caller';
+import CoinsApiCaller from '../../api-callers/coins-api-caller';
 import AdminAddCurrencyForm from '../admin/Admin-add-currency-form';
 import './css/admin.css';
 
