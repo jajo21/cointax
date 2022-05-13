@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import CoinsApiCaller from '../../services/api/coins-api-caller';
+import CoinsApiCaller from '../../api-callers/coins-api-caller';
 
 class TransactionSelect extends React.Component {
     constructor(props) {
