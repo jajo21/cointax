@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CoinsApiCaller from '../../services/api/coins-api-caller';
+import CoinsApiCaller from '../../api-callers/coins-api-caller.js';
 import './admin-add-currency-form.css';
 
 class AdminAddCurrencyForm extends React.Component {
