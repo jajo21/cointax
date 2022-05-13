@@ -2,21 +2,24 @@
 
 ## Instruktioner
 
-*Vad behöver göras för att ditt program ska starta och gå och använda?*
+**Förbered dator**  
+1. Installera node och npm från den här sidan (https://nodejs.org/en/download/).  
+2. Verifiera installationen av node genom att skriva ```node -v``` i terminalen. Systemet bör visa vilken version du har installerad.  
+3. Verifiera installationen av npm genom att skriva ```npm -v``` i terminalen. Systemet bör visa vilken version du har installerad.  
+4. Installera npm globalet genom att skriva ```npm install -g npm``` i terminalen.  
 
-**1. Ladda ner repot från https://github.com/jajo21/cointax**  
-**2. Leta upp valfri terminal och utgå från nerladdad cointax mapp**  
-**3. I termnialen skriver du sedan: ```npm ci ```, nu laddas alla nödvändiga paket ner**  
-**4. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här gör att parcel transpilerar källkoden**  
-**5. Leta upp valfri webbläsare och gå in på http://localhost:3333**  
-**6. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till http://localhost:3333/app.html**  
+**Förbered och starta applikationen**  
+1. Ladda ner repot från (https://github.com/jajo21/cointax).  
+2. Leta upp valfri terminal och utgå från nerladdad cointax mapp.  
+3. I termnialen skriver du sedan: ```npm ci ```, nu laddas alla nödvändiga paket ner.  
+4. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här transpilerar koden via parcel och startar applikationen.  
+5. Normalt ska programmet öppnas i din webbläsare, om det inte gör det upp valfri webbläsare och navigera in på (http://localhost:3333).  
+6. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till (http://localhost:3333/app.html).  
 
+## Kravlista **Inlämning 3: Från koncept till prototyp**
 
-## Inlämning 3: Från koncept till prototyp
-## Kravlista
-
- |Krav|Uppfyllt|Egna Kommentarer|
- |---|---|---|
+|Krav|Uppfyllt|Egna Kommentarer|
+|---|---|---|
 |**1**  |**Ja**| |
 |**2**  |**Ja**| |
 |**3**  |**Ja**| |
@@ -38,21 +41,34 @@
 |**19**  |**Ja**| |
 |**20**  |**Ja**| |
 
-
 ## Externa bibliotek
 Du kan tydligt se vilka externa bibliotek som är installerade i package.json. Men här kommer en mindre övergripande förklaring.
 
-Buffer version 6.0.3: Installerades i slutet när jag installerade localbase och startade applikationen första gången med localbase. Parcel verkar behöva det paketet för att köras tillsammans med localbase och indexedDB API:et på något sätt, det här meddelandet kom upp i terminalen: @parcel/resolver-default: "Auto installing polyfill for Node builtin module "buffer"..." mer information om buffer finns här: https://www.npmjs.com/package/buffer, är inte riktigt på det klara vad buffer egentligen gör.
+### [Buffer](https://www.npmjs.com/package/buffer)
+
+Buffer version 6.0.3: Installerades i slutet när jag installerade localbase och startade applikationen första gången med localbase. Parcel verkar behöva det paketet för att köras tillsammans med localbase och indexedDB API:et på något sätt, det här meddelandet kom upp i terminalen: @parcel/resolver-default: "Auto installing polyfill for Node builtin module "buffer"..." mer information om buffer finns om du följer länken, är inte riktigt på det klara vad buffer egentligen gör.
+
+### [Parcel](https://www.npmjs.com/package/parcel)
 
 Parcel version 2.4.1: Används för att sätta upp en utvecklingsmiljö med transpilering och bundling.
 
+### [Localbase](https://www.npmjs.com/package/localbase)
+
 Localbase version 0.7.5: Används för att skapa lokal lagring liknande localStorage fast med hjälp av indexedDB.
+
+### [NanoID](https://www.npmjs.com/package/nanoid)
 
 NanoID version 3.3.3: Används för att enkelt generera unika ID:n. Används mycket till keys i mitt projekt men även för att få just ett unikt ID på varje objekt i en array.
 
+### [React](https://www.npmjs.com/package/react) [React-Dom] (https://www.npmjs.com/package/react-dom)
+
 React och React-Dom: version 18.0.0: React är ett kodbibliotek som enkelt hjälper dig att skapa vy-lagret i en Single Page Applikation.
 
+### [React-Hook-Form](https://www.npmjs.com/package/react-hook-form)
+
 React-Hook-Form version 7.30.0: Används för att enkelt sätta ihop forms med validering och annan funktionalitet.
+
+### [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
 
 React-Router-Dom version 6.3.0: Är ett externt bibliotek som gör det möjligt för react-projekt att via komponenter deklarera olika delar av komponentträdet som olika webbresurser/sidor i webbläsarens historik.
 
