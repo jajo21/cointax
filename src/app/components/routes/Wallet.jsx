@@ -50,9 +50,16 @@ export default class Wallet extends React.Component {
             <>
                 <h2>Plånbok</h2>
                 <div className='add-wallet-div'>
-                    <button className='open-button' onClick={this.handleOnClickAddWallet}>Lägg till plånbok</button>
+                    <button 
+                        className='open-button' 
+                        onClick={this.handleOnClickAddWallet}
+                        >Lägg till plånbok
+                    </button>
                     {this.state.onClickAddWallet &&
-                        <WalletAddForm saveWallet={this.handleSaveWallet} closeAddWallet={this.handleOnClickAddWallet}/>
+                        <WalletAddForm 
+                            saveWallet={this.handleSaveWallet} 
+                            closeAddWallet={this.handleOnClickAddWallet}
+                        />
                     }
                 </div>
                 

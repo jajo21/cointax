@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './transactions-css/transaction-card-more.css';
 
@@ -23,6 +24,12 @@ class TransactionCardMore extends React.Component {
             </div>
         )
     }
+}
+
+TransactionCardMore.propTypes = {
+    close: PropTypes.func,
+    transaction: PropTypes.object,
+    onDelete: PropTypes.func
 }
 
 export default TransactionCardMore;

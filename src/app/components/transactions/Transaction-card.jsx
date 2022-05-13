@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TransactionCardMore from './Transaction-card-more';
+
 
 class TransactionCard extends React.Component {
     constructor(props) {
@@ -33,6 +35,11 @@ class TransactionCard extends React.Component {
             </>
         )
     }
+}
+
+TransactionCard.propTypes = {
+    transaction: PropTypes.object,
+    onDelete: PropTypes.func
 }
 
 export default TransactionCard;

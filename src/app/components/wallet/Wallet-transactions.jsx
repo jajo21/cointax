@@ -1,6 +1,7 @@
 import React from 'react';
-import WalletsService from '../../services/wallets-service';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import WalletsService from '../../services/wallets-service';
 
 import './css/wallet-transactions.css';
 
@@ -62,6 +63,10 @@ class WalletTransactions extends React.Component {
         );
 
     }
+}
+
+WalletTransactions.propTypes = {
+    walletSite: PropTypes.string,
 }
 
 export default WalletTransactions;

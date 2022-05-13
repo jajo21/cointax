@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './transactions-css/transaction-form.css';
 import {useForm} from 'react-hook-form';
@@ -101,6 +102,11 @@ function TransactionForm(props) {
             </div>
         </div>
     )
+}
+
+TransactionForm.propTypes = {
+    closeModal: PropTypes.func,
+    handleSubmit: PropTypes.func
 }
 
 export default TransactionForm;
