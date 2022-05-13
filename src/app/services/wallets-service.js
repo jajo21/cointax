@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import Localbase from 'localbase';
-import WalletTransactionsApiCaller from "./api/wallet-transactions-api-caller";
+import WalletTransactionsApiCaller from "../api-callers/wallet-transactions-api-caller";
 
 class WalletsService {
     constructor() {
@@ -38,6 +38,12 @@ class WalletsService {
 
     getWalletTransactions = async(URL) => {
         return this.transactionsCaller.getTransactions(URL);
+    }
+
+    filterTransactions = (allTransactions, input) => {
+        return allTransactions.filter((transaction) => {
+            return transaction.cNameBought.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+        });
     }
 }
 

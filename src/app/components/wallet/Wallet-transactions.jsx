@@ -25,14 +25,8 @@ class WalletTransactions extends React.Component {
         });
     }
 
-    filterTransactions = (allTransactions) => {
-        return allTransactions.filter((transaction) => {
-            return transaction.cNameBought.toLowerCase().indexOf(this.state.transactionInput.toLowerCase()) >= 0;
-        });
-    }
-
     render() {
-        const transactions = this.filterTransactions(this.state.transactions || []);
+        const transactions = this.walletsService.filterTransactions(this.state.transactions || [], this.state.transactionInput);
         return (
             <div className='wallet-transactions-content'>
                 <h2>Transaktionshistorik från {this.props.walletSite}</h2>
