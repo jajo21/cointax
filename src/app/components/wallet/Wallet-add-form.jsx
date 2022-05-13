@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import './css/wallet-add-form.css';
@@ -54,6 +55,11 @@ class WalletAddForm extends React.Component {
         );
 
     }
+}
+
+WalletAddForm.propTypes = {
+    saveWallet: PropTypes.func,
+    closeAddWallet: PropTypes.func
 }
 
 export default WalletAddForm;

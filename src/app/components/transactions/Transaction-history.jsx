@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import TransactionCard from './Transaction-card.jsx';
@@ -29,6 +30,11 @@ class TransactionHistory extends React.Component {
             </div>
         )
     }
+}
+
+TransactionHistory.propTypes = {
+    transactions: PropTypes.array,
+    onDelete: PropTypes.func
 }
 
 export default TransactionHistory;

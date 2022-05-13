@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import CoinsApiCaller from '../../services/api/coins-api-caller';
@@ -35,6 +36,13 @@ class TransactionSelect extends React.Component {
             </>
         )
     }
+}
+
+TransactionSelect.propTypes = {
+    register: PropTypes.object,
+    title: PropTypes.string,
+    errors: PropTypes.array,
+    show: PropTypes.string
 }
 
 export default TransactionSelect;
