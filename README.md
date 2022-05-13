@@ -3,18 +3,18 @@
 ## Instruktioner
 
 **Förbered dator**  
-1. Installera node och npm från den här sidan (https://nodejs.org/en/download/).  
+1. Installera node och npm från den här sidan https://nodejs.org/en/download/.  
 2. Verifiera installationen av node genom att skriva ```node -v``` i terminalen. Systemet bör visa vilken version du har installerad.  
 3. Verifiera installationen av npm genom att skriva ```npm -v``` i terminalen. Systemet bör visa vilken version du har installerad.  
 4. Installera npm globalet genom att skriva ```npm install -g npm``` i terminalen.  
 
 **Förbered och starta applikationen**  
-1. Ladda ner repot från (https://github.com/jajo21/cointax).  
+1. Ladda ner repot från https://github.com/jajo21/cointax.  
 2. Leta upp valfri terminal och utgå från nerladdad cointax mapp.  
 3. I termnialen skriver du sedan: ```npm ci ```, nu laddas alla nödvändiga paket ner.  
 4. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här transpilerar koden via parcel och startar applikationen.  
-5. Normalt ska programmet öppnas i din webbläsare, om det inte gör det upp valfri webbläsare och navigera in på (http://localhost:3333).  
-6. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till (http://localhost:3333/app.html).  
+5. Normalt ska programmet öppnas i din webbläsare, om det inte gör det upp valfri webbläsare och navigera in på http://localhost:3333.  
+6. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till http://localhost:3333/app.html.  
 
 ## Kravlista - Inlämning 3: Från koncept till prototyp**
 
