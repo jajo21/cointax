@@ -57,6 +57,7 @@ function TransactionForm(props) {
                         title="Valuta köpt"
                         errors={errors.cNameBought?.message}
                         show="BTC"
+                        coins={props.coins}
                     />
 
                     <label>Antal<br/>
@@ -81,6 +82,7 @@ function TransactionForm(props) {
                         title="Valuta såld"
                         errors={errors.cNameSold?.message}
                         show="SEK"
+                        coins={props.coins}
                     />
 
                     <label>Summa<br/>
@@ -106,7 +108,8 @@ function TransactionForm(props) {
 
 TransactionForm.propTypes = {
     closeModal: PropTypes.func,
-    handleSubmit: PropTypes.func
+    handleSubmit: PropTypes.func,
+    coins: PropTypes.array
 }
 
 export default TransactionForm;

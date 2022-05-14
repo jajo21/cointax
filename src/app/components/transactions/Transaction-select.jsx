@@ -1,26 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import CoinsApiCaller from '../../api-callers/coins-api-caller';
-
 class TransactionSelect extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            coins: []
-        }
-
-        this.coinsCaller = new CoinsApiCaller();
-    }
-
-    componentDidMount = async() => {
-        this.setState({
-            coins: await this.coinsCaller.getCurrencies(),
-        })
-    }
-
     render() {
-        const coins = this.state.coins;
+        const coins = this.props.coins;
         return(
             <>
                 <label>{this.props.title}<br/>
@@ -39,9 +22,9 @@ class TransactionSelect extends React.Component {
 }
 
 TransactionSelect.propTypes = {
+    coins: PropTypes.array,
     register: PropTypes.object,
     title: PropTypes.string,
-    errors: PropTypes.array,
     show: PropTypes.string
 }
 

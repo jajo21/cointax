@@ -1,27 +1,29 @@
 import React from 'react';
-
-import './css/transactions.css';
-
 import TransactionsService from '../../services/transactions-service.js';
 import TransactionForm from '../transactions/Transaction-form.jsx';
 import TransactionHistory from '../transactions/Transaction-history.jsx';
+import CoinsApiCaller from '../../api-callers/coins-api-caller';
+import './css/transactions.css';
 
 export default class Transactions extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            coins: [],
             transactions: [],
             addTransactionOnClick: false,
             deleteTransactionOnClick: false
         }
 
         this.transactionsService = new TransactionsService();
+        this.coinsCaller = new CoinsApiCaller();
     }
 
-    componentDidMount = () => {
+    componentDidMount = async () => {
         this.setState({
-            transactions: this.transactionsService.getTransactions()
+            transactions: this.transactionsService.getTransactions(),
+            coins: await this.coinsCaller.getCurrencies(),
         })
     }
 
@@ -48,6 +50,7 @@ export default class Transactions extends React.Component {
     }
 
     render() {
+
         return (
             <>
                 <TransactionHistory 
@@ -66,6 +69,7 @@ export default class Transactions extends React.Component {
                     <TransactionForm 
                         closeModal={this.handleAddTransactionOnClick} 
                         handleSubmit={this.handleSubmitTransaction}
+                        coins={this.state.coins}
                     />
                 }
             </>
