@@ -7,27 +7,29 @@ class TransactionCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            onClick: false,
+            editTransactionOnClick: false,
         }
     }
 
-    onClick = () => {
+    handleEditTransactionOnClick = () => {
+        console.log('hej');
         this.setState({
-            onClick: !this.state.onClick,
+            editTransactionOnClick: !this.state.editTransactionOnClick,
         })
     }
     render() {
         return(
             <>
-                <div className="transaction" onClick={this.onClick}>
+                <div className="transaction" onClick={this.handleEditTransactionOnClick}>
                     <p>{this.props.transaction.date}</p>
                     <p>{`Köpt ${this.props.transaction.cNameBought}: ${this.props.transaction.sumBought}`}</p>
                     <p>{`Sålt ${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
                     <p>klicka på rutan</p>
                 </div>
-                {this.state.onClick && 
+                {this.state.editTransactionOnClick && 
                     <TransactionCardMore 
-                        close={this.onClick}
+                        closeModal={this.handleEditTransactionOnClick}
+                        modalValue={this.state.editTransactionOnClick}
                         transaction={this.props.transaction}
                         onDelete={(id) => this.props.onDelete(id)}
 
