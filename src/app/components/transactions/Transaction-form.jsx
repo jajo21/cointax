@@ -14,9 +14,9 @@ function TransactionForm(props) {
     } = useForm({
         defaultValues: {
             date: '',
-            cNameBought: '',
+            cNameBought: 'BTC',
             sumBought: '',
-            cNameSold: '',
+            cNameSold: 'SEK',
             sumSold: '',
         }
     });
@@ -52,7 +52,6 @@ function TransactionForm(props) {
                     })}
                     title="Valuta köpt"
                     errors={errors.cNameBought?.message}
-                    show="BTC"
                     coins={props.coins}
                 />
 
@@ -77,7 +76,6 @@ function TransactionForm(props) {
                     })}
                     title="Valuta såld"
                     errors={errors.cNameSold?.message}
-                    show="SEK"
                     coins={props.coins}
                 />
 
