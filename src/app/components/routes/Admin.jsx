@@ -68,7 +68,6 @@ export default class Admin extends React.Component {
                 {this.state.onClickAdd &&
                     <AdminAddCurrencyForm 
                         closeModal={this.handleOnClickAddCurr}
-                        modalValue={this.state.onClickAdd}
                     />
                 }
             </div>
