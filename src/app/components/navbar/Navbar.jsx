@@ -18,7 +18,7 @@ class Navbar extends React.Component {
     }
 
     handleMobileMenuClick = () => {
-        if(window.innerWidth < 960) {
+        if(window.innerWidth <= 1100) {
             this.setState({menuClicked: !this.state.menuClicked});
         } 
     }
