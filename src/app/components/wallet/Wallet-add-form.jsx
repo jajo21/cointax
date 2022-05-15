@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Modal from '../modal/Modal';
 
 import './css/wallet-add-form.css';
 
@@ -19,39 +20,33 @@ class WalletAddForm extends React.Component {
             apiKey: this.state.apiKey
         }
         this.props.saveWallet(newWallet);
-        this.props.closeAddWallet()
+        this.props.closeModal();
     }
 
     render() {
         return (
-            <div className='wallet-add-form-background'>
-                <div className='wallet-add-form-container'>
-                    <div className='wallet-add-form-close'>
-                        <button onClick={() => this.props.closeAddWallet()}> X </button>
-                    </div>
+            <Modal
+                show={this.props.modalValue}
+                closeModal={() => this.props.closeModal()}
+                title={'Lägg till plånbok'}
+            >
+                <label>Kryptobörs<button className='read-more-button'>Läs mer</button></label> 
+                <select className='add-wallet-select' value={this.state.walletSite} onChange={(e) => this.setState({walletSite: e.target.value})}>
+                    <option value="MockKryptobörs">MockKryptobörs</option>
+                    <option value="Binance">Binance</option>
+                    <option value="Coinbase">Coinbase</option>
+                    <option value="Kraken">Kraken</option>
+                </select>
+                <br />
 
-                    <h1>Lägg till plånbok</h1>
+                <label htmlFor="apiKey">API-nyckel<button className='read-more-button'>Läs mer</button>
+                </label> 
+                <input className='add-wallet-input' name='apiKey' type="text" value={this.state.apiKey} onChange={(e) => this.setState({apiKey: e.target.value})} />
 
-                    <label >Välj vilken kryptobörs du vill hämta din historik ifrån<button className='read-more-button'>Läs mer</button></label> 
-                    <select value={this.state.walletSite} onChange={(e) => this.setState({walletSite: e.target.value})}>
-                        <option value="MockKryptobörs">MockKryptobörs</option>
-                        <option value="Binance">Binance</option>
-                        <option value="Coinbase">Coinbase</option>
-                        <option value="Kraken">Kraken</option>
-                    </select>
-                    <br />
-
-                    <label htmlFor="apiKey">Här ska din api-nyckel registreras<button className='read-more-button'>Läs mer</button>
-                    </label> 
-                    <input name='apiKey' type="text" value={this.state.apiKey} onChange={(e) => this.setState({apiKey: e.target.value})} />
-
-                    <p>Inputfältet för API-nyckeln kommer inte användas på "riktigt" i den här prototypen, datan kommer bara att sparas lokalt. 
-                        Välj Mock-Kryptobörs och klicka på knappen "Lägg till plånbok" för att hämta hem transaktionshistorik från ett mockat api</p>
-                    <div>
-                        <button className='save-button' onClick={this.handleClick}>Lägg till plånbok</button>
-                    </div>
+                <div>
+                    <button className='save-button' onClick={this.handleClick}>Lägg till plånbok</button>
                 </div>
-            </div>
+            </Modal>
         );
 
     }
@@ -59,7 +54,8 @@ class WalletAddForm extends React.Component {
 
 WalletAddForm.propTypes = {
     saveWallet: PropTypes.func,
-    closeAddWallet: PropTypes.func
+    closeModal: PropTypes.func,
+    modalValue: PropTypes.bool
 }
 
 export default WalletAddForm;
