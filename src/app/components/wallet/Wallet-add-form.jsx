@@ -26,7 +26,6 @@ class WalletAddForm extends React.Component {
     render() {
         return (
             <Modal
-                show={this.props.modalValue}
                 closeModal={() => this.props.closeModal()}
                 title={'Lägg till plånbok'}
             >
@@ -54,8 +53,7 @@ class WalletAddForm extends React.Component {
 
 WalletAddForm.propTypes = {
     saveWallet: PropTypes.func,
-    closeModal: PropTypes.func,
-    modalValue: PropTypes.bool
+    closeModal: PropTypes.func
 }
 
 export default WalletAddForm;

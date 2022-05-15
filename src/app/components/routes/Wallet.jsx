@@ -59,7 +59,6 @@ export default class Wallet extends React.Component {
                         <WalletAddForm 
                             saveWallet={this.handleSaveWallet} 
                             closeModal={this.handleOnClickAddWallet}
-                            modalValue={this.state.onClickAddWallet}
                         />
                     }
                 </div>

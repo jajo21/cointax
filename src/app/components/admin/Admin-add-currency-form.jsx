@@ -33,7 +33,6 @@ class AdminAddCurrencyForm extends React.Component {
     render() {
         return (
             <Modal
-                show={this.props.modalValue}
                 closeModal={() => this.props.closeModal()}
                 title={'Lägg till valuta'}
             >
