@@ -22,7 +22,6 @@ class TransactionsService {
         transaction.id = nanoid();
         allTransactions.push(transaction);
         localStorage.setItem('transactions', JSON.stringify(allTransactions));
-        console.log(allTransactions);
     }
 
     deleteTransaction(id) {
@@ -31,7 +30,6 @@ class TransactionsService {
             transaction => transaction.id !== id
         );
         localStorage.setItem('transactions', JSON.stringify(transactions));
-        console.log(transactions);
     }
 }
 

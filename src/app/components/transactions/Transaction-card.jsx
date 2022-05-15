@@ -12,7 +12,6 @@ class TransactionCard extends React.Component {
     }
 
     handleEditTransactionOnClick = () => {
-        console.log('hej');
         this.setState({
             editTransactionOnClick: !this.state.editTransactionOnClick,
         })
@@ -29,10 +28,8 @@ class TransactionCard extends React.Component {
                 {this.state.editTransactionOnClick && 
                     <TransactionCardMore 
                         closeModal={this.handleEditTransactionOnClick}
-                        modalValue={this.state.editTransactionOnClick}
                         transaction={this.props.transaction}
                         onDelete={(id) => this.props.onDelete(id)}
-
                     />}
             </>
         )
