@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './modal.css';
 
 class Modal extends React.Component {
@@ -9,7 +10,7 @@ class Modal extends React.Component {
     render() {
 
         return(
-            <div className="modal" onClick={this.props.closeModal}>
+            <div className={`modal ${this.props.show ? 'show' : ''}`} onClick={this.props.closeModal}>
                 <div className="modal-content" onClick={e => e.stopPropagation()}>
 
                     <div className="modal-close">
@@ -27,6 +28,13 @@ class Modal extends React.Component {
             </div>
         );
     }
+}
+
+Modal.propTypes = {
+    show: PropTypes.bool,
+    closeModal: PropTypes.func,
+    title: PropTypes.string,
+    children: PropTypes.any
 }
 
 export default Modal;

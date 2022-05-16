@@ -25,9 +25,10 @@ class TransactionCard extends React.Component {
                     <p>{`Sålt ${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
                     <p>klicka på rutan</p>
                 </div>
-                {this.state.editTransactionOnClick && 
+                {this.state.editTransactionOnClick && // SKA JAG HA KVAR DET HÄR?
                     <TransactionCardMore 
                         closeModal={this.handleEditTransactionOnClick}
+                        modalValue={this.state.editTransactionOnClick}
                         transaction={this.props.transaction}
                         onDelete={(id) => this.props.onDelete(id)}
                     />}
