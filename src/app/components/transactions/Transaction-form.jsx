@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import PropTypes from 'prop-types';
 import TransactionSelect from './Transaction-select';
 import Modal from '../modal/Modal';
+import TransactionsContext from '../../contexts/TransactionsContext';
 import './transactions-css/transaction-form.css';
 
 function TransactionForm(props) {
+    const {addTransaction} = useContext(TransactionsContext);
+
     const {
         register,
         handleSubmit,
@@ -32,7 +35,7 @@ function TransactionForm(props) {
                 className='transaction-form'
                 name='transaction-form'
                 onSubmit={handleSubmit((data) => {
-                    props.handleSubmit(data);
+                    addTransaction(data);
                     props.onClose();
                 })}
             >
@@ -103,7 +106,6 @@ function TransactionForm(props) {
 TransactionForm.propTypes = {
     onClose: PropTypes.func,
     open: PropTypes.bool,
-    handleSubmit: PropTypes.func,
     coins: PropTypes.array
 }
 

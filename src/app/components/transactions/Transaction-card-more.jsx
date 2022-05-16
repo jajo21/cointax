@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../modal/Modal';
 
+import TransactionsContext from '../../contexts/TransactionsContext';
 import './transactions-css/transaction-card-more.css';
 
 class TransactionCardMore extends React.Component {
@@ -19,7 +20,7 @@ class TransactionCardMore extends React.Component {
                         <p>{`Sålt ${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
                     </div>
                     <div>
-                        <button className='delete-button' onClick={() => this.props.onDelete(this.props.transaction.id)}>Ta Bort</button>
+                        <button className='delete-button' onClick={() => this.context.deleteTransaction(this.props.transaction.id)}>Ta Bort</button>
                     </div>
                 </Modal>
         )
@@ -30,7 +31,8 @@ TransactionCardMore.propTypes = {
     onClose: PropTypes.func,
     open: PropTypes.bool,
     transaction: PropTypes.object,
-    onDelete: PropTypes.func
 }
+
+TransactionCardMore.contextType = TransactionsContext;
 
 export default TransactionCardMore;

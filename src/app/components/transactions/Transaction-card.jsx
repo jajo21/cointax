@@ -30,7 +30,6 @@ class TransactionCard extends React.Component {
                         onClose={this.handleEditTransactionOnClick}
                         open={this.state.editTransactionOnClick}
                         transaction={this.props.transaction}
-                        onDelete={(id) => this.props.onDelete(id)}
                     />}
             </>
         )
@@ -41,7 +40,6 @@ TransactionCard.propTypes = {
     open: PropTypes.bool,
     onClose: PropTypes.func,
     transaction: PropTypes.object,
-    onDelete: PropTypes.func
 }
 
 export default TransactionCard;
