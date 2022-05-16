@@ -55,12 +55,12 @@ export default class Wallet extends React.Component {
                         onClick={this.handleOnClickAddWallet}
                         >Lägg till plånbok
                     </button>
-                    {this.state.onClickAddWallet &&
-                        <WalletAddForm 
-                            saveWallet={this.handleSaveWallet} 
-                            closeModal={this.handleOnClickAddWallet}
-                        />
-                    }
+                    
+                    <WalletAddForm 
+                        modalValue={this.state.onClickAddWallet}
+                        saveWallet={this.handleSaveWallet} 
+                        closeModal={this.handleOnClickAddWallet}
+                    />
                 </div>
                 
                 <div className='wallets-connected'>

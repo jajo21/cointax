@@ -44,8 +44,8 @@ export default class Transactions extends React.Component {
     handleDeleteTransactionOnClick(id) {
         this.transactionsService.deleteTransaction(id);
         this.setState({
-            deleteTransactionOnClick: !this.state.deleteTransactionOnClick,
-            transactions: this.transactionsService.getTransactions()
+            transactions: this.transactionsService.getTransactions(),
+            deleteTransactionOnClick: !this.state.deleteTransactionOnClick
         })
     }
 
@@ -65,13 +65,13 @@ export default class Transactions extends React.Component {
                     </button>
                 </div>
 
-                {this.state.addTransactionOnClick && 
-                    <TransactionForm 
-                        closeModal={this.handleAddTransactionOnClick} 
-                        handleSubmit={this.handleSubmitTransaction}
-                        coins={this.state.coins}
-                    />
-                }
+                <TransactionForm 
+                    closeModal={this.handleAddTransactionOnClick}
+                    modalValue={this.state.addTransactionOnClick}
+                    handleSubmit={this.handleSubmitTransaction}
+                    coins={this.state.coins}
+                />
+
             </>
         )
     }
