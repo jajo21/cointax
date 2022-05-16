@@ -21,7 +21,6 @@ export function TransactionsProvider({ children }) {
         tS.deleteTransaction(id);
     }
 
-
     return(
         <TransactionsContext.Provider 
             value={{

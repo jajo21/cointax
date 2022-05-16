@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import TransactionCard from './Transaction-card.jsx';
+import TransactionsContext from '../../contexts/TransactionsContext.js';
 import './transactions-css/transaction-history.css';
 
 class TransactionHistory extends React.Component {
 
     render() {
-        const transactions = this.props.transactions;
+        const transactions = this.context.transactions;
         return (
             <div className='transaction-history'>
                 <h2>Transaktionshistorik</h2>
@@ -18,7 +19,7 @@ class TransactionHistory extends React.Component {
                                 <TransactionCard 
                                     key={transaction.id} 
                                     transaction={transaction}
-                                    onDelete={(id) => this.props.onDelete(id)} />
+                                />
                             ))}
                         </div>
                     ) : (
@@ -32,9 +33,5 @@ class TransactionHistory extends React.Component {
     }
 }
 
-TransactionHistory.propTypes = {
-    transactions: PropTypes.array,
-    onDelete: PropTypes.func
-}
-
+TransactionHistory.contextType = TransactionsContext;
 export default TransactionHistory;

@@ -1,8 +1,8 @@
 import React from 'react';
-import TransactionsService from '../../services/transactions-service.js';
 import TransactionForm from '../transactions/Transaction-form.jsx';
 import TransactionHistory from '../transactions/Transaction-history.jsx';
 import CoinsApiCaller from '../../api-callers/coins-api-caller';
+import TransactionsContext from '../../contexts/TransactionsContext.js';
 import './css/transactions.css';
 
 export default class Transactions extends React.Component {
@@ -11,41 +11,21 @@ export default class Transactions extends React.Component {
 
         this.state = {
             coins: [],
-            transactions: [],
-            addTransactionOnClick: false,
-            deleteTransactionOnClick: false
+            isOpen: false,
         }
 
-        this.transactionsService = new TransactionsService();
         this.coinsCaller = new CoinsApiCaller();
     }
 
     componentDidMount = async () => {
         this.setState({
-            transactions: this.transactionsService.getTransactions(),
             coins: await this.coinsCaller.getCurrencies(),
         })
     }
 
-    handleSubmitTransaction = (transaction) => {
-        this.transactionsService.saveTransaction(transaction);
-
+    toggleModalOnClick = () => {
         this.setState({
-            transactions: this.transactionsService.getTransactions()
-        })
-    }
-
-    handleAddTransactionOnClick = () => {
-        this.setState({
-            addTransactionOnClick: !this.state.addTransactionOnClick
-        })
-    }
-
-    handleDeleteTransactionOnClick(id) {
-        this.transactionsService.deleteTransaction(id);
-        this.setState({
-            transactions: this.transactionsService.getTransactions(),
-            deleteTransactionOnClick: !this.state.deleteTransactionOnClick
+            isOpen: !this.state.isOpen
         })
     }
 
@@ -53,10 +33,8 @@ export default class Transactions extends React.Component {
 
         return (
             <>
-                <TransactionHistory 
-                    onDelete={(id) => this.handleDeleteTransactionOnClick(id)} 
-                    transactions={this.state.transactions}
-                />
+                <TransactionHistory/>
+
                 <div className='add-transaction-button-div'>
                     <button
                         className='add-transaction-button'
@@ -66,9 +44,8 @@ export default class Transactions extends React.Component {
                 </div>
 
                 <TransactionForm 
-                    onClose={this.handleAddTransactionOnClick}
-                    open={this.state.addTransactionOnClick}
-                    handleSubmit={this.handleSubmitTransaction}
+                    onClose={this.toggleModalOnClick}
+                    open={this.state.isOpen}
                     coins={this.state.coins}
                 />
 
@@ -76,3 +53,5 @@ export default class Transactions extends React.Component {
         )
     }
 } 
+
+Transactions.contextType = TransactionsContext;
