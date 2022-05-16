@@ -23,8 +23,8 @@ function TransactionForm(props) {
 
     return (
         <Modal
-            show={props.modalValue}
-            closeModal={() => props.closeModal()}
+            open={props.open}
+            onClose={props.onClose}
             title={'Lägg till transaktion'}
         >
 
@@ -33,7 +33,7 @@ function TransactionForm(props) {
                 name='transaction-form'
                 onSubmit={handleSubmit((data) => {
                     props.handleSubmit(data);
-                    props.closeModal();
+                    props.onClose();
                 })}
             >
                 <label>Datum<br/>
@@ -101,8 +101,8 @@ function TransactionForm(props) {
 }
 
 TransactionForm.propTypes = {
-    closeModal: PropTypes.func,
-    modalValue: PropTypes.bool,
+    onClose: PropTypes.func,
+    open: PropTypes.bool,
     handleSubmit: PropTypes.func,
     coins: PropTypes.array
 }

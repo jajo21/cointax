@@ -8,8 +8,8 @@ class TransactionCardMore extends React.Component {
     render() {
         return(
                 <Modal
-                    show={this.props.modalValue}
-                    closeModal={this.props.closeModal}
+                    open={this.props.open}
+                    onClose={this.props.onClose}
                     title={'Transaktion'}
                 >
                     <div className='transaction-more-info-content'>
@@ -27,8 +27,8 @@ class TransactionCardMore extends React.Component {
 }
 
 TransactionCardMore.propTypes = {
-    closeModal: PropTypes.func,
-    modalValue: PropTypes.bool,
+    onClose: PropTypes.func,
+    open: PropTypes.bool,
     transaction: PropTypes.object,
     onDelete: PropTypes.func
 }

@@ -27,8 +27,8 @@ class TransactionCard extends React.Component {
                 </div>
                 {this.state.editTransactionOnClick && // SKA JAG HA KVAR DET HÄR?
                     <TransactionCardMore 
-                        closeModal={this.handleEditTransactionOnClick}
-                        modalValue={this.state.editTransactionOnClick}
+                        onClose={this.handleEditTransactionOnClick}
+                        open={this.state.editTransactionOnClick}
                         transaction={this.props.transaction}
                         onDelete={(id) => this.props.onDelete(id)}
                     />}
@@ -38,6 +38,8 @@ class TransactionCard extends React.Component {
 }
 
 TransactionCard.propTypes = {
+    open: PropTypes.bool,
+    onClose: PropTypes.func,
     transaction: PropTypes.object,
     onDelete: PropTypes.func
 }

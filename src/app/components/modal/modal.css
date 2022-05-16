@@ -15,7 +15,7 @@
     pointer-events: none;
 }
 
-.modal.show {
+.modal.open {
     opacity: 1;
     pointer-events: visible;
 }
@@ -36,7 +36,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.modal.show .modal-content {
+.modal.open .modal-content {
     transform: translateY(0);
 }
 
