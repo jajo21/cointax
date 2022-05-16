@@ -20,14 +20,14 @@ class WalletAddForm extends React.Component {
             apiKey: this.state.apiKey
         }
         this.props.saveWallet(newWallet);
-        this.props.closeModal();
+        this.props.onClose();
     }
 
     render() {
         return (
             <Modal
-                show={this.props.modalValue}
-                closeModal={() => this.props.closeModal()}
+                open={this.props.open}
+                onClose={this.props.onClose}
                 title={'Lägg till plånbok'}
             >
                 <label>Kryptobörs<button className='read-more-button'>Läs mer</button></label> 
@@ -53,8 +53,8 @@ class WalletAddForm extends React.Component {
 
 WalletAddForm.propTypes = {
     saveWallet: PropTypes.func,
-    closeModal: PropTypes.func,
-    modalValue: PropTypes.bool
+    onClose: PropTypes.func,
+    open: PropTypes.bool
 }
 
 export default WalletAddForm;

@@ -33,8 +33,8 @@ class AdminAddCurrencyForm extends React.Component {
     render() {
         return (
             <Modal
-                show={this.props.modalValue}
-                closeModal={this.props.closeModal}
+                open={this.props.open}
+                onClose={this.props.onClose}
                 title={'Lägg till valuta'}
             >
                 <form className='currency-add-form' onSubmit={this.handleSubmit}>
@@ -62,8 +62,8 @@ class AdminAddCurrencyForm extends React.Component {
 }
 
 AdminAddCurrencyForm.propTypes = {
-    closeModal: PropTypes.func,
-    modalValue: PropTypes.bool
+    onClose: PropTypes.func,
+    open: PropTypes.bool
 }
 
 export default AdminAddCurrencyForm;

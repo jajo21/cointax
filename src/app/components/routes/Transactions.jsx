@@ -66,8 +66,8 @@ export default class Transactions extends React.Component {
                 </div>
 
                 <TransactionForm 
-                    closeModal={this.handleAddTransactionOnClick}
-                    modalValue={this.state.addTransactionOnClick}
+                    onClose={this.handleAddTransactionOnClick}
+                    open={this.state.addTransactionOnClick}
                     handleSubmit={this.handleSubmitTransaction}
                     coins={this.state.coins}
                 />
