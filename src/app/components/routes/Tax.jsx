@@ -28,7 +28,7 @@ export default class Tax extends React.Component {
 
     render() {
         let transactions = this.state.walletTransactions;
-        let countedTransactions = this.taxService.makeTaxes(transactions);
+        let countedTransactions = this.taxService.countTaxes(transactions);
         console.log({ countedTransactions });
 
         return (
