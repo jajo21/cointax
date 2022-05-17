@@ -7,31 +7,36 @@ class Modal extends React.Component {
     constructor(props) {
         super(props)
 
-/*         this.state = {
-            show: this.props.show,
-        } */
-    }
-
-/*     static getDerivedStateFromProps = (props, state) => {
-        if(props.show !== state.show){
-            return {show: props.show};
+        this.state = {
+            isOpen: false,
         }
-        return null;
     }
 
-    closeModal = () => {
+
+    componentDidMount = () => {
+        if(this.props.onMount) {
+            this.props.onMount({
+                setModal: this.toggleModal
+            });
+        }
+    }
+
+    toggleModal = (open) => {
+        /* this.props.onChange && this.props.onChange(open); */
+
         this.setState({
-            show: this.props.show
+            isOpen: open
         })
-    } */
+    }
 
     render() {
+        const isOpen = this.state.isOpen;
         return ReactDom.createPortal(
-            <div className={`modal ${this.props.open ? 'open' : ''}`} onClick={this.props.onClose}>
+            <div className={`modal ${isOpen ? 'open' : ''}`} onClick={() => {this.toggleModal(false)}}>
                 <div className="modal-content" onClick={e => e.stopPropagation()}>
 
                     <div className="modal-close">
-                        <button className="modal-close-button" onClick={this.props.onClose}> X </button>
+                        <button className="modal-close-button" onClick={this.toggleModal.bind(this, false)}> X </button>
                     </div>
 
                     <div className="modal-title">
@@ -49,8 +54,7 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-    open: PropTypes.bool,
-    onClose: PropTypes.func,
+    onMount: PropTypes.func,
     title: PropTypes.string,
     children: PropTypes.any
 }
