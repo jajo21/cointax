@@ -13,7 +13,8 @@ export default class Tax extends React.Component {
         super(props);
 
         this.state = {
-            walletTransactions: []
+            walletTransactions: [],
+            onClick: false,
         }
 
         this.taxService = new TaxService();
@@ -34,36 +35,37 @@ export default class Tax extends React.Component {
             <>
                 <h2>Skatterapport</h2>
 
-                <button onClick={() => { console.log("Printar skatterapport baserat på dina transaktioner") }}>Generera skatterapport</button>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Antal</th>
-                            <th>Beteckning</th>
-                            <th>Försäljningspris</th>
-                            <th>Omkostnadsbelopp</th>
-                            <th>Vinst</th>
-                            <th>Förlust</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {countedTransactions.map((transaction) => {
-                            if(transaction.hasOwnProperty('winOrLossOnSell')) {
-                                return(
-                                    <tr key={transaction.id}>
-                                        <td>{transaction.sumSold}</td>
-                                        <td>{transaction.cNameSold}</td>
-                                        <td>{transaction.sumBought}</td>
-                                        <td>{transaction.usedCostAmount}</td>
-                                        <td>{(transaction.winOrLossOnSell > 0) && transaction.winOrLossOnSell}</td>
-                                        <td>{(transaction.winOrLossOnSell < 0) && transaction.winOrLossOnSell}</td>
-                                    </tr>
-                                )
-                            }
-                        })}      
-                    </tbody>
-                </table>
+                <button onClick={() => {this.setState({onClick: !this.state.onClick})}}>Generera skatterapport</button>
+                {this.state.onClick &&
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Antal</th>
+                                <th>Beteckning</th>
+                                <th>Försäljningspris</th>
+                                <th>Omkostnadsbelopp</th>
+                                <th>Vinst</th>
+                                <th>Förlust</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {countedTransactions.map((transaction) => {
+                                if(transaction.hasOwnProperty('winOrLossOnSell')) {
+                                    return(
+                                        <tr key={transaction.id}>
+                                            <td>{transaction.sumSold}</td>
+                                            <td>{transaction.cNameSold}</td>
+                                            <td>{transaction.sumBought}</td>
+                                            <td>{transaction.usedCostAmount}</td>
+                                            <td>{(transaction.winOrLossOnSell > 0) && transaction.winOrLossOnSell}</td>
+                                            <td>{(transaction.winOrLossOnSell < 0) && transaction.winOrLossOnSell}</td>
+                                        </tr>
+                                    )
+                                }
+                            })}      
+                        </tbody>
+                    </table>
+                }
             </>
         )
     }
