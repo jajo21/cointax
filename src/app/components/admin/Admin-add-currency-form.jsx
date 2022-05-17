@@ -27,7 +27,6 @@ class AdminAddCurrencyForm extends React.Component {
         event.preventDefault();
         await this.coinsCaller.postCurrency(this.state.currencyName, this.state.currencySymbol, this.state.currencyType);
         this.props.updateCurrencies();
-        this.props.closeModal();
     }
 
     render() {
@@ -57,7 +56,6 @@ class AdminAddCurrencyForm extends React.Component {
 
 AdminAddCurrencyForm.propTypes = {
     updateCurrencies: PropTypes.func,
-    closeModal: PropTypes.func
 }
 
 export default AdminAddCurrencyForm;

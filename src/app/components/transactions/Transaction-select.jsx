@@ -25,7 +25,7 @@ TransactionSelect.propTypes = {
     coins: PropTypes.array,
     register: PropTypes.object,
     title: PropTypes.string,
-    show: PropTypes.string
+    errors: PropTypes.string
 }
 
 export default TransactionSelect;

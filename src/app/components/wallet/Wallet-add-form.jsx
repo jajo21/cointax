@@ -20,16 +20,11 @@ class WalletAddForm extends React.Component {
             apiKey: this.state.apiKey
         }
         this.props.saveWallet(newWallet);
-        this.props.onClose();
     }
 
     render() {
         return (
-            <Modal
-                open={this.props.open}
-                onClose={this.props.onClose}
-                title={'Lägg till plånbok'}
-            >
+            <>
                 <label>Kryptobörs<button className='read-more-button'>Läs mer</button></label> 
                 <select className='add-wallet-select' value={this.state.walletSite} onChange={(e) => this.setState({walletSite: e.target.value})}>
                     <option value="MockKryptobörs">MockKryptobörs</option>
@@ -46,15 +41,13 @@ class WalletAddForm extends React.Component {
                 <div>
                     <button className='save-button' onClick={this.handleClick}>Lägg till plånbok</button>
                 </div>
-            </Modal>
+            </>
         );
     }
 }
 
 WalletAddForm.propTypes = {
     saveWallet: PropTypes.func,
-    onClose: PropTypes.func,
-    open: PropTypes.bool
 }
 
 export default WalletAddForm;

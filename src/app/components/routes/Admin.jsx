@@ -26,9 +26,10 @@ export default class Admin extends React.Component {
         this.setState({
             currencies: await this.coinsCaller.getCurrencies(),
         });
+        this.modal.setModal(false);
     }
 
-    handleOnClickDeleteCurr = async (id) => {
+    handleDeleteCurrency = async (id) => {
         await this.coinsCaller.deleteCurrency(id);
         this.setState({
             currencies: await this.coinsCaller.getCurrencies(),
@@ -44,9 +45,18 @@ export default class Admin extends React.Component {
                     <p>Det här är en tillfällig adminsida som alla har tillgång till!</p>
                     <p>Lägg till och ta bort tillgängliga valutor som används vid manuell inmatning av transaktioner.</p>
                 </div>
+                
                 <div className='add-currency-div'>
                     <button className='open-button' onClick={() => {this.modal.setModal(true)}}>Lägg till valuta</button>
                 </div>
+                <Modal
+                    title={'Lägg till valuta'}
+                    onMount={(modal) => {this.modal = modal}}
+                >
+                    <AdminAddCurrencyForm
+                        updateCurrencies={this.handleUpdateCurrencies}
+                    />
+                </Modal>
 
                 <h3>Nuvarande valutor</h3>
                 <div className='currencies'>
@@ -57,22 +67,12 @@ export default class Admin extends React.Component {
                                 <p>Symbol: {currency.symbol}</p>
                                 <p>Valuta-typ: {currency.currencyType}</p>
                                 <div>
-                                    <button className='delete-button' onClick={() => this.handleOnClickDeleteCurr(currency.id)}>Ta bort valuta</button>
+                                    <button className='delete-button' onClick={() => this.handleDeleteCurrency(currency.id)}>Ta bort valuta</button>
                                 </div>
                             </div>
                         )
                     })}
                 </div>
-
-                <Modal
-                    title={'Lägg till valuta'}
-                    onMount={(modal) => {this.modal = modal}}
-                >
-                    <AdminAddCurrencyForm
-                        updateCurrencies={this.handleUpdateCurrencies}
-                        closeModal={() => {this.modal.setModal(false)}}
-                    />
-                </Modal>
             </div>
         )
     }
