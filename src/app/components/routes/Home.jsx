@@ -36,9 +36,6 @@ export default class Home extends React.Component {
                     onMount={(modal) => {
                         this.modal = modal;
                     }}
-/*                     onChange={(shown) => {
-                        alert(shown);
-                    }} */
                 >
 
                     <h3>Hejsan</h3>

@@ -3,6 +3,15 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import './modal.css';
 
+/** Reusable component
+ *  Props: {
+ *      title:{'My title'}
+ *      onMount:{(modal) => {
+ *          this.modal = modal;
+ *      }}
+ * }
+ */
+// ÄNDRA DET HÄR ÖVER TILL RELEVANT KOMMENTAR, skriv vad som behövs för att MODAL ska fungera
 class Modal extends React.Component {
     constructor(props) {
         super(props)
@@ -22,8 +31,6 @@ class Modal extends React.Component {
     }
 
     toggleModal = (open) => {
-        /* this.props.onChange && this.props.onChange(open); */
-
         this.setState({
             isOpen: open
         })
