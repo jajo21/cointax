@@ -1,12 +1,6 @@
 import React from 'react';
 import TaxService from '../../services/tax-service';
-/* 
----------------------------------------------------
 
-DEN HÄR KLASSEN ÄR INTE FÄRDIG, DEN JOBBAS ÄNNU PÅ
-
----------------------------------------------------
- */
 export default class Tax extends React.Component {
 
     constructor(props) {
@@ -28,7 +22,7 @@ export default class Tax extends React.Component {
 
     render() {
         let transactions = this.state.walletTransactions;
-        let countedTransactions = this.taxService.makeTaxes(transactions);
+        let countedTransactions = this.taxService.countTaxes(transactions); // Hämtar ny array av transaktionerna och lägger till nödvändiga delar som ska läggas till i en k4a
         console.log({ countedTransactions });
 
         return (
