@@ -1,44 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TransactionCardMore from './Transaction-card-more';
+import Modal from '../modal/Modal';
 
 
 class TransactionCard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            editTransactionOnClick: false,
-        }
-    }
-
-    handleEditTransactionOnClick = () => {
-        this.setState({
-            editTransactionOnClick: !this.state.editTransactionOnClick,
-        })
-    }
     render() {
-        return(
+        return (
             <>
-                <div className="transaction" onClick={this.handleEditTransactionOnClick}>
+                <div className="transaction" onClick={() => this.modal.setModal(true)}>
                     <p>{this.props.transaction.date}</p>
                     <p>{`Köpt ${this.props.transaction.cNameBought}: ${this.props.transaction.sumBought}`}</p>
                     <p>{`Sålt ${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
                     <p>klicka på rutan</p>
                 </div>
-                {this.state.editTransactionOnClick && // SKA JAG HA KVAR DET HÄR?
-                    <TransactionCardMore 
-                        onClose={this.handleEditTransactionOnClick}
-                        open={this.state.editTransactionOnClick}
+
+                <Modal
+                    title={'Transaktion'}
+                    onMount={(modal) => {this.modal = modal}}
+                >
+                    <TransactionCardMore
                         transaction={this.props.transaction}
-                    />}
+                    />
+                </Modal>
             </>
         )
     }
 }
 
 TransactionCard.propTypes = {
-    open: PropTypes.bool,
-    onClose: PropTypes.func,
     transaction: PropTypes.object,
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 
 import CoinsApiCaller from '../../api-callers/coins-api-caller.js';
 import AdminAddCurrencyForm from '../admin/Admin-add-currency-form';
+import Modal from '../modal/Modal.jsx';
 import './css/admin.css';
 
 export default class Admin extends React.Component {
@@ -10,26 +11,25 @@ export default class Admin extends React.Component {
 
         this.state = {
             currencies: null,
-            onClickAdd: false,
         }
 
         this.coinsCaller = new CoinsApiCaller();
     }
 
-    componentDidMount = async() => {
+    componentDidMount = async () => {
         this.setState({
             currencies: await this.coinsCaller.getCurrencies(),
         })
     }
 
-    handleOnClickAddCurr = async() => {
+    handleUpdateCurrencies = async () => {
         this.setState({
-            onClickAdd: !this.state.onClickAdd,
             currencies: await this.coinsCaller.getCurrencies(),
         });
+        this.modal.setModal(false);
     }
 
-    handleOnClickDeleteCurr = async(id) => {
+    handleDeleteCurrency = async (id) => {
         await this.coinsCaller.deleteCurrency(id);
         this.setState({
             currencies: await this.coinsCaller.getCurrencies(),
@@ -45,31 +45,34 @@ export default class Admin extends React.Component {
                     <p>Det här är en tillfällig adminsida som alla har tillgång till!</p>
                     <p>Lägg till och ta bort tillgängliga valutor som används vid manuell inmatning av transaktioner.</p>
                 </div>
+                
                 <div className='add-currency-div'>
-                    <button className='save-button' onClick={this.handleOnClickAddCurr}>Lägg till valuta</button>
+                    <button className='open-button' onClick={() => {this.modal.setModal(true)}}>Lägg till valuta</button>
                 </div>
+                <Modal
+                    title={'Lägg till valuta'}
+                    onMount={(modal) => {this.modal = modal}}
+                >
+                    <AdminAddCurrencyForm
+                        updateCurrencies={this.handleUpdateCurrencies}
+                    />
+                </Modal>
 
                 <h3>Nuvarande valutor</h3>
                 <div className='currencies'>
                     {currencies.map((currency) => {
-                        return(
+                        return (
                             <div key={currency.id} className='currency'>
                                 <h4>Namn: {currency.name}</h4>
                                 <p>Symbol: {currency.symbol}</p>
                                 <p>Valuta-typ: {currency.currencyType}</p>
                                 <div>
-                                    <button className='delete-button' onClick={() => this.handleOnClickDeleteCurr(currency.id)}>Ta bort valuta</button>
+                                    <button className='delete-button' onClick={() => this.handleDeleteCurrency(currency.id)}>Ta bort valuta</button>
                                 </div>
                             </div>
                         )
                     })}
                 </div>
-
-                <AdminAddCurrencyForm 
-                    open={this.state.onClickAdd}
-                    onClose={this.handleOnClickAddCurr}
-                />
-
             </div>
         )
     }

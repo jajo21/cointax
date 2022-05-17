@@ -3,6 +3,7 @@ import TransactionForm from '../transactions/Transaction-form.jsx';
 import TransactionHistory from '../transactions/Transaction-history.jsx';
 import CoinsApiCaller from '../../api-callers/coins-api-caller';
 import TransactionsContext from '../../contexts/TransactionsContext.js';
+import Modal from '../modal/Modal.jsx';
 import './css/transactions.css';
 
 export default class Transactions extends React.Component {
@@ -11,7 +12,6 @@ export default class Transactions extends React.Component {
 
         this.state = {
             coins: [],
-            isOpen: false,
         }
 
         this.coinsCaller = new CoinsApiCaller();
@@ -23,35 +23,33 @@ export default class Transactions extends React.Component {
         })
     }
 
-    toggleModalOnClick = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    }
-
     render() {
 
         return (
             <>
-                <TransactionHistory/>
+                <TransactionHistory />
 
                 <div className='add-transaction-button-div'>
                     <button
                         className='add-transaction-button'
-                        onClick={this.handleAddTransactionOnClick}
-                        >Lägg till transaktion
+                        onClick={() => this.modal.setModal(true)}
+                    >Lägg till transaktion
                     </button>
                 </div>
 
-                <TransactionForm 
-                    onClose={this.toggleModalOnClick}
-                    open={this.state.isOpen}
-                    coins={this.state.coins}
-                />
+                <Modal
+                    title={'Lägg till transaktion'}
+                    onMount={(modal) => {this.modal = modal}}
+                >
+                    <TransactionForm
+                        closeForm={() => this.modal.setModal(false)}
+                        coins={this.state.coins}
+                    />
+                </Modal>
 
             </>
         )
     }
-} 
+}
 
 Transactions.contextType = TransactionsContext;

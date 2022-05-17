@@ -12,11 +12,6 @@ DEN HÄR KLASSEN ÄR INTE FÄRDIG, DEN JOBBAS ÄNNU PÅ
 
 export default class Home extends React.Component {
 
-    constructor(props) {
-        super(props)
-
-    }
-
     render() {
         return (
             <>
@@ -29,6 +24,8 @@ export default class Home extends React.Component {
                     <li>Admin: Här kan du se alla valutor som kan hanteras av applikationen just nu, du kan även lägga till och ta bort fler valutor.</li>
                 </ul>
 
+                {/* Ska tas bort */}
+
                 <button onClick={() => {this.modal.setModal(true)}}>Show Modal</button>
 
                 <Modal
@@ -36,9 +33,6 @@ export default class Home extends React.Component {
                     onMount={(modal) => {
                         this.modal = modal;
                     }}
-/*                     onChange={(shown) => {
-                        alert(shown);
-                    }} */
                 >
 
                     <h3>Hejsan</h3>

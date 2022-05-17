@@ -2,7 +2,6 @@ import React, {useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import PropTypes from 'prop-types';
 import TransactionSelect from './Transaction-select';
-import Modal from '../modal/Modal';
 import TransactionsContext from '../../contexts/TransactionsContext';
 import './transactions-css/transaction-form.css';
 
@@ -25,18 +24,12 @@ function TransactionForm(props) {
     });
 
     return (
-        <Modal
-            open={props.open}
-            onClose={props.onClose}
-            title={'Lägg till transaktion'}
-        >
-
             <form 
                 className='transaction-form'
                 name='transaction-form'
                 onSubmit={handleSubmit((data) => {
                     addTransaction(data);
-                    props.onClose();
+                    props.closeForm();
                 })}
             >
                 <label>Datum<br/>
@@ -99,14 +92,12 @@ function TransactionForm(props) {
 
                 <button className='save-button' type='submit'>Spara</button>
             </form>
-        </Modal>
     )
 }
 
 TransactionForm.propTypes = {
-    onClose: PropTypes.func,
-    open: PropTypes.bool,
-    coins: PropTypes.array
+    coins: PropTypes.array,
+    closeForm: PropTypes.func
 }
 
 export default TransactionForm;

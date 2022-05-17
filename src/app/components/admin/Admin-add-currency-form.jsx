@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../modal/Modal.jsx';
 import CoinsApiCaller from '../../api-callers/coins-api-caller.js';
 import './admin-add-currency-form.css';
 
@@ -27,16 +26,11 @@ class AdminAddCurrencyForm extends React.Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         await this.coinsCaller.postCurrency(this.state.currencyName, this.state.currencySymbol, this.state.currencyType);
-        this.props.closeModal();
+        this.props.updateCurrencies();
     }
 
     render() {
         return (
-            <Modal
-                open={this.props.open}
-                onClose={this.props.onClose}
-                title={'Lägg till valuta'}
-            >
                 <form className='currency-add-form' onSubmit={this.handleSubmit}>
 
                     <label>Namn på valutan <br />
@@ -56,14 +50,12 @@ class AdminAddCurrencyForm extends React.Component {
 
                     <button className='save-button' type='submit'>Spara valuta</button>
                 </form>
-            </Modal>
         );
     }
 }
 
 AdminAddCurrencyForm.propTypes = {
-    onClose: PropTypes.func,
-    open: PropTypes.bool
+    updateCurrencies: PropTypes.func,
 }
 
 export default AdminAddCurrencyForm;
