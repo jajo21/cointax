@@ -5,7 +5,6 @@ class CoinsApiCaller {
 
     getCurrencies = async () => {
         const URL = this.baseURL + 'cointaxcoins';
-
         try {
             const response = await fetch(URL);
             if(!response.ok) {
@@ -14,9 +13,8 @@ class CoinsApiCaller {
             const data = await response.json();
             return data;
         } catch(error) {
-            console.log(error);
+            return error.message
         }
-
     }
 
     postCurrency = async (currencyName, currencySymbol, currencyType) => {
@@ -35,7 +33,7 @@ class CoinsApiCaller {
                 throw new Error(response.status)
             }
         } catch(error) {
-            console.log(error);
+            return error.message;
         }
     }
 
@@ -49,7 +47,7 @@ class CoinsApiCaller {
                 throw new Error(response.status)
             }
         } catch (error) {
-            console.log(error);
+            return error.message;
         }
     }
 }

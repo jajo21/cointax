@@ -11,15 +11,27 @@ export default class Admin extends React.Component {
 
         this.state = {
             currencies: null,
+            error: null,
+            isPending: true,
+            deleteButton: 'Ta bort valuta'
         }
 
         this.coinsCaller = new CoinsApiCaller();
     }
 
     componentDidMount = async () => {
-        this.setState({
-            currencies: await this.coinsCaller.getCurrencies(),
-        })
+        const data = await this.coinsCaller.getCurrencies()
+        if (typeof data === 'string') {
+            this.setState({
+                error: data,
+                isPending: false
+            })
+        } else {
+            this.setState({
+                currencies: data,
+                isPending: false
+            })
+        }
     }
 
     handleUpdateCurrencies = async () => {
@@ -30,14 +42,22 @@ export default class Admin extends React.Component {
     }
 
     handleDeleteCurrency = async (id) => {
-        await this.coinsCaller.deleteCurrency(id);
-        this.setState({
-            currencies: await this.coinsCaller.getCurrencies(),
-        });
+        const data = await this.coinsCaller.deleteCurrency(id);
+        if (typeof data === 'string') {
+            this.setState({
+                error: data,
+            })
+        } else {
+            this.setState({
+                currencies: await this.coinsCaller.getCurrencies(),
+            })
+        }
     }
 
     render() {
-        const currencies = this.state.currencies || [];
+        let currencies = this.state.currencies;
+        let error = this.state.error;
+
         return (
             <div className='admin-route'>
                 <h2>Admin</h2>
@@ -45,13 +65,13 @@ export default class Admin extends React.Component {
                     <p>Det här är en tillfällig adminsida som alla har tillgång till!</p>
                     <p>Lägg till och ta bort tillgängliga valutor som används vid manuell inmatning av transaktioner.</p>
                 </div>
-                
+
                 <div className='add-currency-div'>
-                    <button className='open-button' onClick={() => {this.modal.setModal(true)}}>Lägg till valuta</button>
+                    <button className='open-button' onClick={() => { this.modal.setModal(true) }}>Lägg till valuta</button>
                 </div>
                 <Modal
                     title={'Lägg till valuta'}
-                    onMount={(modal) => {this.modal = modal}}
+                    onMount={(modal) => { this.modal = modal }}
                 >
                     <AdminAddCurrencyForm
                         updateCurrencies={this.handleUpdateCurrencies}
@@ -60,7 +80,7 @@ export default class Admin extends React.Component {
 
                 <h3>Nuvarande valutor</h3>
                 <div className='currencies'>
-                    {currencies.map((currency) => {
+                    {currencies && currencies.map((currency) => {
                         return (
                             <div key={currency.id} className='currency'>
                                 <h4>Namn: {currency.name}</h4>
@@ -72,6 +92,15 @@ export default class Admin extends React.Component {
                             </div>
                         )
                     })}
+                    {this.state.isPending &&
+                        <div style={{textAlign: 'center'}}>LADDAR...</div>
+                    }
+                    {error &&
+                        <div className="error" style={{textAlign: 'center'}}>
+                            <p>Kan inte hämta valutorna!</p>
+                            <p>Status: {error}</p>
+                        </div>
+                    }
                 </div>
             </div>
         )
