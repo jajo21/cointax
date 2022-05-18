@@ -5,7 +5,7 @@ const TransactionsContext = createContext();
 
 export function TransactionsProvider({ children }) {
     const tS = new TransactionsService();
-    const [transactions, setTransactions] = useState([]);
+    const [transactions, setTransactions] = useState(null);
 
     useEffect(() => {
         setTransactions(tS.getTransactions());
