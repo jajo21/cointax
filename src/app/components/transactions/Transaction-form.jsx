@@ -49,7 +49,6 @@ function TransactionForm(props) {
                     })}
                     title="Valuta köpt"
                     errors={errors.cNameBought?.message}
-                    coins={props.coins}
                 />
 
                 <label>Antal<br/>
@@ -73,7 +72,6 @@ function TransactionForm(props) {
                     })}
                     title="Valuta såld"
                     errors={errors.cNameSold?.message}
-                    coins={props.coins}
                 />
 
                 <label>Summa<br/>
@@ -96,7 +94,6 @@ function TransactionForm(props) {
 }
 
 TransactionForm.propTypes = {
-    coins: PropTypes.array,
     closeForm: PropTypes.func
 }
 
