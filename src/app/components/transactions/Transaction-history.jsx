@@ -12,7 +12,7 @@ class TransactionHistory extends React.Component {
                 <h2>Transaktionshistorik</h2>
                 {(transactions.length !== 0) ? 
                     (
-                        <div className='transaction-container'>
+                        <div className='transactions'>
                             {transactions.map((transaction) => (
                                 <TransactionCard 
                                     key={transaction.id} 
