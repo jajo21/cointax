@@ -21,7 +21,9 @@ export default class Admin extends React.Component {
 
     componentDidMount = async () => {
         const data = await this.coinsCaller.getCurrencies()
-        if (typeof data === 'string') {
+        if (typeof data === 'object' &&
+            !Array.isArray(data) &&
+            data !== null) {
             this.setState({
                 error: data,
                 isPending: false
@@ -35,15 +37,28 @@ export default class Admin extends React.Component {
     }
 
     handleUpdateCurrencies = async () => {
-        this.setState({
-            currencies: await this.coinsCaller.getCurrencies(),
-        });
+        const data = await this.coinsCaller.getCurrencies()
+        if (typeof data === 'object' &&
+            !Array.isArray(data) &&
+            data !== null) {
+            this.setState({
+                error: data,
+                isPending: false
+            })
+        } else {
+            this.setState({
+                currencies: data,
+                isPending: false
+            })
+        }
         this.modal.setModal(false);
     }
 
     handleDeleteCurrency = async (id) => {
         const data = await this.coinsCaller.deleteCurrency(id);
-        if (typeof data === 'string') {
+        if (typeof data === 'object' &&
+            !Array.isArray(data) &&
+            data !== null) {
             this.setState({
                 error: data,
             })
@@ -97,8 +112,8 @@ export default class Admin extends React.Component {
                     }
                     {error &&
                         <div className="error" style={{textAlign: 'center'}}>
-                            <p>Kan inte hämta valutorna!</p>
-                            <p>Status: {error}</p>
+                            <p>{error.message}</p>
+                            <p>Status: {error.status}</p>
                         </div>
                     }
                 </div>

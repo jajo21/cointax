@@ -1,18 +1,15 @@
 import React from 'react';
 import TransactionForm from '../transactions/Transaction-form.jsx';
 import TransactionHistory from '../transactions/Transaction-history.jsx';
-import TransactionsContext from '../../contexts/TransactionsContext.js';
+import TransactionsContext from '../../contexts/TransactionsContext';
 import Modal from '../modal/Modal.jsx';
 import './css/transactions.css';
 
 export default class Transactions extends React.Component {
-
     render() {
-
         return (
             <>
                 <TransactionHistory />
-
                 <div className='add-transaction-button-div'>
                     <button
                         className='add-transaction-button'
@@ -29,7 +26,6 @@ export default class Transactions extends React.Component {
                         closeForm={() => this.modal.setModal(false)}
                     />
                 </Modal>
-
             </>
         )
     }

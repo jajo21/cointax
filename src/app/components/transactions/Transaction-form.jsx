@@ -18,7 +18,7 @@ function TransactionForm(props) {
             date: '',
             cNameBought: 'BTC',
             sumBought: '',
-            cNameSold: 'SEK',
+            cNameSold: 'BTC',
             sumSold: '',
         }
     });

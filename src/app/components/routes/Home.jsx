@@ -1,5 +1,7 @@
 import React from 'react';
 import Modal from '../modal/Modal'
+import ErrorDemo from '../error/Error-demo';
+import ErrorBoundary from '../error/Error-boundary';
 /* 
 ---------------------------------------------------
 
@@ -26,7 +28,7 @@ export default class Home extends React.Component {
 
                 {/* Ska tas bort */}
 
-                <button onClick={() => {this.modal.setModal(true)}}>Show Modal</button>
+                <button onClick={() => { this.modal.setModal(true) }}>Show Modal</button>
 
                 <Modal
                     title={'Min titel'}
@@ -41,6 +43,13 @@ export default class Home extends React.Component {
                         sapiente explicabo alias, excepturi ad a ullam recusandae sit
                         qui facilis molestias eveniet.</p>
                 </Modal>
+
+                <br></br><br /><br />
+                <ErrorBoundary>
+                    <ErrorDemo />
+                </ErrorBoundary>
+
+
             </>
         )
     }

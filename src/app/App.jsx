@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 import Footer from './components/footer/Footer.jsx';
 import Navbar from './components/navbar/Navbar.jsx';
-import { TransactionsProvider } from './contexts/TransactionsContext.js';
+import { TransactionsProvider } from './contexts/TransactionsContext';
 import ErrorBoundary from './components/error/Error-boundary.jsx';
 
 

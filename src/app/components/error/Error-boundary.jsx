@@ -25,6 +25,7 @@ class ErrorBoundary extends React.Component {
         this.setState({
             redirect: true
         })
+        location.reload();
     }
     
     render() {
@@ -39,13 +40,13 @@ class ErrorBoundary extends React.Component {
                         {this.state.errorInfo.componentStack}
                     </details>
                     <div>
-                        <h2>Testa att uppdatera sidan på knappen här nere</h2>
+                        <p>Uppdatera sidan och se om problemet löser sig</p>
                         <button onClick={() => {
                             this.handleClick();
                         }}>Uppdatera</button>
                     </div>
 
-                    {this.state.redirect && <Navigate to="home" replace={true}/>}
+                    {this.state.redirect && <Navigate to="/home" replace={true}/>}
                 </div>
                 );
         }
