@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import PropTypes from 'prop-types';
 import TransactionSelect from './Transaction-select';
-import TransactionsContext from '../../contexts/TransactionsContext';
+import TransactionsContext from '../contexts/TransactionsContext';
 import './transactions-css/transaction-form.css';
 
 function TransactionForm(props) {

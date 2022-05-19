@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import './modal.css';
 
 /** Reusable component
+ * This component renders a Modal with blablabla
+ *  @param textToPrint
  *  Props: {
  *      title:{'My title'}
  *      onMount:{(modal) => {
@@ -63,7 +65,7 @@ class Modal extends React.Component {
 Modal.propTypes = {
     onMount: PropTypes.func,
     title: PropTypes.string,
-    children: PropTypes.any
+    children: PropTypes.node
 }
 
 export default Modal;

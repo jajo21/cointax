@@ -1,0 +1,83 @@
+:root {
+    --white: rgb(255, 255, 255);
+    --bg: rgb(245, 245, 245);
+    --bg2: rgb(237, 237, 237);
+    --bg3: rgb(214, 214, 214);
+    --text: rgb(33, 33, 33);
+    --primary: rgb(224, 132, 209);
+
+    --border-radius: 8px;
+
+    --sm-spacing: 8px;
+    --md-spacing: 16px;
+    --lg-spacing: 32px;
+
+    --sm: 37.5em;
+    --md: 48em;
+    --lg: 64em;
+
+    --box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+        0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11), 0 8px 16px rgba(0, 0, 0, 0.11);
+}
+
+.tax-title {
+    text-align: center;
+}
+
+.tax-open-button-div {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.table-container {
+    margin: 0 auto;
+    max-width: var(--lg);
+    padding: var(--sm-spacing);
+    background: var(--bg2);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.thead {
+    position: sticky;
+    z-index: 100;
+}
+
+.tr-head {
+    background: var(--bg);
+}
+
+.tr-head > th {
+    padding: var(--sm-spacing);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.tr-body {
+    background: var(--white);
+}
+
+.tr-body > td {
+    padding: var(--sm-spacing);
+    border: 1px solid var(--bg2);
+    font-size: 14px;
+}
+
+@media screen and (max-width: 900px) {
+
+    .table-container {
+        overflow-x: scroll;
+    }
+    .table {
+        width: 765px;
+    }
+}

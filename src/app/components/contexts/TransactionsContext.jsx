@@ -1,5 +1,5 @@
 import {createContext, useState, useEffect} from 'react';
-import TransactionsService from '../services/transactions-service';
+import TransactionsService from '../../services/transactions-service';
 
 const TransactionsContext = createContext();
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import TaxService from '../../services/tax-service';
+import './css/tax.css';
 
 export default class Tax extends React.Component {
 
@@ -36,40 +37,48 @@ export default class Tax extends React.Component {
             countedTransactions = this.taxService.countTaxes(transactions); // Hämtar ny array av transaktionerna och lägger till nödvändiga delar som ska läggas till i en k4a
         }
 
+        let numberFormat = Intl.NumberFormat();
+
         return (
             <>
-                <h2>Skatterapport</h2>
+                <h2 className='tax-title'>Skatterapport</h2>
 
-                <button onClick={() => { this.setState({ onClick: !this.state.onClick }) }}>Generera skatterapport</button>
+                <div className='tax-open-button-div'>
+                    <button className='open-button' onClick={() => { this.setState({ onClick: !this.state.onClick }) }}>Generera skatterapport</button>
+                </div>
                 {this.state.onClick && countedTransactions &&
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Antal</th>
-                                <th>Beteckning</th>
-                                <th>Försäljningspris</th>
-                                <th>Omkostnadsbelopp</th>
-                                <th>Vinst</th>
-                                <th>Förlust</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {countedTransactions.map((transaction) => {
-                                if (transaction.hasOwnProperty('winOrLossOnSell')) {
-                                    return (
-                                        <tr key={transaction.id}>
-                                            <td>{transaction.sumSold}</td>
-                                            <td>{transaction.cNameSold}</td>
-                                            <td>{transaction.sumBought}</td>
-                                            <td>{transaction.usedCostAmount}</td>
-                                            <td>{(transaction.winOrLossOnSell > 0) && transaction.winOrLossOnSell}</td>
-                                            <td>{(transaction.winOrLossOnSell < 0) && transaction.winOrLossOnSell}</td>
-                                        </tr>
-                                    )
-                                }
-                            })}
-                        </tbody>
-                    </table>
+                    <div className='table-container'>
+                        <table className='table'>
+                            <thead className='thead'>
+                                <tr className='tr-head'>
+                                    <th>Datum</th>
+                                    <th>Antal</th>
+                                    <th>Beteckning</th>
+                                    <th>Försäljningspris</th>
+                                    <th>Omkostnadsbelopp</th>
+                                    <th>Vinst</th>
+                                    <th>Förlust</th>
+                                </tr>
+                            </thead>
+                            <tbody className='tbody'>
+                                {countedTransactions.map((transaction) => {
+                                    if (transaction.hasOwnProperty('winOrLossOnSell')) {
+                                        return (
+                                            <tr key={transaction.id} className='tr-body'>
+                                                <td>{transaction.date}</td>
+                                                <td>{numberFormat.format(transaction.sumSold)}</td>
+                                                <td>{transaction.cNameSold}</td>
+                                                <td>{numberFormat.format(transaction.sumBought)}</td>
+                                                <td>{numberFormat.format(transaction.usedCostAmount)}</td>
+                                                <td>{(transaction.winOrLossOnSell > 0) && numberFormat.format(transaction.winOrLossOnSell)}</td>
+                                                <td>{(transaction.winOrLossOnSell < 0) && numberFormat.format(transaction.winOrLossOnSell)}</td>
+                                            </tr>
+                                        )
+                                    }
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
                 }
                 {this.state.onClick && error &&
                     <div className="error">
