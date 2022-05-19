@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import TransactionsContext from '../../contexts/TransactionsContext';
+import TransactionsContext from '../contexts/TransactionsContext';
 import './transactions-css/transaction-card-more.css';
 
 class TransactionCardMore extends React.Component {
