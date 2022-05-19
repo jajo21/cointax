@@ -27,7 +27,9 @@ class AdminAddCurrencyForm extends React.Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         const data = await this.coinsCaller.postCurrency(this.state.currencyName, this.state.currencySymbol, this.state.currencyType);
-        if (typeof data === 'string') {
+        if (typeof data === 'object' &&
+            !Array.isArray(data) &&
+            data !== null) {
             this.setState({
                 error: data
             })
@@ -42,9 +44,8 @@ class AdminAddCurrencyForm extends React.Component {
 
                 {this.state.error &&
                     <div className="error" style={{ textAlign: 'center' }}>
-                        <p>Något gick fel...</p>
-                        <p>Valutan är inte sparad!</p>
-                        <p>Status: {this.state.error}</p>
+                        <p>{this.state.error.message}</p>
+                        <p>Status: {this.state.error.status}</p>
                     </div>
                 }
 

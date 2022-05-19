@@ -13,7 +13,7 @@ class CoinsApiCaller {
             const data = await response.json();
             return data;
         } catch(error) {
-            return error.message
+            return {status: error.message, message: 'Något gick fel vid hämtning av valutor!'};
         }
     }
 
@@ -33,7 +33,7 @@ class CoinsApiCaller {
                 throw new Error(response.status)
             }
         } catch(error) {
-            return error.message;
+            return {status: error.message, message: 'Något gick fel... valutan är inte sparad!'};
         }
     }
 
@@ -47,7 +47,7 @@ class CoinsApiCaller {
                 throw new Error(response.status)
             }
         } catch (error) {
-            return error.message;
+            return {status: error.message, message: 'Något gick fel vid borttagning!'};
         }
     }
 }
