@@ -1,7 +1,7 @@
 import React from 'react';
 import TransactionForm from '../transactions/Transaction-form.jsx';
 import TransactionHistory from '../transactions/Transaction-history.jsx';
-import TransactionsContext from '../../contexts/TransactionsContext.js';
+import TransactionsContext from '../../contexts/TransactionsContext';
 import Modal from '../modal/Modal.jsx';
 import './css/transactions.css';
 
