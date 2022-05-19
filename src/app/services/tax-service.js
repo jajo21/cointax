@@ -14,12 +14,12 @@ class TaxService {
 
     countTaxes = (transactions) => {
 
-        let newTransactions = transactions.concat(); // Kopia av transaktionsarray som ska fyllas med mer info
+        let countedTaxTransactions = transactions.concat(); // Kopia av transaktionsarray som ska fyllas med mer info
         let totalCoins = 0; // totalt antal innehav av coins
         let totalCostAmount = 0; //Totalt omkostnadsbelopp
         let winOrLossOnSell = 0; //Vinst eller förlust
 
-        newTransactions.map(transaction => {
+        countedTaxTransactions.map(transaction => {
             if(transaction.cNameBought === 'BTC') {
                 totalCoins = totalCoins + parseInt(transaction.sumBought); //Räkna ut totala summan av alla BTC coins
                 totalCostAmount = totalCostAmount + parseInt(transaction.sumSold); //Räkna ut totala omkostnadsbeloppet efter köp
@@ -39,7 +39,7 @@ class TaxService {
             transaction.averageCostAmount = Math.round(totalCostAmount/totalCoins); //Räkna ut det genomstnittliga omkostnadsbeloppet och lägg till i objektet
         });
 
-        return newTransactions;
+        return countedTaxTransactions;
     }
 }
 
