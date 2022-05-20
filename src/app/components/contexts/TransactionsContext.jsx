@@ -31,6 +31,12 @@ export function TransactionsProvider({ children }) {
         tS.saveTransactions(walletTransactions);
     }
 
+    const deleteWalletTransactions = (walletId) => {
+        setTransactions(transactions.filter(t => t.walletId !== walletId));
+        tS.deleteTransactions(walletId);
+        console.log(transactions);
+    }
+
     const deleteTransaction = (id) => {
         setTransactions(transactions.filter(t => t.id !== id));
         tS.deleteTransaction(id);
@@ -50,7 +56,7 @@ export function TransactionsProvider({ children }) {
                 addTransaction,
                 addWalletTransactions,
                 deleteTransaction,
-                
+                deleteWalletTransactions
             }}
         >
             {children}

@@ -22,7 +22,7 @@ class TransactionHistory extends React.Component {
                             ))}
                         </div>
                     ) : (
-                        <div className='empty'>
+                        <div className="error" style={{textAlign: 'center'}}>
                             <p>Inga transaktioner hittade</p>
                         </div>
                     )

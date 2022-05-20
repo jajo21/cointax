@@ -36,8 +36,14 @@ class WalletsService {
         return await this.getWallets();
     }
 
-    getWalletTransactions = async (URL) => {
-        let transactions = await this.transactionsCaller.getTransactions(URL);
+    getWalletTransactions = async (wallet) => {
+        let transactions = await this.transactionsCaller.getTransactions(wallet.apiURL);
+        transactions.map(transaction => {
+            return (
+                transaction.walletSite = wallet.walletSite,
+                transaction.walletId = wallet.id
+            )
+        });
         this.sortTransactions(transactions);
         return transactions
     }

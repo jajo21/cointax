@@ -18,7 +18,7 @@ export function WalletTransactionsRoute() {
 	useEffect(() => {
 		const fetchData = async () => {
 			let wallet = await walletsService.getWallet(params.walletSite);
-			let data = await walletsService.getWalletTransactions(wallet.apiURL);
+			let data = await walletsService.getWalletTransactions(wallet);
 			if (typeof data === 'string') {
 				setError(data);
 			} else {
