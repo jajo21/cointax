@@ -19,7 +19,6 @@ class WalletTransactionApiCaller {
         } catch (error) {
             return error.message
         }
-
     }
 }
 

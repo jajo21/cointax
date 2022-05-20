@@ -23,6 +23,13 @@ class TransactionsService {
         allTransactions.push(transaction);
         localStorage.setItem('transactions', JSON.stringify(allTransactions));
     }
+    
+    saveTransactions(transactions) {
+        let allTransactions = this.getTransactions();
+        transactions.map(transaction => transaction.id = nanoid())
+        allTransactions.push(...transactions);
+        localStorage.setItem('transactions', JSON.stringify(allTransactions));
+    }
 
     deleteTransaction(id) {
         let transactions = this.getTransactions();

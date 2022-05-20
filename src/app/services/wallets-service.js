@@ -36,14 +36,22 @@ class WalletsService {
         return await this.getWallets();
     }
 
-    getWalletTransactions = async(URL) => {
-        return this.transactionsCaller.getTransactions(URL);
+    getWalletTransactions = async (URL) => {
+        let transactions = await this.transactionsCaller.getTransactions(URL);
+        this.sortTransactions(transactions);
+        return transactions
     }
 
     filterTransactions = (allTransactions, input) => {
         return allTransactions.filter((transaction) => {
             return transaction.cNameBought.toLowerCase().indexOf(input.toLowerCase()) >= 0;
         });
+    }
+
+    sortTransactions = (transactions) => {
+        transactions.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+        })
     }
 }
 

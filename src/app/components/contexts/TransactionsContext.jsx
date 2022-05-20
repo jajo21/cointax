@@ -8,12 +8,27 @@ export function TransactionsProvider({ children }) {
     const [transactions, setTransactions] = useState([]);
 
     useEffect(() => {
-        setTransactions(tS.getTransactions());
+        let t = tS.getTransactions()
+        sortTransactions(t);
+        setTransactions(t);
     }, []);
 
     const addTransaction = (transaction) => {
-        setTransactions((prevState) => [...prevState, transaction]);
+        setTransactions((prevState) => {
+            let newTransactions = [...prevState, transaction];
+            sortTransactions(newTransactions);
+            return newTransactions;
+        });
         tS.saveTransaction(transaction);
+    }
+
+    const addWalletTransactions = (walletTransactions) => {
+        setTransactions((prevState) => {
+           let newTransactions = [...prevState, ...walletTransactions];
+           sortTransactions(newTransactions);
+           return newTransactions;
+        });
+        tS.saveTransactions(walletTransactions);
     }
 
     const deleteTransaction = (id) => {
@@ -21,12 +36,21 @@ export function TransactionsProvider({ children }) {
         tS.deleteTransaction(id);
     }
 
+    const sortTransactions = (transactions) => {
+        transactions.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+        })
+    }
+
+
     return(
         <TransactionsContext.Provider 
             value={{
                 transactions,
                 addTransaction,
-                deleteTransaction
+                addWalletTransactions,
+                deleteTransaction,
+                
             }}
         >
             {children}
