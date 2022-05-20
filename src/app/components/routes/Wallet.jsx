@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import WalletsService from '../../services/wallets-service';
 import WalletAddForm from '../wallet/Wallet-add-form';
 import Modal from '../modal/Modal';
+import TransactionsContext from '../contexts/TransactionsContext';
 
 import './css/wallet.css'
 
@@ -35,11 +36,13 @@ export default class Wallet extends React.Component {
         this.setState({
             wallets: await this.walletsService.deleteWallet(id)
         })
+        this.context.deleteWalletTransactions(id);
     }
 
 
     render() {
         const wallets = this.state.wallets;
+        console.log(wallets);
         return (
             <div className='wallet-container'>
                 <h2>Hantera dina plånböcker från kryptobörser</h2>
@@ -82,3 +85,5 @@ export default class Wallet extends React.Component {
         )
     }
 } 
+
+Wallet.contextType = TransactionsContext;

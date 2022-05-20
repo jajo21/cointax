@@ -1,6 +1,6 @@
 class WalletTransactionApiCaller {
     constructor() {
-        this.mockCryptoBrokerURL = 'https://retoolapi.dev/Dr8AOw/'
+        this.mockCryptoBrokerURL = 'https://retoolapi.dev/uN33aW/'
     }
 
     getMockCryptoBrokerURL = () => {

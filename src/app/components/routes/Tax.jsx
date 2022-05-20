@@ -50,9 +50,10 @@ export default class Tax extends React.Component {
                             <tbody className='tbody'>
                                 {countedTransactions.map((transaction) => {
                                     if (transaction.hasOwnProperty('winOrLossOnSell')) {
+                                        let date = new Date(transaction.date);
                                         return (
                                             <tr key={transaction.id} className='tr-body'>
-                                                <td>{transaction.date}</td>
+                                                <td>{date.toLocaleDateString("sv-SV")}</td>
                                                 <td>{numberFormat.format(transaction.sumSold)}</td>
                                                 <td>{transaction.cNameSold}</td>
                                                 <td>{numberFormat.format(transaction.sumBought)}</td>

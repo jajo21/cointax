@@ -6,10 +6,12 @@ import './transactions-css/transaction-card-more.css';
 
 class TransactionCardMore extends React.Component {
     render() {
+        let date = new Date(this.props.transaction.date);
+        let options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', secounds: 'numeric'};
         return(
             <>
                 <div className='transaction-more-info-content'>
-                    <p>{this.props.transaction.date}</p>
+                    <p>{date.toLocaleDateString("sv-SV", options)}</p>
                     <p>{`Transaktion: ${this.props.transaction.id}`}</p>
                     <p>{`Köpt: ${this.props.transaction.sumBought} ${this.props.transaction.cNameBought}`}</p>
                     <p>{`Kostnad: ${this.props.transaction.sumSold} ${this.props.transaction.cNameSold}`}</p>

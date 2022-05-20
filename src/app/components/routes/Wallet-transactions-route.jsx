@@ -13,22 +13,37 @@ export function WalletTransactionsRoute() {
 	const [isPending, setIsPending] = useState(true);
 	const walletsService = new WalletsService();
 
-	const {addWalletTransactions} = useContext(TransactionsContext);
+	const { addWalletTransactions, transactions } = useContext(TransactionsContext);
+	const isWalletAdded = transactions.some(t => t.walletSite.includes(params.walletSite));
 
 	useEffect(() => {
 		const fetchData = async () => {
 			let wallet = await walletsService.getWallet(params.walletSite);
-			let data = await walletsService.getWalletTransactions(wallet.apiURL);
-			if (typeof data === 'string') {
-				setError(data);
+			if(wallet.walletSite === 'MockKryptobörs') {
+				let data = await walletsService.getWalletTransactions(wallet);
+				if (typeof data === 'string') {
+					setError(data);
+				} else {
+					setWalletTransactions(data);
+				}
+				setIsPending(false);
 			} else {
-				setWalletTransactions(data);
+				setError('Ooops, denna kryptobörs API har inte kopplats ännu! Vi beklagar!');
+				setIsPending(false);
 			}
-			setIsPending(false);
 		}
 		fetchData();
 	}, []);
 
+	console.log(walletTransactions);
+
+	handleAddWalletTransactions = () => {
+		if (!isWalletAdded) {
+			addWalletTransactions(walletTransactions);
+		}
+	}
+
+	console.log(walletTransactions);
 	let filteredTransactions;
 	if (Array.isArray(walletTransactions) && error === null) {
 		filteredTransactions = walletsService.filterTransactions(walletTransactions, searchInput);
@@ -38,15 +53,21 @@ export function WalletTransactionsRoute() {
 		<div className='wallet-transactions-content'>
 			<h2>Transaktionshistorik från {params.walletSite}</h2>
 
-			<div className='wallet-transactions-buttons'>
-				<button className='connect-button' onClick={() => {
-					addWalletTransactions(walletTransactions);
-					}}
-					>Koppla ihop hämtade transaktioner med manuella
-				</button>
 
+			<div className='wallet-transactions-buttons'>
+				{!isWalletAdded && walletTransactions !== null &&
+					<button className='connect-button' onClick={() => { handleAddWalletTransactions() }}
+					>Koppla ihop plånbokens historik med transaktioner
+					</button>
+				}
 				<Link to="/wallet"><button className='go-back-button'>Gå tillbaka till Plånbok</button></Link>
 			</div>
+
+			{isWalletAdded &&
+				<div className="wallet-transactions-connected">
+					<p>{params.walletSite} transaktionshistorik är kopplad med alla transaktioner.</p>
+				</div>
+			}
 
 			<div className='search-bar'>
 				<label htmlFor="search-bar">Sök efter köpta valutor <br />
@@ -56,9 +77,10 @@ export function WalletTransactionsRoute() {
 
 			<div className='wallet-transactions'>
 				{(Array.isArray(filteredTransactions)) && filteredTransactions.map((transaction) => {
+					let date = new Date(transaction.date);
 					return (
 						<div key={transaction.id} className='wallet-transaction'>
-							<p>{transaction.date}</p>
+							<p>{date.toLocaleDateString("sv-SV")}</p>
 							<p>{`Köpt: ${transaction.sumBought} ${transaction.cNameBought}`}</p>
 							<p>{`Kostnad: ${transaction.sumSold} ${transaction.cNameSold}`}</p>
 						</div>

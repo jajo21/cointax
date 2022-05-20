@@ -20,14 +20,19 @@ class TransactionsService {
     saveTransaction(transaction) {
         let allTransactions = this.getTransactions();
         transaction.id = nanoid();
+        transaction.walletSite = 'Manuell transaktion';
         allTransactions.push(transaction);
         localStorage.setItem('transactions', JSON.stringify(allTransactions));
     }
     
     saveTransactions(transactions) {
         let allTransactions = this.getTransactions();
-        transactions.map(transaction => transaction.id = nanoid())
         allTransactions.push(...transactions);
+        localStorage.setItem('transactions', JSON.stringify(allTransactions));
+    }
+    deleteTransactions(walletId) {
+        let allTransactions = this.getTransactions();
+        allTransactions.filter(t => t.walletId !== walletId);
         localStorage.setItem('transactions', JSON.stringify(allTransactions));
     }
 

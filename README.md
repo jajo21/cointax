@@ -88,7 +88,7 @@ Det andra API:et jag ville implementera är ett api som hämtar alla privata tra
 
 Åtkomstpunkter som används i min applikation:  
 
-GET - https://retoolapi.dev/Dr8AOw/transactions - Hämtar alla transaktioner som ska användas i applikationen.  
+GET - https://retoolapi.dev/uN33aW/transactions - Hämtar alla transaktioner som ska användas i applikationen.  
 
 Om vi utgår från mappen ./src/app/components/routes igen så används detta api i komponenten Wallet.jsx och vidare till Wallet-transactions.jsx där alla transaktioner matas ut på en sida för att användaren ska se dessa visuellt. I framtiden ska dessa transaktioner matas ihop med alla övriga transaktioner som har hämtats för att i slutändan skapa allt som behövs inför deklarationen.
 
