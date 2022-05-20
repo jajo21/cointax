@@ -1,33 +1,10 @@
-import WalletsService from "./wallets-service";
-
 class TaxService {
-    constructor() {
-        this.walletsService = new WalletsService();
-    }
-
-    getTransactions = async() => {
-        try{
-            let wallets = await this.walletsService.getWallets();
-            if(wallets.length === 0) {
-                throw new Error('Ingen plånbok hittad!');
-            }
-            let wallet = wallets.find(wallet => wallet.walletSite === "MockKryptobörs");
-            if(wallet === undefined) {
-                throw new Error('Transaktioner för vissa plånböcker kan inte hämtas!');
-            }
-            let transactions = await this.walletsService.getWalletTransactions(wallet.apiURL);
-            if(transactions === '404') {
-                throw new Error('Något gick fel vid hämtning av transaktioner!');
-            }
-            return transactions;
-        } catch (error) {
-            return error.message;
-        }
-    }
 
     countTaxes = (transactions) => {
-
-        let countedTaxTransactions = transactions.concat(); // Kopia av transaktionsarray som ska fyllas med mer info
+        this.sortTransactionsForTaxes(transactions); //Sorterar transactions så att det är sorterat i rätt ordning för att kunna räkna skatt
+        let countedTaxTransactions = transactions.concat();// Kopia av transaktionsarray som ska fyllas med mer info
+        this.sortTransactionsForView(transactions); //Sorterar tillbaka transactions till så som jag vill att användaren ska se transaktionerna.
+        
         let totalCoins = 0; // totalt antal innehav av coins
         let totalCostAmount = 0; //Totalt omkostnadsbelopp
         let winOrLossOnSell = 0; //Vinst eller förlust
@@ -43,9 +20,13 @@ class TaxService {
                 let totalCostPerCoin = totalCostAmount / totalCoins; //Räkna ut totala kostnad per coin
                 totalCoins = totalCoins - parseInt(transaction.sumSold); // Räkna ut totala antalet BTC coins vid försäljning
                 totalCostAmount = totalCostPerCoin * totalCoins; //Räkna ut totala omkostnadsbeloppet efter försäljning
-
-                winOrLossOnSell = parseInt(transaction.sumBought) - ((totalCostAmount/totalCoins) * parseInt(transaction.sumSold)) // Räkna ut om det har gjorts vinst eller förlust på försäljning
-                transaction.winOrLossOnSell = Math.round(winOrLossOnSell); //Räkna ut vinst eller förlust och lägg in i objektet
+                if(transaction.totalCoins === 0) {
+                    winOrLossOnSell = transaction.sumBought - transaction.usedCostAmount;
+                    transaction.winOrLossOnSell = Math.round(winOrLossOnSell)
+                } else {
+                    winOrLossOnSell = parseInt(transaction.sumBought) - ((totalCostAmount/totalCoins) * parseInt(transaction.sumSold)) // Räkna ut om det har gjorts vinst eller förlust på försäljning
+                    transaction.winOrLossOnSell = Math.round(winOrLossOnSell); //Räkna ut vinst eller förlust och lägg in i objektet
+                }
             }
             transaction.totalCoins = totalCoins; // Lägg in totala antalet coins efter transaktion i objektet
             transaction.totalCostAmount = Math.round(totalCostAmount); // Lägg till totala omkostnadsbeloppet i objektet
@@ -53,6 +34,18 @@ class TaxService {
         });
 
         return countedTaxTransactions;
+    }
+
+    sortTransactionsForTaxes = (transactions) => {
+        transactions.sort((a, b) => {
+            return new Date(a.date) - new Date(b.date);
+        })
+    }
+
+    sortTransactionsForView = (transactions) => {
+        transactions.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+        })
     }
 }
 
