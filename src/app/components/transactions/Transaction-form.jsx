@@ -37,7 +37,7 @@ function TransactionForm(props) {
                         {...register("date", {
                             required: "Fältet är obligatoriskt"
                         })} 
-                        type="date"
+                        type="datetime-local"
                     />
                 </label>
                 <p className='error'>{errors.date?.message}</p>

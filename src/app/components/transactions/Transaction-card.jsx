@@ -6,10 +6,11 @@ import Modal from '../modal/Modal';
 
 class TransactionCard extends React.Component {
     render() {
+        let date = new Date(this.props.transaction.date);
         return (
             <>
                 <div className="transaction" onClick={() => this.modal.setModal(true)}>
-                    <p>{this.props.transaction.date}</p>
+                    <p>{date.toLocaleDateString("sv-SV")}</p>
                     <p>{`Köpt: ${this.props.transaction.sumBought} ${this.props.transaction.cNameBought}`}</p>
                     <p>{`Kostnad: ${this.props.transaction.sumSold} ${this.props.transaction.cNameSold}`}</p>
                 </div>

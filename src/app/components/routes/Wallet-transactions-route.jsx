@@ -29,6 +29,7 @@ export function WalletTransactionsRoute() {
 		fetchData();
 	}, []);
 
+	console.log(walletTransactions);
 	let filteredTransactions;
 	if (Array.isArray(walletTransactions) && error === null) {
 		filteredTransactions = walletsService.filterTransactions(walletTransactions, searchInput);
@@ -56,9 +57,10 @@ export function WalletTransactionsRoute() {
 
 			<div className='wallet-transactions'>
 				{(Array.isArray(filteredTransactions)) && filteredTransactions.map((transaction) => {
+					let date = new Date(transaction.date);
 					return (
 						<div key={transaction.id} className='wallet-transaction'>
-							<p>{transaction.date}</p>
+							<p>{date.toLocaleDateString("sv-SV")}</p>
 							<p>{`Köpt: ${transaction.sumBought} ${transaction.cNameBought}`}</p>
 							<p>{`Kostnad: ${transaction.sumSold} ${transaction.cNameSold}`}</p>
 						</div>
