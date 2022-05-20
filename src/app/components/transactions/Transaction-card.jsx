@@ -10,13 +10,13 @@ class TransactionCard extends React.Component {
             <>
                 <div className="transaction" onClick={() => this.modal.setModal(true)}>
                     <p>{this.props.transaction.date}</p>
-                    <p>{`Köpt ${this.props.transaction.cNameBought}: ${this.props.transaction.sumBought}`}</p>
-                    <p>{`Sålt ${this.props.transaction.cNameSold}: ${this.props.transaction.sumSold}`}</p>
+                    <p>{`Köpt: ${this.props.transaction.sumBought} ${this.props.transaction.cNameBought}`}</p>
+                    <p>{`Kostnad: ${this.props.transaction.sumSold} ${this.props.transaction.cNameSold}`}</p>
                 </div>
 
                 <Modal
                     title={'Transaktion'}
-                    onMount={(modal) => {this.modal = modal}}
+                    onMount={(modal) => { this.modal = modal }}
                 >
                     <TransactionCardMore
                         transaction={this.props.transaction}
