@@ -17,6 +17,7 @@
     text-decoration: none;
     transition: transform 0.1s ease;
     user-select: none;
+    border-radius: 8px;
 }
 
 .transaction:hover {
