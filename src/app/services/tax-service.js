@@ -6,10 +6,23 @@ class TaxService {
     }
 
     getTransactions = async() => {
-        let wallets = await this.walletsService.getWallets();
-        let wallet = wallets.find(wallet => wallet.walletSite === "MockKryptobörs");
-        let transactions = await this.walletsService.getWalletTransactions(wallet.apiURL);
-        return transactions;
+        try{
+            let wallets = await this.walletsService.getWallets();
+            if(wallets.length === 0) {
+                throw new Error('Ingen plånbok hittad!');
+            }
+            let wallet = wallets.find(wallet => wallet.walletSite === "MockKryptobörs");
+            if(wallet === undefined) {
+                throw new Error('Transaktioner för vissa plånböcker kan inte hämtas!');
+            }
+            let transactions = await this.walletsService.getWalletTransactions(wallet.apiURL);
+            if(transactions === '404') {
+                throw new Error('Något gick fel vid hämtning av transaktioner!');
+            }
+            return transactions;
+        } catch (error) {
+            return error.message;
+        }
     }
 
     countTaxes = (transactions) => {
