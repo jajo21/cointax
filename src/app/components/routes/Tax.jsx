@@ -81,8 +81,8 @@ export default class Tax extends React.Component {
                     </div>
                 }
                 {this.state.onClick && error &&
-                    <div className="error">
-                        <p>Kan inte hämta transaktionerna!</p>
+                    <div className="error" style={{textAlign: 'center'}}>
+                        <p>Error!</p>
                         <p>Status: {error}</p>
                     </div>
                 }

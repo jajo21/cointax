@@ -41,14 +41,16 @@ export default class Wallet extends React.Component {
     render() {
         const wallets = this.state.wallets;
         return (
-            <>
-                <h2>Plånbok</h2>
+            <div className='wallet-container'>
+                <h2>Hantera dina plånböcker från kryptobörser</h2>
                 <div className='add-wallet-div'>
-                    <button
-                        className='open-button'
-                        onClick={() => this.modal.setModal(true)}
-                    >Lägg till plånbok
-                    </button>
+                    <div className='add-wallet-button-div'>
+                        <button
+                            className='open-button'
+                            onClick={() => this.modal.setModal(true)}
+                        >Lägg till plånbok
+                        </button>
+                    </div>
 
                     <Modal
                         title={'Lägg till plånbok'}
@@ -61,20 +63,22 @@ export default class Wallet extends React.Component {
                 </div>
 
                 <div className='wallets-connected'>
-                    <h2>Kopplade plånböcker från kryptobörser</h2>
+                    <h2>Dina tillagda plånböcker</h2>
                     {wallets?.map(wallet => {
                         return (
-                            <div className='wallets-div' key={wallet.id}>
+                            <div className='wallet-div' key={wallet.id}>
                                 <h2>{wallet.walletSite}</h2>
-                                <Link to={wallet.walletSite}>
-                                    <button className='open-button'>Kolla hämtade transaktioner</button>
-                                </Link>
+                                <div className='link-button'>
+                                    <Link to={wallet.walletSite}>
+                                        <button className='open-button'>Kolla hämtade transaktioner</button>
+                                    </Link>
+                                </div>
                                 <button className='delete-button' onClick={() => this.handleDeleteWallet(wallet.id)}>Ta bort plånbok</button>
                             </div>
                         )
                     })}
                 </div>
-            </>
+            </div>
         )
     }
 } 
