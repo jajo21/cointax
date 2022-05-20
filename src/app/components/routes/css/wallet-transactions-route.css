@@ -41,6 +41,10 @@
     border-radius: 8px;
 }
 
+.wallet-transactions-connected {
+    text-align: center;
+}
+
 @media screen and (min-width: 748px) {
     .wallet-transactions-content {
         margin: auto auto 50px auto;
