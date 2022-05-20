@@ -1,5 +1,6 @@
 import React from 'react';
 import TaxService from '../../services/tax-service';
+import TransactionsContext from '../contexts/TransactionsContext';
 import './css/tax.css';
 
 export default class Tax extends React.Component {
@@ -8,36 +9,22 @@ export default class Tax extends React.Component {
         super(props);
 
         this.state = {
-            walletTransactions: null,
             onClick: false,
-            error: null
         }
 
         this.taxService = new TaxService();
     }
 
-    componentDidMount = async () => {
-        const data = await this.taxService.getTransactions();
-        if (typeof data === 'string') {
-            this.setState({
-                error: data,
-            })
-        } else {
-            this.setState({
-                walletTransactions: data,
-            })
-        }
-    }
-
     render() {
-        let transactions = this.state.walletTransactions;
-        let error = this.state.error;
-        let countedTransactions;
-        if (Array.isArray(transactions) && this.state.error === null) {
-            countedTransactions = this.taxService.countTaxes(transactions); // Hämtar ny array av transaktionerna och lägger till nödvändiga delar som ska läggas till i en k4a
-        }
-
         let numberFormat = Intl.NumberFormat();
+        let transactions = this.context.transactions;
+        let countedTransactions;
+        let error;
+        if (transactions.length !== 0) {
+            countedTransactions = this.taxService.countTaxes(transactions); // Hämtar ny array av transaktionerna och lägger till nödvändiga delar som ska läggas till i en k4a
+        } else {
+            error = 'Finns inga transaktioner att räkna ut skatten på';
+        }
 
         return (
             <>
@@ -90,3 +77,5 @@ export default class Tax extends React.Component {
         )
     }
 } 
+
+Tax.contextType = TransactionsContext;
