@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import WalletsService from "../../services/wallets-service";
+import TransactionsContext from "../contexts/TransactionsContext";
+import TransactionsService from "../../services/transactions-service";
 import './css/wallet-transactions-route.css'
 
 export function WalletTransactionsRoute() {
 	const params = useParams();
-	const [transactions, setTransactions] = useState(null);
+	const [walletTransactions, setWalletTransactions] = useState(null);
 	const [searchInput, setSearchInput] = useState('');
 	const [error, setError] = useState(null);
 	const [isPending, setIsPending] = useState(true);
 	const walletsService = new WalletsService();
+
+	const {addWalletTransactions} = useContext(TransactionsContext);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -18,7 +22,7 @@ export function WalletTransactionsRoute() {
 			if (typeof data === 'string') {
 				setError(data);
 			} else {
-				setTransactions(data);
+				setWalletTransactions(data);
 			}
 			setIsPending(false);
 		}
@@ -26,8 +30,8 @@ export function WalletTransactionsRoute() {
 	}, []);
 
 	let filteredTransactions;
-	if (Array.isArray(transactions) && error === null) {
-		filteredTransactions = walletsService.filterTransactions(transactions, searchInput);
+	if (Array.isArray(walletTransactions) && error === null) {
+		filteredTransactions = walletsService.filterTransactions(walletTransactions, searchInput);
 	}
 
 	return (
@@ -35,7 +39,12 @@ export function WalletTransactionsRoute() {
 			<h2>Transaktionshistorik från {params.walletSite}</h2>
 
 			<div className='wallet-transactions-buttons'>
-				<button className='connect-button'>Koppla ihop hämtade transaktioner med manuella</button>
+				<button className='connect-button' onClick={() => {
+					addWalletTransactions(walletTransactions);
+					}}
+					>Koppla ihop hämtade transaktioner med manuella
+				</button>
+
 				<Link to="/wallet"><button className='go-back-button'>Gå tillbaka till Plånbok</button></Link>
 			</div>
 
