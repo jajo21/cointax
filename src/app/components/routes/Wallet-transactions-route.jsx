@@ -50,8 +50,8 @@ export function WalletTransactionsRoute() {
 					return (
 						<div key={transaction.id} className='wallet-transaction'>
 							<p>{transaction.date}</p>
-							<p>{`Köpt ${transaction.cNameBought}: ${transaction.sumBought}`}</p>
-							<p>{`Sålt ${transaction.cNameSold}: ${transaction.sumSold}`}</p>
+							<p>{`Köpt: ${transaction.sumBought} ${transaction.cNameBought}`}</p>
+							<p>{`Kostnad: ${transaction.sumSold} ${transaction.cNameSold}`}</p>
 						</div>
 					)
 				})}
