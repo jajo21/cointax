@@ -21,6 +21,11 @@ export function TransactionsProvider({ children }) {
         });
         tS.saveTransaction(transaction);
     }
+    
+    const deleteTransaction = (id) => {
+        setTransactions(transactions.filter(t => t.id !== id));
+        tS.deleteTransaction(id);
+    }
 
     const addWalletTransactions = (walletTransactions) => {
         setTransactions((prevState) => {
@@ -35,11 +40,6 @@ export function TransactionsProvider({ children }) {
         setTransactions(transactions.filter(t => t.walletId !== walletId));
         tS.deleteTransactions(walletId);
         console.log(transactions);
-    }
-
-    const deleteTransaction = (id) => {
-        setTransactions(transactions.filter(t => t.id !== id));
-        tS.deleteTransaction(id);
     }
 
     const sortTransactions = (transactions) => {
