@@ -3,27 +3,30 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import './modal.css';
 
-/** Reusable component
- * This component renders a Modal with blablabla
- *  @param textToPrint
- *  Props: {
- *      title:{'My title'}
- *      onMount:{(modal) => {
- *          this.modal = modal;
- *      }}
- * }
+
+/**
+ ** Modal is a reusable component.
+ ** This component renders a Modal for children-elements.
+ ** The Modal component takes two props explained in next section.
+ * @property {string} title - The title of the modal.
+ * @property {function} onMount - With this property you can set the modals isOpen state as shown in the example.
+ * 
+ * @example
+ * ```
+ * <Modal title={'My title'} onMount={modal => this.modal = modal}>
+ *      {children}
+ * </Modal>
+ * ```
  */
-// ÄNDRA DET HÄR ÖVER TILL RELEVANT KOMMENTAR, skriv vad som behövs för att MODAL ska fungera
 class Modal extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = {
             isOpen: false,
         }
     }
 
-
+    /** If props onMount is available, set the prop to be able to toggleModal */
     componentDidMount = () => {
         if(this.props.onMount) {
             this.props.onMount({
@@ -31,7 +34,8 @@ class Modal extends React.Component {
             });
         }
     }
-
+    
+    /** Toggle modal between open and closed (true or false) */
     toggleModal = (open) => {
         this.setState({
             isOpen: open

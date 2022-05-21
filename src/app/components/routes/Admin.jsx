@@ -85,7 +85,7 @@ export default class Admin extends React.Component {
                 </div>
                 <Modal
                     title={'Lägg till valuta'}
-                    onMount={(modal) => { this.modal = modal }}
+                    onMount={modal => this.modal = modal}
                 >
                     <AdminAddCurrencyForm
                         updateCurrencies={this.handleUpdateCurrencies}
