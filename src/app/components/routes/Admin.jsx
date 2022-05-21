@@ -13,7 +13,6 @@ export default class Admin extends React.Component {
             currencies: null,
             error: null,
             isPending: true,
-            deleteButton: 'Ta bort valuta'
         }
 
         this.coinsCaller = new CoinsApiCaller();

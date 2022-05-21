@@ -12,15 +12,15 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                    <TransactionsProvider>
-                        <Navbar />
-                        <main>
-                            <ErrorBoundary>
-                                <Outlet />
-                            </ErrorBoundary>
-                        </main>
-                        <Footer />
-                    </TransactionsProvider>
+                <TransactionsProvider>
+                    <Navbar />
+                    <main>
+                        <ErrorBoundary>
+                            <Outlet />
+                        </ErrorBoundary>
+                    </main>
+                    <Footer />
+                </TransactionsProvider>
             </div>
         )
     }

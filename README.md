@@ -16,30 +16,21 @@
 5. Normalt ska programmet öppnas i din webbläsare, om det inte gör det upp valfri webbläsare och navigera in på http://localhost:3333.  
 6. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till http://localhost:3333/app.html.  
 
-## Kravlista - Inlämning 3: Från koncept till prototyp**
+## Kravlista - Inlämning 4: A minimum Viable Product**
 
 |Krav|Uppfyllt|Egna Kommentarer|
 |---|---|---|
 |**1**  |**Ja**| |
 |**2**  |**Ja**| |
-|**3**  |**Ja**| |
-|**4**  |**Ja**| |
-|**5**  |**Ja**| |
-|**6**  |**Ja**| |
-|**7**  |**Ja**| |
-|**8**  |**Ja**| |
-|**9**  |**Ja**| |
-|**10**  |**Ja**| |
-|**11**  |**Ja**| |
-|**12**  |**Ja**| |
-|**13**  |**Ja**| |
-|**14**  |**Ja**| |
-|**15**  |**Ja**| |
-|**16**  |**Ja**| |
-|**17**  |**Ja**| |
-|**18**  |**Ja**| |
-|**19**  |**Ja**| |
-|**20**  |**Ja**| |
+|**3**  |****| |
+|**4**  |****| |
+|**5**  |****| |
+|**6**  |****| |
+|**7**  |****| |
+|**8**  |****| |
+|**9**  |****| |
+|**10**  |****| |
+|**11**  |****| |
 
 ## Externa bibliotek
 Du kan tydligt se vilka externa bibliotek som är installerade i package.json. Men här kommer en mindre övergripande förklaring.
@@ -55,6 +46,9 @@ Localbase version 0.7.5: Används för att skapa lokal lagring liknande localSto
 
 ### [NanoID](https://www.npmjs.com/package/nanoid)
 NanoID version 3.3.3: Används för att enkelt generera unika ID:n. Används mycket till keys i mitt projekt men även för att få just ett unikt ID på varje objekt i en array.
+
+### [Prop-Types](https://www.npmjs.com/package/prop-types)
+Prop-types version 15.8.1: Används för att validera en komponents properties.
 
 ### [React](https://www.npmjs.com/package/react) och [React-Dom](https://www.npmjs.com/package/react-dom)
 React och React-Dom: version 18.0.0: React är ett kodbibliotek som enkelt hjälper dig att skapa vy-lagret i en Single Page Applikation.
