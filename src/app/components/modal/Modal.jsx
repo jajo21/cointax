@@ -13,7 +13,7 @@ import './modal.css';
  * 
  * @example
  * ```
- * <Modal title={'My title'} onMount={modal => this.modal = modal}>
+ * <Modal title={'My title'} onMount={modal => modal.setModal(true)}>
  *      {children}
  * </Modal>
  * ```
