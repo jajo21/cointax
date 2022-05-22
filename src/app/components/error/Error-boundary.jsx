@@ -1,6 +1,8 @@
 import React from "react";
 import FallbackMessage from "./Fallback-message";
 
+
+/**Global ErrorBoundary */
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
