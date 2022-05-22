@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { Navigate } from 'react-router-dom';
+import React from "react";
+import FallbackMessage from "./Fallback-message";
 
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -7,50 +7,42 @@ class ErrorBoundary extends React.Component {
         this.state = { 
             error: null, 
             errorInfo: null, 
-            redirect: false,
+            hasError: false
          };
     }
-    
-    componentDidCatch(error, errorInfo) {
-        // Catch errors in any components below and re-render with error message
 
-            this.setState({
-                error: error,
-                errorInfo: errorInfo
-            })
-        // You can also log error messages to an error reporting service here
+    static getDerivedStateFromError(error) {
+        return {
+            hasError: true
+        }
     }
     
-    handleClick = () => { 
+    componentDidCatch = (error, errorInfo) => {
+        //errorInfo.componentStack ger dig mer info om felen.
         this.setState({
-            redirect: true
+            error: error,
+            errorInfo: errorInfo
         })
-        location.reload();
     }
+
+    handleHasError = () => {
+        this.setState({
+            hasError: false
+        })
+    }
+    
     
     render() {
-        if (this.state.errorInfo) {
-            // Error path
+        const error = this.state.error;
+        const hasError = this.state.hasError;
+        if (hasError && error) {
             return (
-                <div>
-                    <h2>Något gick fel</h2>
-                    <details style={{ whiteSpace: 'pre-wrap' }}>
-                        {this.state.error && this.state.error.toString()}
-                        <br />
-                        {this.state.errorInfo.componentStack}
-                    </details>
-                    <div>
-                        <p>Uppdatera sidan och se om problemet löser sig</p>
-                        <button onClick={() => {
-                            this.handleClick();
-                        }}>Uppdatera</button>
-                    </div>
-
-                    {this.state.redirect && <Navigate to="/home" replace={true}/>}
-                </div>
+                    <FallbackMessage
+                        error={error}
+                        handleHasError={this.handleHasError}    
+                    />
                 );
         }
-            // Normally, just render children
         return this.props.children;
     }
 }

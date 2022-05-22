@@ -17,7 +17,7 @@ export default class ErrorDemo extends Component {
 
     render() {
         if (this.state.count === 5) {
-            throw new Error ('Error: you reached five!');
+            throw new Error ('You reached five!');
         }else {
             return (
                 <div>
