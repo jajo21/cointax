@@ -1,5 +1,6 @@
 import {createContext, useState, useEffect} from 'react';
 import TransactionsService from '../../services/transactions-service';
+import { sortTransactionsForView } from '../../helpers/transactions-sorter';
 
 const TransactionsContext = createContext();
 
@@ -9,14 +10,14 @@ export function TransactionsProvider({ children }) {
 
     useEffect(() => {
         let t = tS.getTransactions()
-        sortTransactions(t);
+        sortTransactionsForView(t);
         setTransactions(t);
     }, []);
 
     const addTransaction = (transaction) => {
         setTransactions((prevState) => {
             let newTransactions = [...prevState, transaction];
-            sortTransactions(newTransactions);
+            sortTransactionsForView(newTransactions);
             return newTransactions;
         });
         tS.saveTransaction(transaction);
@@ -30,7 +31,7 @@ export function TransactionsProvider({ children }) {
     const addWalletTransactions = (walletTransactions) => {
         setTransactions((prevState) => {
            let newTransactions = [...prevState, ...walletTransactions];
-           sortTransactions(newTransactions);
+           sortTransactionsForView(newTransactions);
            return newTransactions;
         });
         tS.saveTransactions(walletTransactions);
@@ -41,13 +42,6 @@ export function TransactionsProvider({ children }) {
         tS.deleteTransactions(walletId);
         console.log(transactions);
     }
-
-    const sortTransactions = (transactions) => {
-        transactions.sort((a, b) => {
-            return new Date(b.date) - new Date(a.date);
-        })
-    }
-
 
     return(
         <TransactionsContext.Provider 
