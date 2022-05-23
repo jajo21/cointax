@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import Localbase from 'localbase';
 import WalletTransactionsApiCaller from "../api-callers/wallet-transactions-api-caller";
+import { sortTransactionsForView } from "../helpers/transactions-sorter";
 
 class WalletsService {
     constructor() {
@@ -44,7 +45,7 @@ class WalletsService {
                 transaction.walletId = wallet.id
             )
         });
-        this.sortTransactions(transactions);
+        sortTransactionsForView(transactions);
         return transactions
     }
 
@@ -52,12 +53,6 @@ class WalletsService {
         return allTransactions.filter((transaction) => {
             return transaction.cNameBought.toLowerCase().indexOf(input.toLowerCase()) >= 0;
         });
-    }
-
-    sortTransactions = (transactions) => {
-        transactions.sort((a, b) => {
-            return new Date(b.date) - new Date(a.date);
-        })
     }
 }
 

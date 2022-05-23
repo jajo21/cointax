@@ -1,9 +1,11 @@
+import { sortTransactionsForTaxes, sortTransactionsForView } from "../helpers/transactions-sorter";
+
 class TaxService {
 
     countTaxes = (transactions) => {
-        this.sortTransactionsForTaxes(transactions); //Sorterar transactions så att det är sorterat i rätt ordning för att kunna räkna skatt
+        sortTransactionsForTaxes(transactions); //Sorterar transactions så att det är sorterat i rätt ordning för att kunna räkna skatt
         let countedTaxTransactions = transactions.concat();// Kopia av transaktionsarray som ska fyllas med mer info
-        this.sortTransactionsForView(transactions); //Sorterar tillbaka transactions till så som jag vill att användaren ska se transaktionerna.
+        sortTransactionsForView(transactions); //Sorterar tillbaka transactions till så som jag vill att användaren ska se transaktionerna.
         
         let totalCoins = 0; // totalt antal innehav av coins
         let totalCostAmount = 0; //Totalt omkostnadsbelopp
@@ -34,18 +36,6 @@ class TaxService {
         });
 
         return countedTaxTransactions;
-    }
-
-    sortTransactionsForTaxes = (transactions) => {
-        transactions.sort((a, b) => {
-            return new Date(a.date) - new Date(b.date);
-        })
-    }
-
-    sortTransactionsForView = (transactions) => {
-        transactions.sort((a, b) => {
-            return new Date(b.date) - new Date(a.date);
-        })
     }
 }
 
