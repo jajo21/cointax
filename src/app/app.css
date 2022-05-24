@@ -33,11 +33,21 @@ form > label {
     border: none;
 }
 
+.tax-button {
+    font-size: 16px;
+    background-color: rgb(47, 48, 51, 1);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px;
+    border: none;
+}
+
 .save-button:hover, 
     .read-more-button:hover, 
         .open-button:hover,
             .go-back-button:hover,
-                .connect-button:hover {
+                .connect-button:hover,
+                    .tax-button:hover {
     background-color: #ff9000;
     transition: all 0.2s ease-out;
     cursor: pointer;

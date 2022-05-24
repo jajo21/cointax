@@ -30,8 +30,8 @@ export default class Tax extends React.Component {
             <>
                 <h2 className='tax-title'>Skatterapport</h2>
 
-                <div className='tax-open-button-div'>
-                    <button className='open-button' onClick={() => { this.setState({ onClick: !this.state.onClick }) }}>Generera skatterapport</button>
+                <div className='tax-button-div'>
+                    <button className='tax-button' onClick={() => { this.setState({ onClick: !this.state.onClick }) }}>Generera skatterapport</button>
                 </div>
                 {this.state.onClick && countedTransactions &&
                     <div className='table-container'>
