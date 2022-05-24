@@ -38,9 +38,10 @@ export function TransactionsProvider({ children }) {
     }
 
     const deleteWalletTransactions = (walletId) => {
-        setTransactions(transactions.filter(t => t.walletId !== walletId));
         tS.deleteTransactions(walletId);
-        console.log(transactions);
+        let newTransactions = tS.getTransactions()
+        sortTransactionsForView(newTransactions);
+        setTransactions(newTransactions);
     }
 
     return(

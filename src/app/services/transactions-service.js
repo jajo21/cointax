@@ -32,8 +32,8 @@ class TransactionsService {
     }
     deleteTransactions(walletId) {
         let allTransactions = this.getTransactions();
-        allTransactions.filter(t => t.walletId !== walletId);
-        localStorage.setItem('transactions', JSON.stringify(allTransactions));
+        let newTransactions = allTransactions.filter(t => t.walletId !== walletId && t.walletId !== null);
+        localStorage.setItem('transactions', JSON.stringify(newTransactions));
     }
 
     deleteTransaction(id) {
