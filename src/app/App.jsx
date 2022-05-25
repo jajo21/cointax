@@ -13,13 +13,13 @@ class App extends React.Component {
         return (
             <div className="App">
                 <TransactionsProvider>
-                    <Navbar />
-                    <main>
-                        <ErrorBoundary>
+                    <ErrorBoundary>
+                        <Navbar />
+                        <main>
                             <Outlet />
-                        </ErrorBoundary>
-                    </main>
-                    <Footer />
+                        </main>
+                        <Footer />
+                    </ErrorBoundary>
                 </TransactionsProvider>
             </div>
         )

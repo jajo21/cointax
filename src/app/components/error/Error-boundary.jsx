@@ -13,17 +13,16 @@ class ErrorBoundary extends React.Component {
          };
     }
 
-    static getDerivedStateFromError(error) {
+    static getDerivedStateFromError() {
         return {
             hasError: true
         }
     }
     
     componentDidCatch = (error, errorInfo) => {
-        //errorInfo.componentStack ger dig mer info om felen.
         this.setState({
             error: error,
-            errorInfo: errorInfo
+            errorInfo: errorInfo //errorInfo.componentStack ger dig mer info om felen.
         })
     }
 

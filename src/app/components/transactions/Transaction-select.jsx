@@ -44,12 +44,12 @@ class TransactionSelect extends React.Component {
                             )
                         })}
                     </select>
-                    {error &&
-                        <div className="error" style={{textAlign: 'center'}}>
-                            <p>{error.message}</p>
-                            <p>Status: {error.status}</p>
-                        </div>
-                    }
+                        {error &&
+                            <div className="error" style={{textAlign: 'center'}}>
+                                <p>{error.message}</p>
+                                <p>Status: {error.status}</p>
+                            </div>
+                        }
                 </label>
                 <p className='error'>{this.props.errors}</p>
             </>

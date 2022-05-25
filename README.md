@@ -28,9 +28,9 @@
 |**6**  |**Ja**| |
 |**7**  |**Ja**| |
 |**8**  |**Ja**| |
-|**9**  |****| |
-|**10**  |****| |
-|**11**  |****| |
+|**9**  |**Ja**| Kolla igenom innan inlämning|
+|**10**  |**Ja**| Kolla igenom innan inlämning|
+|**11**  |**Ja**| Kolla igenom innan inlämning|
 
 ## Externa bibliotek
 Du kan tydligt se vilka externa bibliotek som är installerade i package.json. Men här kommer en mindre övergripande förklaring.
