@@ -73,7 +73,7 @@ export default class Wallet extends React.Component {
                                 <h2>{wallet.walletSite}</h2>
                                 <div className='link-button'>
                                     <Link to={wallet.walletSite}>
-                                        <button className='open-button'>Kolla hämtade transaktioner</button>
+                                        <button className='open-button'>Visa hämtade transaktioner</button>
                                     </Link>
                                 </div>
                                 <button className='delete-button' onClick={() => this.handleDeleteWallet(wallet.id)}>Ta bort plånbok</button>
