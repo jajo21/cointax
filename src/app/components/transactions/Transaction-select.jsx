@@ -17,7 +17,9 @@ class TransactionSelect extends React.Component {
     componentDidMount = async () => {
         const data = await this.coinsCaller.getCurrencies();
 
-        if (typeof data === 'string') {
+        if (typeof data === 'object' &&
+            !Array.isArray(data) &&
+            data !== null) {
             this.setState({
                 error: data
             })
@@ -43,11 +45,11 @@ class TransactionSelect extends React.Component {
                         })}
                     </select>
                     {error &&
-                        <div className="error" style={{ textAlign: 'center' }}>
-                            <p>Något gick fel</p>
-                            <p>Kan inte hämta valutorna!</p>
-                            <p>Status: {error}</p>
-                        </div>}
+                        <div className="error" style={{textAlign: 'center'}}>
+                            <p>{error.message}</p>
+                            <p>Status: {error.status}</p>
+                        </div>
+                    }
                 </label>
                 <p className='error'>{this.props.errors}</p>
             </>
