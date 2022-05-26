@@ -26,12 +26,10 @@ class AdminAddCurrencyForm extends React.Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        const data = await this.coinsCaller.postCurrency(this.state.currencyName, this.state.currencySymbol, this.state.currencyType);
-        if (typeof data === 'object' &&
-            !Array.isArray(data) &&
-            data !== null) {
+        const [data, error] = await this.coinsCaller.postCurrency(this.state.currencyName, this.state.currencySymbol, this.state.currencyType);
+        if (error !== null) {
             this.setState({
-                error: data
+                error: error
             })
         } else {
             this.props.updateCurrencies();

@@ -19,34 +19,30 @@ export default class Admin extends React.Component {
     }
 
     componentDidMount = async () => {
-        const data = await this.coinsCaller.getCurrencies()
-        if (typeof data === 'object' &&
-            !Array.isArray(data) &&
-            data !== null) {
+        const [data, error] = await this.coinsCaller.getCurrencies()
+        if (data !== null) {
             this.setState({
-                error: data,
+                currencies: data,
                 isPending: false
             })
         } else {
             this.setState({
-                currencies: data,
+                error: error,
                 isPending: false
             })
         }
     }
 
     handleUpdateCurrencies = async () => {
-        const data = await this.coinsCaller.getCurrencies()
-        if (typeof data === 'object' &&
-            !Array.isArray(data) &&
-            data !== null) {
+        const [data, error] = await this.coinsCaller.getCurrencies()
+        if (data !== null) {
             this.setState({
-                error: data,
+                currencies: data,
                 isPending: false
             })
         } else {
             this.setState({
-                currencies: data,
+                error: error,
                 isPending: false
             })
         }
@@ -54,16 +50,14 @@ export default class Admin extends React.Component {
     }
 
     handleDeleteCurrency = async (id) => {
-        const data = await this.coinsCaller.deleteCurrency(id);
-        if (typeof data === 'object' &&
-            !Array.isArray(data) &&
-            data !== null) {
+        const [data, error] = await this.coinsCaller.deleteCurrency(id);
+        if (data !== null) {
             this.setState({
-                error: data,
+                currencies: data,
             })
         } else {
             this.setState({
-                currencies: await this.coinsCaller.getCurrencies(),
+                error: error,
             })
         }
     }
@@ -71,7 +65,6 @@ export default class Admin extends React.Component {
     render() {
         let currencies = this.state.currencies;
         let error = this.state.error;
-
         return (
             <div className='admin-route'>
                 <h2>Admin</h2>

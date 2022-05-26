@@ -14,10 +14,11 @@ class WalletTransactionApiCaller {
             if(!response.ok) {
                 throw new Error(response.status)
             }
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            return error.message
+            const transactions = await response.json();
+            return [transactions, null];
+        } catch (err) {
+            const error = {status: err.message, message: 'Något gick fel vid hämtning av transaktioner!'}
+            return [null, error]
         }
     }
 }
