@@ -1,7 +1,6 @@
 import React from "react";
 import FallbackMessage from "./Fallback-message";
 
-
 /**Global ErrorBoundary */
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -31,7 +30,6 @@ class ErrorBoundary extends React.Component {
             hasError: false
         })
     }
-    
     
     render() {
         const error = this.state.error;

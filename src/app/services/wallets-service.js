@@ -38,15 +38,19 @@ class WalletsService {
     }
 
     getWalletTransactions = async (wallet) => {
-        let transactions = await this.transactionsCaller.getTransactions(wallet.apiURL);
-        transactions.map(transaction => {
-            return (
-                transaction.walletSite = wallet.walletSite,
-                transaction.walletId = wallet.id
-            )
-        });
-        sortTransactionsForView(transactions);
-        return transactions
+        const [transactions, error] = await this.transactionsCaller.getTransactions(wallet.apiURL);
+        if(transactions !== null) {
+            transactions.map(transaction => {
+                return (
+                    transaction.walletSite = wallet.walletSite,
+                    transaction.walletId = wallet.id
+                )
+            });
+            sortTransactionsForView(transactions);
+            return [transactions, error]
+        }else {
+            return [transactions, error];
+        }
     }
 
     filterTransactions = (allTransactions, input) => {

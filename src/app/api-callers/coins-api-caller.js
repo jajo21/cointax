@@ -10,10 +10,11 @@ class CoinsApiCaller {
             if(!response.ok) {
                 throw new Error(response.status)
             }
-            const data = await response.json();
-            return data;
-        } catch(error) {
-            return {status: error.message, message: 'Något gick fel vid hämtning av valutor!'};
+            const currencies = await response.json();
+            return [currencies, null];
+        } catch(err) {
+            const error = {status: err.message, message: 'Något gick fel vid hämtning av valutor!'}
+            return [null, error];
         }
     }
 
@@ -32,8 +33,10 @@ class CoinsApiCaller {
             if(!response.ok) {
                 throw new Error(response.status)
             }
-        } catch(error) {
-            return {status: error.message, message: 'Något gick fel... valutan är inte sparad!'};
+            return [response.status, null]
+        } catch(err) {
+            const error = {status: err.message, message: 'Något gick fel... valutan är inte sparad!'};
+            return [null, error];
         }
     }
 
@@ -46,8 +49,15 @@ class CoinsApiCaller {
             if(!response.ok) {
                 throw new Error(response.status)
             }
-        } catch (error) {
-            return {status: error.message, message: 'Något gick fel vid borttagning!'};
+            const [currencies, error] = await this.getCurrencies();
+            if(currencies !== null) {
+                return [currencies, null]
+            }else {
+                throw new Error("Kunde inte hämta valutor")
+            }
+        } catch (err) {
+            const error = {status: err.message, message: 'Något gick fel vid borttagning!'};
+            return [null, error];
         }
     }
 }

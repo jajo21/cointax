@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import WalletsService from "../../services/wallets-service";
 import TransactionsContext from "../contexts/TransactionsContext";
-import TransactionsService from "../../services/transactions-service";
 import './css/wallet-transactions-route.css'
 
 export function WalletTransactionsRoute() {
@@ -18,24 +17,22 @@ export function WalletTransactionsRoute() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			let wallet = await walletsService.getWallet(params.walletSite);
+			const wallet = await walletsService.getWallet(params.walletSite);
 			if(wallet.walletSite === 'MockKryptobörs') {
-				let data = await walletsService.getWalletTransactions(wallet);
-				if (typeof data === 'string') {
-					setError(data);
-				} else {
+				const [data, error] = await walletsService.getWalletTransactions(wallet);
+				if (data !== null) {
 					setWalletTransactions(data);
+				} else {
+					setError(error);
 				}
 				setIsPending(false);
 			} else {
-				setError('Ooops, denna kryptobörs API har inte kopplats ännu! Vi beklagar!');
+				setError({status: '404', message: 'Ooops, denna kryptobörs API har inte kopplats ännu! Vi beklagar!'});
 				setIsPending(false);
 			}
 		}
 		fetchData();
 	}, []);
-
-	console.log(walletTransactions);
 
 	handleAddWalletTransactions = () => {
 		if (!isWalletAdded) {
@@ -43,7 +40,6 @@ export function WalletTransactionsRoute() {
 		}
 	}
 
-	console.log(walletTransactions);
 	let filteredTransactions;
 	if (Array.isArray(walletTransactions) && error === null) {
 		filteredTransactions = walletsService.filterTransactions(walletTransactions, searchInput);
@@ -91,8 +87,8 @@ export function WalletTransactionsRoute() {
 				}
 				{error &&
 					<div className="error">
-						<p>Kan inte hämta transaktionerna!</p>
-						<p>Status: {error}</p>
+						<p>{error.message}</p>
+						<p>Status: {error.status}</p>
 					</div>
 				}
 			</div>

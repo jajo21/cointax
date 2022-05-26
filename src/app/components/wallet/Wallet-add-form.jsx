@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Modal from '../modal/Modal';
 
 import './css/wallet-add-form.css';
 

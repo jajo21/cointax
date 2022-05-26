@@ -15,17 +15,15 @@ class TransactionSelect extends React.Component {
     }
 
     componentDidMount = async () => {
-        const data = await this.coinsCaller.getCurrencies();
+        const [data, error] = await this.coinsCaller.getCurrencies();
 
-        if (typeof data === 'object' &&
-            !Array.isArray(data) &&
-            data !== null) {
+        if (data !== null) {
             this.setState({
-                error: data
+                coins: data
             })
         } else {
             this.setState({
-                coins: data
+                error: error
             })
         }
     }
