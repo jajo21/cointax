@@ -42,7 +42,6 @@ export default class Wallet extends React.Component {
 
     render() {
         const wallets = this.state.wallets;
-        console.log(wallets);
         return (
             <div className='wallet-container'>
                 <h2>Hantera dina plånböcker från kryptobörser</h2>

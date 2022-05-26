@@ -7,7 +7,6 @@ import './transactions-css/transaction-history.css';
 class TransactionHistory extends React.Component {
     render() {
         const transactions = this.context.transactions;
-        console.log(transactions);
         return (
             <div className='transaction-history'>
                 <h2>Transaktionshistorik</h2>
