@@ -21,7 +21,8 @@ class TransactionHistory extends React.Component {
                             ))}
                         </div>
                     ) : (
-                        <div className="error" style={{textAlign: 'center'}}>
+                        <div>
+                            <br />
                             <p>Inga transaktioner hittade</p>
                         </div>
                     )

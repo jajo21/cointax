@@ -28,9 +28,9 @@
 |**6**  |**Ja**| |
 |**7**  |**Ja**| |
 |**8**  |**Ja**| |
-|**9**  |**Ja**| Kolla igenom innan inlämning|
-|**10**  |**Ja**| Kolla igenom innan inlämning|
-|**11**  |**Ja**| Kolla igenom innan inlämning|
+|**9**  |**Ja**| |
+|**10**  |**Ja**| |
+|**11**  |**Ja**| |
 
 ## Externa bibliotek
 Du kan tydligt se vilka externa bibliotek som är installerade i package.json. Men här kommer en mindre övergripande förklaring.
@@ -88,19 +88,7 @@ Om vi utgår från mappen ./src/app/components/routes igen så används detta ap
 
 Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/wallet-transactions-api-caller.js  
 
-## Förtydliganden/motivering till kodgranskare
-Jag ber i förväg om ursäkt för om ni upplever att det är lite rörigt när man använder termer från kryptovärlden som exempelvis plånbok(wallet). Det här är termer som jag har tänkt att det ska finnas en tydlig knapp för där man får en förklaring vad som menas med olika termer och vad man ska göra, alternativt ändra till mer förklarande ord. Klicka runt på sidan så kommer ni kodgranskare säkert förstå vad som ska göras vid varje val.
-
-Tiden räckte inte till för att styla allt enhetligt så det kan också göra det lite rörigt men annars är jag nöjd hittills.. Däremot är det väldigt mycket kvar för att få en tydlig bild över applikationen och en klar bild över vad en användare behöver göra. Själva uträkningen för att få ut dokumentet till skatteverket är inte påbörjad. Utan bara grunden för att lägga till sina transaktioner, antingen manuellt eller via API.
-
-Delar jag har noterat själv som issues som jag inte har hunnit med: 
-- Banta ner css och få css-delen mer dry då mycket är dubbletter i de olika filerna.
-- Gör klart felhanteringen i funktionerna för alla API anrop så att de inte bara loggas i consolen.
-- Koppla ihop hämtade transaktioner från API:t med manuella transaktioner.
-- Fixa wallet-sidan så man ser plånböckerna från respektive kryptobörs mer avgränsat.
-- Ändra stylingen på den manuella transaktionshistoriken(under fliken transaktioner) så att den blir mer som övriga sidor.
-- Skriva ut antal hämtade transaktioner i Wallet.jsx.
-- Skapa funktionaliteten för att räkna ut omkostnadsbelopp för varje valuta.  
-
-Det här är kommande issues som ska lösas, plus mycket mycket mer såklart :D
-Trevlig kodgranskning.
+## Förtydliganden
+Filen "./src/app/components/error/Error-demo.jsx" är enbart en demo-komponent som kan läggas till i valfri komponent för att testa på Error-boundaryn.  
+Felhantering gällande tax-service.js och tax.jsx är inte komplett. Det behöver läggas till.  
+Jag har tyvärr inte hunnit klart med applikationen. Men jag har lyckats uppfylla kraven anser jag. Jag har också lyckats skapa de mesta av delarna för att åtminstone kunna presentera min prototyp och förklara de mest väsentliga delarna av applikationen.  

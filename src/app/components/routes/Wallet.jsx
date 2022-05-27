@@ -13,7 +13,7 @@ export default class Wallet extends React.Component {
 
         this.state = {
             onClickCheckTransactions: false,
-            wallets: null,
+            wallets: [],
         }
 
         this.walletsService = new WalletsService();
@@ -42,13 +42,14 @@ export default class Wallet extends React.Component {
 
     render() {
         const wallets = this.state.wallets;
+        console.log(wallets);
         return (
             <div className='wallet-container'>
                 <h2>Hantera dina plånböcker från kryptobörser</h2>
                 <div className='add-wallet-div'>
                     <div className='add-wallet-button-div'>
                         <button
-                            className='open-button'
+                            className='main-button'
                             onClick={() => this.modal.setModal(true)}
                         >Lägg till plånbok
                         </button>
@@ -65,8 +66,9 @@ export default class Wallet extends React.Component {
                 </div>
 
                 <div className='wallets-connected'>
-                    <h2>Dina tillagda plånböcker</h2>
-                    {wallets?.map(wallet => {
+                    <h2>Dina plånböcker</h2>
+                    {(wallets.length > 0) ? 
+                        wallets.map(wallet => {
                         return (
                             <div className='wallet-div' key={wallet.id}>
                                 <h2>{wallet.walletSite}</h2>
@@ -77,8 +79,12 @@ export default class Wallet extends React.Component {
                                 </div>
                                 <button className='delete-button' onClick={() => this.handleDeleteWallet(wallet.id)}>Ta bort plånbok</button>
                             </div>
-                        )
-                    })}
+                        )}) :
+                        <>
+                            <br />
+                            <p>Inga plånböcker tillagda</p>
+                        </>
+                    }
                 </div>
             </div>
         )

@@ -27,6 +27,9 @@
 }
 
 @media screen and (min-width: 748px) {
+    .transaction-history > h2 {
+        text-align: left;
+    }
     .transaction-history {
         margin: auto auto 50px auto;
     }

@@ -33,26 +33,13 @@ form > label {
     border: none;
 }
 
-.tax-button {
+.main-button {
     font-size: 16px;
     background-color: rgb(47, 48, 51, 1);
     color: #fff;
     border-radius: 6px;
     padding: 8px;
     border: none;
-}
-
-.save-button:hover, 
-    .read-more-button:hover, 
-        .open-button:hover,
-            .go-back-button:hover,
-                .connect-button:hover,
-                    .tax-button:hover {
-    background-color: #ff9000;
-    transition: all 0.2s ease-out;
-    cursor: pointer;
-    box-shadow: 0 3px 6px #888888;
-    transform: scale(105%);
 }
 
 .read-more-button {
@@ -66,9 +53,9 @@ form > label {
 }
 
 .open-button, 
-    .delete-button, 
-        .go-back-button, 
-            .connect-button {
+.delete-button, 
+.go-back-button, 
+.connect-button {
     margin: 0px 10px 0 0;
     font-size: 16px;
     background-color: rgb(47, 48, 51, 1);
@@ -76,6 +63,19 @@ form > label {
     border-radius: 6px;
     padding: 8px;
     border: none;
+}
+
+.save-button:hover, 
+    .read-more-button:hover, 
+        .open-button:hover,
+            .go-back-button:hover,
+                .connect-button:hover,
+                    .main-button:hover {
+    background-color: #ff9000;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+    box-shadow: 0 3px 6px #888888;
+    transform: scale(105%);
 }
 
 .delete-button:hover {

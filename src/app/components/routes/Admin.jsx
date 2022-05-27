@@ -74,7 +74,7 @@ export default class Admin extends React.Component {
                 </div>
 
                 <div className='add-currency-div'>
-                    <button className='open-button' onClick={() => { this.modal.setModal(true) }}>Lägg till valuta</button>
+                    <button className='main-button' onClick={() => { this.modal.setModal(true) }}>Lägg till valuta</button>
                 </div>
                 <Modal
                     title={'Lägg till valuta'}
