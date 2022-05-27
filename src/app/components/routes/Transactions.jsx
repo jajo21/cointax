@@ -7,7 +7,8 @@ import './css/transactions.css';
 export default class Transactions extends React.Component {
     render() {
         return (
-            <>
+            <div className='transactions-route'>
+                <h2>Transaktioner</h2>
                 <div className='add-transaction-button-div'>
                     <button
                         className='add-transaction-button'
@@ -25,7 +26,7 @@ export default class Transactions extends React.Component {
                     />
                 </Modal>
                 <TransactionHistory />
-            </>
+            </div>
         )
     }
 }
