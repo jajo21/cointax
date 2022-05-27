@@ -22,7 +22,7 @@ class TaxService {
                 let totalCostPerCoin = totalCostAmount / totalCoins; //Räkna ut totala kostnad per coin
                 totalCoins = totalCoins - parseInt(transaction.sumSold); // Räkna ut totala antalet BTC coins vid försäljning
                 totalCostAmount = totalCostPerCoin * totalCoins; //Räkna ut totala omkostnadsbeloppet efter försäljning
-                if(transaction.totalCoins === 0) {
+                if(totalCoins === 0) {
                     winOrLossOnSell = transaction.sumBought - transaction.usedCostAmount;
                     transaction.winOrLossOnSell = Math.round(winOrLossOnSell)
                 } else {
@@ -34,7 +34,6 @@ class TaxService {
             transaction.totalCostAmount = Math.round(totalCostAmount); // Lägg till totala omkostnadsbeloppet i objektet
             transaction.averageCostAmount = Math.round(totalCostAmount/totalCoins); //Räkna ut det genomstnittliga omkostnadsbeloppet och lägg till i objektet
         });
-
         return countedTaxTransactions;
     }
 }

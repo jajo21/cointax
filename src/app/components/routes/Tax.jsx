@@ -22,10 +22,13 @@ export default class Tax extends React.Component {
         let error;
         if (transactions.length !== 0) {
             countedTransactions = this.taxService.countTaxes(transactions); // Hämtar ny array av transaktionerna och lägger till nödvändiga delar som ska läggas till i en k4a
+            const totalCoins = countedTransactions.some(t => t.totalCoins < 0);
+            if(totalCoins) {
+                error = "Skatteuträkning är defekt! Nuvarande historik säger att det sålts fler valutor än vad det har köpts, rätta till felet och försök igen.";
+            }
         } else {
             error = 'Finns inga transaktioner att räkna ut skatten på';
         }
-
         return (
             <>
                 <h2 className='tax-title'>Skatterapport</h2>
@@ -70,6 +73,7 @@ export default class Tax extends React.Component {
                 }
                 {this.state.onClick && error &&
                     <div className="error" style={{textAlign: 'center'}}>
+                        <br />
                         <p>Error!</p>
                         <p>Status: {error}</p>
                     </div>
