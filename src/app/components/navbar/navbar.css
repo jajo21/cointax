@@ -109,11 +109,11 @@
     }
 
     .nav-menu.active {
-        background: rgb(61,62,65);
+        background: rgb(61, 62, 65);
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
-        z-index: 1;
+        z-index: 2;
     }
 
     .nav-links {

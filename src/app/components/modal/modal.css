@@ -59,6 +59,11 @@
     border: none;
     font-size: 25px;
     cursor: pointer;
+    transition: transform 2s ease-out;
+}
+
+.modal-close-button:hover {
+    transform: rotate(360deg);
 }
 
 @media screen and (min-width: 700px) {
