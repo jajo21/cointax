@@ -13,7 +13,7 @@
 2. Leta upp valfri terminal och utgå från nerladdad cointax mapp.  
 3. I termnialen skriver du sedan: ```npm ci ```, nu laddas alla nödvändiga paket ner.  
 4. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här transpilerar koden via parcel och startar applikationen.  
-5. Normalt ska programmet öppnas i din webbläsare, om det inte gör det upp valfri webbläsare och navigera in på http://localhost:3333.  
+5. Normalt ska programmet öppnas i din webbläsare, om det inte gör det, öppna valfri webbläsare och navigera in på http://localhost:3333.  
 6. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till http://localhost:3333/app.html.  
 
 ## Kravlista - Inlämning 4: A minimum Viable Product**
