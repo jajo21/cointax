@@ -1,10 +1,10 @@
 class CoinsApiCaller {
     constructor() {
-        this.baseURL = 'https://retoolapi.dev/sX9GgF/';
+        this.baseURL = 'https://localhost:7284/api/';
     }
 
     getCurrencies = async () => {
-        const URL = this.baseURL + 'cointaxcoins';
+        const URL = this.baseURL + 'Coin';
         try {
             const response = await fetch(URL);
             if(!response.ok) {
@@ -19,7 +19,7 @@ class CoinsApiCaller {
     }
 
     postCurrency = async (currencyName, currencySymbol, currencyType) => {
-        const URL = this.baseURL + 'cointaxcoins';
+        const URL = this.baseURL + 'Coin';
         try {
             const response = await fetch(URL, {
                 method: 'POST',
@@ -41,7 +41,7 @@ class CoinsApiCaller {
     }
 
     deleteCurrency = async (id) => {
-        const URL = this.baseURL + 'cointaxcoins/' + id;
+        const URL = this.baseURL + 'Coin/' + id;
         try {
             const response = await fetch(URL, {
                 method: 'DELETE'

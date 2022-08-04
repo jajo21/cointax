@@ -10,8 +10,8 @@
 
 **Förbered och starta applikationen**  
 1. Ladda ner repot från https://github.com/jajo21/cointax.  
-2. Leta upp valfri terminal och utgå från nerladdad cointax mapp.  
-3. I termnialen skriver du sedan: ```npm ci ```, nu laddas alla nödvändiga paket ner.  
+2. Leta upp valfri terminal och utgå från nerladdad cointax mapp, navigera sedan in i mappen CointaxAPI och skriv: ```dotnet run```, api:et startar nu lokalt på din dator.  
+3. Navigera sedan in i mappen Frontend via terminalen och skriv:```npm ci ```, nu laddas alla nödvändiga paket ner till Frontenden.   
 4. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här transpilerar koden via parcel och startar applikationen.  
 5. Normalt ska programmet öppnas i din webbläsare, om det inte gör det, öppna valfri webbläsare och navigera in på http://localhost:3333.  
 6. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till http://localhost:3333/app.html.  
@@ -64,13 +64,13 @@ Förklara de Webb-API:er som anropas i min prototyp.
 
 ### API 1
 
-Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via retoolapi som lagrar 10 valutor som testaren av prototypen kan använda. 
+Det första API:et jag ville implementera är ett api som hämtar alla kryptovalutor som finns och matar in dem i applikationen. För att en användare ska kunna välja bland alla kryptovalutor som finns om de skulle vilja lägga till en manuell transaktion, vi behöver självklart veta mellan vilka valutor transaktionen har skett. Jag vill inte att användare ska skriva helt vad de vill i ett valuta-input-fält, det kan bli mycket fel och transaktionerna kan hamna i osynk. Då detta enbart är en prototyp just nu så blev det för stort att implementera ett liknande API, därför gjorde jag ett eget enklare API via som lagrar 10 valutor som testaren av prototypen kan använda. 
 
 Åtkomstpunkter som används i min applikation:  
 
-GET - https://retoolapi.dev/sX9GgF/cointaxcoins - Hämtar alla valutor som ska matas in i applikationen  
-POST - https://retoolapi.dev/sX9GgF/cointaxcoins - Lägger till ny valuta  
-DELETE - https://retoolapi.dev/sX9GgF/cointaxcoins/{id} - Tar bort vald valuta  
+GET - https://localhost:7284/api/Coin - Hämtar alla valutor som ska matas in i applikationen  
+POST - https://localhost:7284/api/Coin - Lägger till ny valuta  
+DELETE - https://localhost:7284/api/Coin/{id} - Tar bort vald valuta  
 
 Om vi utgår från mappen ./src/app/components/routes så används detta API i komponenten Transactions.jsx för att få ner alla tillgängliga valutor till komponenten transactions-select.jsx där användaren väljer i en select vilken valuta som har använts. Alla API-åtkomstpunkter används även i (den ännu öppna för alla) Admin.jsx routen för att en admin ska kunna hämta, lägga till och ta bort i API:t enkelt. Väljer man att testa funktionaliteten på "Admin-sidan" så får man gärna ta bort de valutorna man skapar och om man tar bort några av "grund" valutorna får man gärna lägga till dessa igen.
 
@@ -82,7 +82,7 @@ Det andra API:et jag ville implementera är ett api som hämtar alla privata tra
 
 Åtkomstpunkter som används i min applikation:  
 
-GET - https://retoolapi.dev/uN33aW/transactions - Hämtar alla transaktioner som ska användas i applikationen.  
+GET - https://localhost:7284/api/Transaction - Hämtar alla transaktioner som ska användas i applikationen.  
 
 Om vi utgår från mappen ./src/app/components/routes igen så används detta api i komponenten Wallet.jsx och vidare till Wallet-transactions.jsx där alla transaktioner matas ut på en sida för att användaren ska se dessa visuellt. I framtiden ska dessa transaktioner matas ihop med alla övriga transaktioner som har hämtats för att i slutändan skapa allt som behövs inför deklarationen.
 

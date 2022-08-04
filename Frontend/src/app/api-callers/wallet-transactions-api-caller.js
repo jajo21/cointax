@@ -1,6 +1,6 @@
 class WalletTransactionApiCaller {
     constructor() {
-        this.mockCryptoBrokerURL = 'https://retoolapi.dev/uN33aW/'
+        this.mockCryptoBrokerURL = 'https://localhost:7284/api/'
     }
 
     getMockCryptoBrokerURL = () => {
@@ -8,7 +8,7 @@ class WalletTransactionApiCaller {
     }
 
     getTransactions = async (baseURL) => {
-        const URL = `${baseURL}transactions`;
+        const URL = `${baseURL}Transaction`;
         try {
             const response = await fetch(URL);
             if(!response.ok) {
