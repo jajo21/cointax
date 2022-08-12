@@ -9,12 +9,11 @@
 4. Installera npm globalet genom att skriva ```npm install -g npm``` i terminalen.  
 
 **Förbered och starta applikationen**  
-1. Ladda ner repot från https://github.com/jajo21/cointax.  
-2. Leta upp valfri terminal och utgå från nerladdad cointax mapp, navigera sedan in i mappen CointaxAPI och skriv: ```dotnet run```, api:et startar nu lokalt på din dator.  
-3. Navigera sedan in i mappen Frontend via terminalen och skriv:```npm ci ```, nu laddas alla nödvändiga paket ner till Frontenden.   
-4. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här transpilerar koden via parcel och startar applikationen.  
-5. Normalt ska programmet öppnas i din webbläsare, om det inte gör det, öppna valfri webbläsare och navigera in på http://localhost:3333.  
-6. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till http://localhost:3333/app.html.  
+1. Ladda ner repot från https://github.com/jajo21/cointax.   
+2. Leta upp valfri terminal och utgå från nerladdad cointax mapp, navigera sedan in i mappen Frontend via terminalen och skriv:```npm ci ```, nu laddas alla nödvändiga paket ner till Frontenden.   
+3. När alla paket har laddats klart skriver du i terminalen: ```npm start```, det här startar både backend-apierna och frontend-delen.  
+4. Normalt ska programmet öppnas i din webbläsare, om det inte gör det, öppna valfri webbläsare och navigera in på http://localhost:3333.  
+5. Väl inne på sidan klickar du på menyvalet App för att ta dig till applikationen, alternativt navigerar till http://localhost:3333/app.html.  
 
 ## Kravlista - Inlämning 4: A minimum Viable Product**
 
