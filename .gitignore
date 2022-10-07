@@ -11,6 +11,8 @@
 *.sln.docstates
 *.vscode
 *Application.db
+*Application.db-shm
+*Application.db-wal
 *.parcel-cache
 *dist
 
