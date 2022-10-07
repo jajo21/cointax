@@ -111,3 +111,8 @@ Tjänsten som anropar API:t ligger specifikt i ./src/app/services/api/wallet-tra
 ## Kravspecifikation och uppgiftsbeskrivning
 
 Under kursens veckor har det varit olika delmål. Varje release i repot representerar ett delmål. I varje delmål fanns det krav som skulle uppfyllas. Här nere kan ni se uppgiftsbeskrivning inklusive krav:
+
+[Inlämningsuppgift 1 - Planering och förutsättningar.pdf](https://github.com/jajo21/cointax/files/9734089/Inlamningsuppgift.1.-.Planering.och.forutsattningar.pdf)  
+[Inlämningsuppgift 2 - The proof of concept.pdf](https://github.com/jajo21/cointax/files/9734090/Inlamningsuppgift.2.-.The.proof.of.concept.pdf)  
+[Inlämningsuppgift 3 - Från koncept till prototyp.pdf](https://github.com/jajo21/cointax/files/9734092/Inlamningsuppgift.3.-.Fran.koncept.till.prototyp.pdf)  
+[Inlämningsuppgift 4 - A Minimum Viable Product.pdf](https://github.com/jajo21/cointax/files/9734093/Inlamningsuppgift.4.-.A.Minimum.Viable.Product.pdf)  
